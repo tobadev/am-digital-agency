@@ -8,7 +8,7 @@ export const Hero: React.FC = () => {
       <div className="max-w-7xl mx-auto w-full">
 
         <h1
-          className="font-display text-[clamp(3.5rem,13vw,16rem)] font-bold leading-[0.82] tracking-tighter animate-in fade-in slide-in-from-bottom-6 duration-1000"
+          className="font-display text-[clamp(3.5rem,10vw,10rem)] font-bold leading-[0.82] tracking-tighter animate-in fade-in slide-in-from-bottom-6 duration-1000"
           style={{ animationDelay: '300ms', animationFillMode: 'both' }}
         >
           We build digital<br />products that work.
