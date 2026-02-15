@@ -6,23 +6,9 @@ const sections = [
     content: [
       'AM Digital Agency Ltd is a company registered in England and Wales.',
       'Company Number: 14167111',
+      'VAT: GB422190922',
       'Registered Address: 27 Old Gloucester Street, London, WC1N 3AX, United Kingdom',
       'Contact: hello@amdigital.agency',
-    ],
-  },
-  {
-    title: 'Privacy Policy',
-    content: [
-      'We collect information you provide directly to us, such as when you fill out a contact form or communicate with us via email. This may include your name, email address, phone number, and project details.',
-      'We use the information we collect to communicate with you and provide our services. We do not sell or share your personal information with third parties for marketing purposes.',
-      'We use minimal cookies to ensure the basic functionality of our website. You can control cookie preferences through your browser settings.',
-      'Under GDPR, you have the right to access, correct, or delete your personal data. To exercise these rights, contact us at hello@amdigital.agency.',
-    ],
-  },
-  {
-    title: 'Intellectual Property',
-    content: [
-      'All content on this website, including text, graphics, logos, and code, is the property of AM Digital Agency Ltd and protected by copyright laws.',
     ],
   },
   {
