@@ -12,6 +12,66 @@ const sections = [
     ],
   },
   {
+    title: 'Privacy Policy',
+    content: [
+      'AM Digital Agency Ltd. ("we", "us", or "our") is a digital agency offering web design, web development, branding, and consulting services. We are committed to protecting your privacy and ensuring a safe online experience.',
+      'The data controller for your information is AM Digital Agency Ltd., located at 27 Old Gloucester Street, London, WC1N 3AX, United Kingdom.',
+    ],
+  },
+  {
+    title: 'Data We Collect',
+    content: [
+      'Information You Provide: Name, email address, and phone number, which you voluntarily submit to us via contact forms, email, phone, or social media.',
+      'Information Collected Automatically: Usage data including your IP address, browser type, browser version, pages you visit, time and date of your visit, time spent on pages, and other diagnostic data. Device data such as mobile device unique ID, IP address, operating system, and browser type.',
+    ],
+  },
+  {
+    title: 'Use of Cookies',
+    content: [
+      'We use cookies and similar tracking technologies to monitor activity on our website and store certain information. You can set your browser to refuse cookies or indicate when a cookie is being sent. However, if you do not accept cookies, some parts of our service may not function properly.',
+      'Necessary Cookies: Essential for providing services and enabling certain features on our website.',
+      'Performance Cookies: Used for statistical analysis to improve website performance.',
+    ],
+  },
+  {
+    title: 'How We Use Your Data',
+    content: [
+      'To provide and maintain our service. To manage your account and registration as a user. To contact you with updates, marketing, and promotional materials. To manage your requests and inquiries. For business development and analytical purposes.',
+    ],
+  },
+  {
+    title: 'Sharing Your Data',
+    content: [
+      'We may share your personal data with service providers to facilitate our services, for business transfers in case of a merger or acquisition, with affiliates under common control requiring them to honor this policy, and with business partners to offer you certain products or services.',
+    ],
+  },
+  {
+    title: 'Data Retention & Your Rights',
+    content: [
+      'We will retain your personal data only as long as necessary for the purposes set out in this policy.',
+      'You have the right to access, correct, or delete your personal data. Your information may be transferred to and maintained on computers located outside your jurisdiction where data protection laws may differ.',
+      'To exercise your rights or request deletion of your data, contact us at hello@amdigital.agency.',
+    ],
+  },
+  {
+    title: 'Security',
+    content: [
+      'We use commercially acceptable means to protect your personal data, but no method of transmission or storage is 100% secure. We strive to protect your data but cannot guarantee absolute security.',
+    ],
+  },
+  {
+    title: "Children's Privacy",
+    content: [
+      'Our service does not address anyone under the age of 13. We do not knowingly collect personal data from children under 13.',
+    ],
+  },
+  {
+    title: 'Changes to This Policy',
+    content: [
+      'We may update this policy from time to time. We will notify you of any changes by posting the new policy on this page and updating the "Last updated" date.',
+    ],
+  },
+  {
     title: 'Limitation of Liability',
     content: [
       'AM Digital Agency Ltd shall not be liable for any indirect, incidental, special, consequential or punitive damages, or any loss of profits or revenues. All services are subject to a separate service agreement signed by both parties.',
