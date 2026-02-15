@@ -107,4 +107,26 @@ export const projects: ProjectData[] = [
       { type: 'image', src: `${IMG}1559757175-5700dde675bc?q=80&w=2670&auto=format&fit=crop` },
     ],
   },
+  {
+    slug: 'calem-ai',
+    num: '05',
+    title: 'Calem AI',
+    client: 'Calem AI',
+    category: 'Strategy, Design & Development',
+    year: '2025',
+    thumbnail: `${IMG}1486406146926-c627a92ad1ab?q=80&w=2670&auto=format&fit=crop`,
+    description: 'Placeholder description — to be updated with real project content.',
+    services: ['Strategy', 'UI/UX Design', 'Full-stack Development'],
+    challenge: 'Placeholder challenge — to be updated with real project content.',
+    solution: 'Placeholder solution — to be updated with real project content.',
+    results: [
+      { label: 'Metric 1', value: 'TBD' },
+      { label: 'Metric 2', value: 'TBD' },
+      { label: 'Metric 3', value: 'TBD' },
+    ],
+    gallery: [
+      { type: 'image', src: `${IMG}1486406146926-c627a92ad1ab?q=80&w=2670&auto=format&fit=crop` },
+      { type: 'image', src: `${IMG}1512917774080-9991f1c4c750?q=80&w=2670&auto=format&fit=crop` },
+    ],
+  },
 ];

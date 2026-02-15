@@ -43,7 +43,7 @@ const team = [
   { name: 'Aleksa Velickovic', role: 'Outreach Specialist', email: 'avelickovic@amdigital.agency', year: '2023' },
 ];
 
-const clients = ['Costae AI', 'Clyra.biz', 'Dachreach', 'Calem.app', 'Calem AI', 'Veltrix'];
+const clients = ['Costae AI', 'Clyra.biz', 'Dachreach', 'Calem AI', 'KRONBERG Zeithaus'];
 
 const values = [
   {
