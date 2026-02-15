@@ -1,6 +1,6 @@
 import React from 'react';
 
-const clients = ['Dachreach', 'Clyra.biz', 'Calem.app', 'CostaeAI', 'Veltrix'];
+const clients = ['Costae AI', 'Clyra.biz', 'Dachreach', 'Calem AI', 'KRONBERG Zeithaus'];
 
 export const Clients: React.FC = () => {
   return (
