@@ -45,7 +45,7 @@ export const WorkHome: React.FC = () => {
             href="/work"
             className="group inline-flex items-center gap-3 text-neutral-600 hover:text-white transition-colors text-sm uppercase tracking-widest"
           >
-            All projects
+            All work
             <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:border-white group-hover:text-black transition-all duration-300">
               <ArrowUpRight size={16} />
             </div>

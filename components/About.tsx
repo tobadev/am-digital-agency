@@ -145,7 +145,7 @@ export const About: React.FC = () => {
             className="mb-20 animate-in fade-in slide-in-from-bottom-4 duration-500"
             style={{ animationDelay: '1150ms', animationFillMode: 'both' }}
           >
-            <span className="text-xs uppercase tracking-[0.3em] text-neutral-500 mb-6 block">Selected clients</span>
+            <span className="text-xs uppercase tracking-[0.3em] text-neutral-500 mb-6 block">Selected brands</span>
             <h2 className="font-display text-5xl md:text-7xl font-bold leading-[0.9] tracking-tight">
               Companies we&apos;ve<br />worked with.
             </h2>
