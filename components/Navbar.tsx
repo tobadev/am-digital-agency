@@ -69,7 +69,7 @@ export const Navbar: React.FC = () => {
 
         <button
           onClick={toggleMenu}
-          className={`text-xs font-bold uppercase tracking-widest border border-white/15 px-7 py-3 rounded-full hover:border-white/40 transition-colors pointer-events-auto z-50 relative ${!isMenuOpen ? 'mix-blend-difference' : ''}`}
+          className="text-xs font-bold uppercase tracking-widest bg-black/80 backdrop-blur-sm border border-white/15 px-7 py-3 rounded-full hover:border-white/40 transition-colors pointer-events-auto z-50 relative"
         >
           {isMenuOpen ? "Close" : "Menu"}
         </button>
