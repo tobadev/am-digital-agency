@@ -92,7 +92,7 @@ export const projects: ProjectData[] = [
     client: 'KRONBERG Zeithaus',
     category: 'Design & Development',
     year: '2024',
-    thumbnail: `${IMG}1576091160399-112ba8d25d1d?q=80&w=2670&auto=format&fit=crop`,
+    thumbnail: '/projects/kronberg/hero.webp',
     description: 'Telemedicine platform connecting patients with specialists — real-time video, scheduling, and health records.',
     services: ['UX Research', 'UI Design', 'Full-stack Development', 'HIPAA Compliance'],
     challenge: 'Vitality needed to launch a telemedicine platform that felt trustworthy and simple enough for elderly patients while being feature-rich enough for medical professionals. HIPAA compliance was non-negotiable.',
@@ -103,8 +103,8 @@ export const projects: ProjectData[] = [
       { label: 'Avg. Wait Time', value: '<3min' },
     ],
     gallery: [
-      { type: 'image', src: `${IMG}1576091160550-2173dba999ef?q=80&w=2670&auto=format&fit=crop` },
-      { type: 'image', src: `${IMG}1559757175-5700dde675bc?q=80&w=2670&auto=format&fit=crop` },
+      { type: 'image', src: '/projects/kronberg/gallery-1.webp' },
+      { type: 'image', src: '/projects/kronberg/gallery-2.webp' },
     ],
   },
   {
