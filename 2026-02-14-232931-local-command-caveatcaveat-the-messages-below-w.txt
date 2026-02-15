@@ -1,0 +1,2643 @@
+
+╭─── Claude Code v2.1.42 ──────────────────────────────────────────────────────╮
+│                                                    │ Tips for getting        │
+│                Welcome back Andrija!               │ started                 │
+│                                                    │ Run /init to create a … │
+│                       ▐▛███▜▌                      │ ─────────────────────── │
+│                      ▝▜█████▛▘                     │ Recent activity         │
+│                        ▘▘ ▝▝                       │ No recent activity      │
+│                                                    │                         │
+│   Opus 4.6 · Claude Pro ·                          │                         │
+│   andrija_milosevic@amilosevic.com's Organization  │                         │
+│                  ~\Desktop\amda-f                  │                         │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+> /login 
+  ⎿  Login successful
+
+> ok mate read last session there's txt file so we can continue right 
+
+● Let me look for text files in the project directory.
+
+● Searched for 1 pattern, read 1 file (ctrl+o to expand)
+
+● Found it. Let me read the session file.
+
+● Read 1 file (ctrl+o to expand)
+
+● Large file. Let me read it in parts.
+
+● Read 1 file (ctrl+o to expand)
+
+● Got it, I've read the entire session. Here's the full summary of where we left
+   off:
+
+  ---
+  Last Session Summary
+
+  Design Direction
+
+  Premium, bold, minimal digital agency site. Black + white only, no grey cards.
+   Architectural layout with numbered rows, border separators, massive
+  typography.
+
+  What was completed:
+
+  1. Font swap
+  - Inter + Space Grotesk → Poppins (all weights 300-900)
+
+  2. Margins/padding standardized
+  - All non-home pages: pt-32 on page wrappers
+  - All headers: mb-40 mt-16 md:mt-20 with label above
+  - All section horizontal padding: px-4 md:px-8
+  - max-w hierarchy: 7xl (home/footer), 5xl (About/Services/Case Study), 4xl 
+  (Contact/Privacy/Terms)
+
+  3. Footer redesigned
+  - Removed cringe "Ready to disrupt?" CTA
+  - New full-width centered CTA: "Let's build something great." (text-9xl)
+  - Removed AI Insight widget entirely
+  - Clean bottom bar with socials + legal links
+
+  4. Contact page — fully redesigned
+  - Architectural numbered form fields (01-06)
+  - Oversized input text (text-2xl/3xl), transparent bg, border-separated rows
+  - Budget as pills, focus state animations
+  - Email + "London, UK" in header
+
+  5. About page — fully redesigned
+  - Removed blog/thoughts section, bottom CTA card, Typewriter animation, all
+  grey boxes
+  - Stats + values as numbered architectural rows (same language as Contact)
+
+  6. Services page — fully redesigned
+  - Services as numbered rows (01-03) with deliverables + meta
+  - Engagement models as bordered rows with prices
+  - FAQ as numbered accordion rows (no grey backgrounds)
+
+  7. Misc fixes
+  - "Lumina" → "AM Digital" in testimonials
+  - Copyright 2024 → 2025
+  - Deleted web-design-guidelines skill
+
+  Pages NOT yet touched:
+
+  - Home page (Hero, ServicesHome, Work, Process, Testimonials sections)
+  - Work page
+  - Case Study page
+  - Privacy page
+  - Terms page
+  - Navbar
+
+  ---
+  What do you want to tackle next?
+
+✻ Sautéed for 1m 56s
+
+> sok good u know what this is ok so get skills (frontend by antrophic we   
+  have it here ) and ask him what we do with navbar                         
+
+● Let me read the skill and the current Navbar.
+
+● Searched for 1 pattern, read 3 files (ctrl+o to expand)
+
+● OK here's the skill audit on the current Navbar:
+
+  Problems per the skill + our bold minimal system:
+
+  1. Language dropdown (EN/DE/FR/IT) — Do you actually have multi-language
+  support? If not, this is fake functionality. The grey bg-[#171717] rounded
+  dropdown card is the same generic pattern we stripped from every other page.
+  2. Floating menu card — Small 300px bg-[#171717] rounded box with
+  rounded-[2rem]. This is the opposite of bold. Premium agencies (Basic/Agency,
+  Locomotive) do full-screen menu takeovers — massive typography, generous
+  space, a moment of drama. Ours is a timid little dropdown.
+  3. Social icons in the menu — Linkedin, Facebook, Instagram, Mail in circle
+  buttons with bg-white/5 grey backgrounds. Already in the footer. Duplicate +
+  grey noise.
+  4. The grey everywhere — bg-[#171717], bg-white/5 — we killed grey on every
+  page but the navbar still has it.
+
+  Per the skill: "What makes this UNFORGETTABLE? Spatial Composition: Unexpected
+   layouts. Generous negative space. Motion: high-impact moments, staggered 
+  reveals."
+
+  What I'd do:
+  - Remove language dropdown (unless you actually have i18n)
+  - Full-screen menu overlay — black bg, massive nav link typography
+  (text-6xl+), numbered items, staggered fade-in, same architectural language as
+   the rest of the site
+  - Remove social icons from menu — footer handles it
+  - Keep "AM." logo + "Menu/Close" button — those are clean
+
+  Want me to build it that way? And confirm — do we actually need the language
+  switcher?
+
+✻ Churned for 44s
+
+> ye we need it and add todo-languages , also footer is disaster i dont     
+  like it , first navbar so keep languages re-design everything skills      
+  things its nesssesery                                                     
+
+● Let me also check the globals.css and layout to understand how the navbar sits
+   in the page structure.
+
+● Read 2 files (ctrl+o to expand)
+
+● Now let me build the new Navbar. Full-screen overlay, massive typography,
+  numbered items, clean language switcher, black+white only.
+
+● Write(components\Navbar.tsx)
+  ⎿  Added 131 lines, removed 79 lines
+       1  "use client";                                                  
+       2                                                                 
+       3 -import React, { useState } from "react";                       
+       3 +import React, { useState, useEffect } from "react";            
+       4  import Link from "next/link";                                  
+       5  import { usePathname } from "next/navigation";                 
+       6 -import { Globe, ChevronDown,                                   
+         -Linkedin, Facebook, Instagram, Mail } from "lucide-react";     
+       6 +import { Globe, ChevronDown } from "lucide-react";             
+       7                                                                 
+       8 +// TODO: Implement actual i18n/language switching              
+         +functionality                                                  
+       9  type Lang = "EN" | "DE" | "FR" | "IT";                         
+      10                                                                 
+      11  const navItems = [                                             
+      12 -  { label: "Home", href: "/" },                                
+      13 -  { label: "Services", href: "/services" },                    
+      14 -  { label: "Work", href: "/work" },                            
+      15 -  { label: "About", href: "/about" },                          
+      16 -  { label: "Contact", href: "/contact" },                      
+      12 +  { num: "01", label: "Home", href: "/" },                     
+      13 +  { num: "02", label: "Services", href: "/services" },         
+      14 +  { num: "03", label: "Work", href: "/work" },                 
+      15 +  { num: "04", label: "About", href: "/about" },               
+      16 +  { num: "05", label: "Contact", href: "/contact" },           
+      17  ];                                                             
+      18                                                                 
+      19  export const Navbar: React.FC = () => {                        
+     ...
+      21    const [isLangOpen, setIsLangOpen] = useState(false);         
+      22    const pathname = usePathname();                              
+      23                                                                 
+      24 -  const toggleMenu = () => {                                   
+      24 +  // Lock body scroll when menu is open                        
+      25 +  useEffect(() => {                                            
+      26      if (isMenuOpen) {                                          
+      27 -      setIsMenuOpen(false);                                    
+      27 +      document.body.style.overflow = "hidden";                 
+      28      } else {                                                   
+      29 -      setIsMenuOpen(true);                                     
+      30 -      setIsLangOpen(false);                                    
+      29 +      document.body.style.overflow = "";                       
+      30      }                                                          
+      31 +    return () => {                                             
+      32 +      document.body.style.overflow = "";                       
+      33 +    };                                                         
+      34 +  }, [isMenuOpen]);                                            
+      35 +                                                               
+      36 +  const toggleMenu = () => {                                   
+      37 +    setIsMenuOpen(!isMenuOpen);                                
+      38 +    setIsLangOpen(false);                                      
+      39    };                                                           
+      40                                                                 
+      41    const toggleLang = () => {                                   
+      42 -    if (isLangOpen) {                                          
+      43 -      setIsLangOpen(false);                                    
+      44 -    } else {                                                   
+      45 -      setIsLangOpen(true);                                     
+      46 -      setIsMenuOpen(false);                                    
+      47 -    }                                                          
+      42 +    setIsLangOpen(!isLangOpen);                                
+      43    };                                                           
+      44                                                                 
+      45    const selectLang = (l: Lang) => {                            
+     ...
+       45    };                                                          
+       46                                                                
+       47    return (                                                    
+       48 -    <nav className="fixed top-0 left-0 right-0 z-50 p-6       
+          -text-white flex justify-between items-center                  
+          -pointer-events-none">                                         
+       49 -      <Link                                                   
+       50 -        href="/"                                              
+       51 -        className="font-display font-bold text-2xl            
+          -tracking-tighter cursor-pointer pointer-events-auto           
+          -mix-blend-difference"                                         
+       52 -      >                                                       
+       53 -        AM.                                                   
+       54 -      </Link>                                                 
+       48 +    <>                                                        
+       49 +      {/* Top bar — always visible */}                        
+       50 +      <nav className="fixed top-0 left-0 right-0 z-50 px-6    
+          +md:px-10 py-6 flex justify-between items-center               
+          +pointer-events-none">                                         
+       51 +        <Link                                                 
+       52 +          href="/"                                            
+       53 +          onClick={() => setIsMenuOpen(false)}                
+       54 +          className="font-display font-bold text-2xl          
+          +tracking-tighter cursor-pointer pointer-events-auto           
+          +mix-blend-difference z-50 relative"                           
+       55 +        >                                                     
+       56 +          AM.                                                 
+       57 +        </Link>                                               
+       58                                                                
+       59 -      <div className="flex items-center gap-4                 
+          - pointer-events-auto relative">                               
+       60 -        {/* Language Dropdown */}                             
+       61 -        <div className="relative">                            
+       59 +        <div className="flex items-center gap-3               
+          + pointer-events-auto z-50 relative">                          
+       60 +          {/* Language */}                                    
+       61 +          <div className="relative">                          
+       62 +            <button                                           
+       63 +              onClick={toggleLang}                            
+       64 +              className="flex items-center gap-2 text-[10px]  
+          +font-bold uppercase tracking-widest px-4 py-2.5 border        
+          +border-white/15 rounded-full mix-blend-difference             
+          +hover:border-white/40 transition-colors"                      
+       65 +            >                                                 
+       66 +              <Globe size={12} />                             
+       67 +              {lang}                                          
+       68 +              <ChevronDown size={10}                          
+          +className={`transition-transform duration-300 ${isLangOpen ?  
+          +"rotate-180" : ""}`} />                                       
+       69 +            </button>                                         
+       70 +            {isLangOpen && (                                  
+       71 +              <div className="absolute top-full mt-2 right-0  
+          +w-28 border border-white/10 bg-brand-black overflow-hidden    
+          +z-50 flex flex-col py-1">                                     
+       72 +                {(["EN", "DE", "FR", "IT"] as Lang[]).map((l) 
+          + => (                                                         
+       73 +                  <button                                     
+       74 +                    key={l}                                   
+       75 +                    onClick={() => selectLang(l)}             
+       76 +                    className={`text-[10px] font-bold         
+          +uppercase tracking-widest py-2.5 px-4 text-left               
+          +transition-colors ${                                          
+       77 +                      lang === l                              
+       78 +                        ? "text-white"                        
+       79 +                        : "text-gray-600 hover:text-white"    
+       80 +                    }`}                                       
+       81 +                  >                                           
+       82 +                    {l}                                       
+       83 +                  </button>                                   
+       84 +                ))}                                           
+       85 +              </div>                                          
+       86 +            )}                                                
+       87 +          </div>                                              
+       88 +                                                              
+       89 +          {/* Menu toggle */}                                 
+       90            <button                                             
+       91 -            onClick={toggleLang}                              
+       92 -            className="flex items-center gap-2 text-xs        
+          - font-bold uppercase tracking-widest px-4 py-2                
+          -border border-white/20 rounded-full bg-brand-black shadow-xl  
+          -hover:bg-white hover:text-black transition-colors"            
+       91 +            onClick={toggleMenu}                              
+       92 +            className="text-[10px]                            
+          + font-bold uppercase tracking-widest border border-white/15   
+          +px-6 py-2.5 rounded-full mix-blend-difference hover:border    
+          +-white/40 transition-colors"                                  
+       93            >                                                   
+       94 -            <Globe size={14} />                               
+       95 -            {lang}                                            
+       96 -            <ChevronDown size={12}                            
+          -className={`transition-transform ${isLangOpen ? "rotate-180"  
+          -: ""}`} />                                                    
+       94 +            {isMenuOpen ? "Close" : "Menu"}                   
+       95            </button>                                           
+       96 -          {isLangOpen && (                                    
+       97 -            <div className="absolute top-full mt-2 right-0    
+          -w-32 bg-[#171717] border border-white/10 rounded-[1.5rem]     
+          -overflow-hidden shadow-2xl z-50 flex flex-col p-2 animate-in  
+          -fade-in zoom-in-95 duration-200">                             
+       98 -              {(["EN", "DE", "FR", "IT"] as Lang[]).map((l)   
+          -=> (                                                          
+       99 -                <button                                       
+      100 -                  key={l}                                     
+      101 -                  onClick={() => selectLang(l)}               
+      102 -                  className={`text-xs font-bold uppercase     
+          -tracking-widest py-3 px-4 rounded-xl text-left                
+          -hover:bg-white/10 transition-colors ${lang === l ?            
+          -"text-white" : "text-gray-500"}`}                             
+       96 +        </div>                                                
+       97 +      </nav>                                                  
+       98 +                                                              
+       99 +      {/* Full-screen menu overlay */}                        
+      100 +      <div                                                    
+      101 +        className={`fixed inset-0 z-40 bg-brand-black         
+          +transition-all duration-500 ${                                
+      102 +          isMenuOpen                                          
+      103 +            ? "opacity-100 pointer-events-auto"               
+      104 +            : "opacity-0 pointer-events-none"                 
+      105 +        }`}                                                   
+      106 +      >                                                       
+      107 +        <div className="h-full flex flex-col justify-center   
+          +px-6 md:px-10 lg:px-20">                                      
+      108 +          <div className="max-w-5xl mx-auto w-full">          
+      109 +            {/* Nav links */}                                 
+      110 +            <div className="flex flex-col">                   
+      111 +              {navItems.map((item, index) => (                
+      112 +                <Link                                         
+      113 +                  key={item.href}                             
+      114 +                  href={item.href}                            
+      115 +                  onClick={() => setIsMenuOpen(false)}        
+      116 +                  className={`group border-t border-white/10  
+          +py-6 md:py-8 flex items-center gap-6 md:gap-12 transition-all 
+          + duration-300 ${                                              
+      117 +                    isMenuOpen                                
+      118 +                      ? "opacity-100 translate-y-0"           
+      119 +                      : "opacity-0 translate-y-4"             
+      120 +                  }`}                                         
+      121 +                  style={{                                    
+      122 +                    transitionDelay: isMenuOpen ? `${index *  
+          +75 + 150}ms` : "0ms",                                         
+      123 +                  }}                                          
+      124                  >                                             
+      125 -                  {l}                                         
+      126 -                </button>                                     
+      125 +                  <span className="text-[10px] uppercase      
+          +tracking-[0.2em] text-gray-700 w-12 shrink-0">                
+      126 +                    {item.num}                                
+      127 +                  </span>                                     
+      128 +                  <span                                       
+      129 +                    className={`font-display text-5xl         
+          +md:text-7xl lg:text-8xl font-bold tracking-tight leading-none 
+          + transition-colors duration-300 ${                            
+      130 +                      pathname === item.href                  
+      131 +                        ? "text-white"                        
+      132 +                        : "text-gray-600                      
+          +group-hover:text-white"                                       
+      133 +                    }`}                                       
+      134 +                  >                                           
+      135 +                    {item.label}                              
+      136 +                  </span>                                     
+      137 +                  {pathname === item.href && (                
+      138 +                    <span className="w-2 h-2 rounded-full     
+          +bg-white shrink-0" />                                         
+      139 +                  )}                                          
+      140 +                </Link>                                       
+      141                ))}                                             
+      142 +              <div className="border-t border-white/10" />    
+      143              </div>                                            
+      144 -          )}                                                  
+      145 -        </div>                                                
+      144                                                                
+      145 -        {/* Menu Button */}                                   
+      146 -        <button                                               
+      147 -          onClick={toggleMenu}                                
+      148 -          className="text-xs font-bold uppercase              
+          -tracking-widest border border-white/20 bg-brand-black         
+          -shadow-xl px-6 py-2 rounded-full hover:bg-white               
+          -hover:text-black transition-colors z-50 relative"             
+      149 -        >                                                     
+      150 -          {isMenuOpen ? "Close" : "Menu"}                     
+      151 -        </button>                                             
+      152 -                                                              
+      153 -        {/* Floating Menu Card */}                            
+      154 -        {isMenuOpen && (                                      
+      155 -          <div className="absolute top-16 right-0 w-[300px]   
+          -bg-[#171717] border border-white/10 rounded-[2rem] p-8        
+          -shadow-2xl flex flex-col gap-2 animate-in fade-in zoom-in-95  
+          -duration-200 origin-top-right z-40">                          
+      156 -            {navItems.map((item) => (                         
+      157 -              <Link                                           
+      158 -                key={item.href}                               
+      159 -                href={item.href}                              
+      160 -                onClick={() => setIsMenuOpen(false)}          
+      161 -                className={`text-left px-4 py-3               
+          -rounded-[1.5rem] hover:bg-white/5 transition-all text-xl      
+          -font-display font-bold ${pathname === item.href ? "text-white 
+          - bg-white/5" : "text-gray-400"}`}                             
+      145 +            {/* Bottom info */}                               
+      146 +            <div                                              
+      147 +              className={`mt-16 md:mt-20 flex flex-col        
+          +md:flex-row md:items-center md:justify-between gap-6          
+          +transition-all duration-500 ${                                
+      148 +                isMenuOpen                                    
+      149 +                  ? "opacity-100 translate-y-0"               
+      150 +                  : "opacity-0 translate-y-4"                 
+      151 +              }`}                                             
+      152 +              style={{                                        
+      153 +                transitionDelay: isMenuOpen ?                 
+          +`${navItems.length * 75 + 250}ms` : "0ms",                    
+      154 +              }}                                              
+      155 +            >                                                 
+      156 +              <a                                              
+      157 +                href="mailto:hello@amdigital.agency"          
+      158 +                className="text-sm text-gray-600              
+          +hover:text-white transition-colors uppercase tracking-widest" 
+      159                >                                               
+      160 -                {item.label}                                  
+      161 -              </Link>                                         
+      162 -            ))}                                               
+      163 -                                                              
+      164 -            <div className="mt-6 pt-6 border-t border-white/5 
+          - flex justify-between px-4">                                  
+      165 -              <button className="w-10 h-10 rounded-full       
+          -bg-white/5 flex items-center justify-center hover:bg-white    
+          -hover:text-black transition-colors">                          
+      166 -                <Linkedin size={16} />                        
+      167 -              </button>                                       
+      168 -              <button className="w-10 h-10 rounded-full       
+          -bg-white/5 flex items-center justify-center hover:bg-white    
+          -hover:text-black transition-colors">                          
+      169 -                <Facebook size={16} />                        
+      170 -              </button>                                       
+      171 -              <button className="w-10 h-10 rounded-full       
+          -bg-white/5 flex items-center justify-center hover:bg-white    
+          -hover:text-black transition-colors">                          
+      172 -                <Instagram size={16} />                       
+      173 -              </button>                                       
+      174 -              <button className="w-10 h-10 rounded-full       
+          -bg-white/5 flex items-center justify-center hover:bg-white    
+          -hover:text-black transition-colors">                          
+      175 -                <Mail size={16} />                            
+      176 -              </button>                                       
+      160 +                hello@amdigital.agency                        
+      161 +              </a>                                            
+      162 +              <span className="text-sm text-gray-700          
+          +uppercase tracking-widest">                                   
+      163 +                London, UK                                    
+      164 +              </span>                                         
+      165              </div>                                            
+      166            </div>                                              
+      167 -        )}                                                    
+      167 +        </div>                                                
+      168        </div>                                                  
+      169 -    </nav>                                                    
+      169 +    </>                                                       
+      170    );                                                          
+      171  };                                                            
+
+● Bash(cd /c/Users/HP/Desktop/amda-f && npm run build 2>&1 | tail -15)
+  ⎿  ├ ○ /about                               1.48 kB         107 kB
+     ├ ○ /case-study                            162 B         106 kB
+     ├ ○ /contact                             2.32 kB         108 kB
+     … +11 lines (ctrl+o to expand)
+  ⎿  (timeout 2m)
+
+● Build clean. Let me mark this done.
+
+● Navbar is done. Here's what changed:
+
+  Removed:
+  - Tiny 300px floating card dropdown — gone
+  - Social icons (Linkedin, Facebook, Instagram, Mail) — gone, footer handles it
+  - bg-[#171717] grey backgrounds — gone
+  - shadow-xl heavy shadows — gone
+  - rounded-[2rem] card shapes — gone
+
+  New design:
+  - Full-screen overlay — fixed inset-0 bg-brand-black, takes over the entire
+  viewport when open
+  - Massive numbered nav links — text-5xl/7xl/8xl, numbered 01–05,
+  border-separated rows (same architectural language as every other page)
+  - Staggered reveal — each link fades in with 75ms delay between items (skill
+  says: "staggered reveals create more delight")
+  - Active page indicator — current page is white text + small dot, others are
+  gray-600 that brighten on hover
+  - Body scroll lock — when menu opens, page can't scroll behind it
+  - Language dropdown restyled — no grey bg, no rounded card, just clean
+  bg-brand-black with border-white/10, mix-blend-difference on the button so it 
+  works over any content
+  - Bottom info bar — email + "London, UK" below the nav links, also
+  stagger-animated
+  - TODO comment added for i18n implementation
+
+  Menu/Close button and AM. logo kept clean with mix-blend-difference so they're
+   readable over any background.
+
+  Want me to hit the footer next?
+
+✻ Brewed for 1m 48s
+
+> ye do footer as well verify with skills this 2 (after u do it) 
+
+● Read 1 file (ctrl+o to expand)
+
+● Now let me rebuild the footer to match our architectural system.
+
+● Write(components\Footer.tsx)
+  ⎿  Added 75 lines, removed 29 lines
+       1  import React from 'react';                                     
+       2  import Link from 'next/link';                                  
+       3 -import { ArrowUpRight, Instagram, Twitter, Linkedin            
+         -} from 'lucide-react';                                         
+       3 +import { ArrowUpRight } from 'lucide-react';                   
+       4                                                                 
+       5 +const footerLinks = [                                          
+       6 +  { num: '01', label: 'Home', href: '/' },                     
+       7 +  { num: '02', label: 'Services', href: '/services' },         
+       8 +  { num: '03', label: 'Work', href: '/work' },                 
+       9 +  { num: '04', label: 'About', href: '/about' },               
+      10 +  { num: '05', label: 'Contact', href: '/contact' },           
+      11 +];                                                             
+      12 +                                                               
+      13  export const Footer: React.FC = () => {                        
+      14    return (                                                     
+      15 -    <footer className="bg-brand-black text-white px-4 md:px-8">
+      15 +    <footer className="bg-brand-black text-white px-6 md:px-10 
+         +">                                                             
+      16 +      <div className="max-w-5xl mx-auto">                      
+      17                                                                 
+      18 -      {/* CTA — Full Width Statement */}                       
+      19 -      <div className="max-w-7xl mx-auto py-32 md:py-44 flex    
+         -flex-col items-center text-center border-t border-white/10">   
+      20 -                                                               
+         -<span className="text-xs uppercase tracking-[0.3em] text-gray- 
+         -500 mb-8">Next step</span>                                     
+      21 -        <h2 className="font-display text-5xl md:text-8xl       
+         - lg:text-9xl font-bold mb-12 leading-[0.95] tracking-tight">   
+      22 -          Let's build<br />something great.                    
+      23 -        </h2>                                                  
+      24 -        <p className="text-gray-400 text-lg md:text-xl         
+         -max-w-lg mb-12">                                               
+      25 -          Have a project in mind? We'd love to hear about it.  
+      26 -        </p>                                                   
+      27 -        <Link                                                  
+      28 -          href="/contact"                                      
+      29 -          className="group inline-flex items-center gap-3      
+         -bg-white text-black px-10 py-5 rounded-full font-bold text-sm  
+         -uppercase tracking-widest hover:scale-105                      
+         -transition-transform"                                          
+      30 -        >                                                      
+      31 -          Start a project                                      
+      32 -          <ArrowUpRight size={18}                              
+         -className="group-hover:translate-x-0.5                         
+         -group-hover:-translate-y-0.5 transition-transform" />          
+      33 -        </Link>                                                
+      34 -      </div>                                                   
+      18 +        {/* CTA */}                                            
+      19 +        <div className="border-t border-white/10 pt-32         
+         +md:pt-44 pb-32 md:pb-44">                                      
+      20 +                                                               
+         +<span className="text-xs uppercase tracking-[0.3em] text-gray- 
+         +600 mb-8 block">Next step</span>                               
+      21 +          <h2 className="font-display text-5xl md:text-7xl     
+         + lg:text-8xl font-bold leading-[0.9] tracking-tight mb-12">    
+      22 +            Let&apos;s build<br />something great.             
+      23 +          </h2>                                                
+      24 +          <Link                                                
+      25 +            href="/contact"                                    
+      26 +            className="group inline-flex items-center gap-4    
+         +bg-white text-black px-10 py-5 rounded-full font-bold text-sm  
+         +uppercase tracking-widest hover:scale-105                      
+         +transition-transform"                                          
+      27 +          >                                                    
+      28 +            Start a project                                    
+      29 +            <ArrowUpRight size={18}                            
+         +className="group-hover:translate-x-0.5                         
+         +group-hover:-translate-y-0.5 transition-transform" />          
+      30 +          </Link>                                              
+      31 +        </div>                                                 
+      32                                                                 
+      33 -      {/* Bottom Bar */}                                       
+      34 -      <div className="max-w-7xl mx-auto border-t               
+         -border-white/10 py-8 flex flex-col md:flex-row justify-between 
+         - items-center gap-6">                                          
+      35 -        <p className="text-xs text-gray-600 uppercase          
+         -tracking-widest">&copy; 2025 AM Digital Agency.</p>            
+      36 -        <div className="flex items-center gap-8">              
+      37 -          <div className="flex gap-5">                         
+      38 -            <Instagram className="w-4 h-4 text-gray-600        
+         -hover:text-white cursor-pointer transition-colors" />          
+      39 -            <Twitter className="w-4 h-4 text-gray-600          
+         -hover:text-white cursor-pointer transition-colors" />          
+      40 -            <Linkedin className="w-4 h-4 text-gray-600         
+         -hover:text-white cursor-pointer transition-colors" />          
+      33 +        {/* Info grid */}                                      
+      34 +        <div className="border-t border-white/10 py-16         
+         +md:py-20 grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-12">    
+      35 +                                                               
+      36 +          {/* Contact */}                                      
+      37 +          <div>                                                
+      38 +            <span className="text-[10px] uppercase             
+         +tracking-[0.2em] text-gray-700 block mb-6">Contact</span>      
+      39 +            <div className="flex flex-col gap-3">              
+      40 +              <a                                               
+      41 +                href="mailto:hello@amdigital.agency"           
+      42 +                className="text-sm text-gray-400               
+         +hover:text-white transition-colors"                            
+      43 +              >                                                
+      44 +                hello@amdigital.agency                         
+      45 +              </a>                                             
+      46 +              <span className="text-sm text-gray-400">London,  
+         +UK</span>                                                      
+      47 +            </div>                                             
+      48            </div>                                               
+      49 -          <div className="w-px h-4 bg-white/10" />             
+      50 -          <div className="flex gap-6 text-xs text-gray-600     
+         -uppercase tracking-widest">                                    
+      49 +                                                               
+      50 +          {/* Navigation */}                                   
+      51 +          <div>                                                
+      52 +            <span className="text-[10px] uppercase             
+         +tracking-[0.2em] text-gray-700 block mb-6">Navigation</span>   
+      53 +            <div className="flex flex-col gap-3">              
+      54 +              {footerLinks.map((link) => (                     
+      55 +                <Link                                          
+      56 +                  key={link.href}                              
+      57 +                  href={link.href}                             
+      58 +                  className="text-sm text-gray-400             
+         +hover:text-white transition-colors flex items-center gap-3"    
+      59 +                >                                              
+      60 +                  <span className="text-gray-700               
+         +text-[10px]">{link.num}</span>                                 
+      61 +                  {link.label}                                 
+      62 +                </Link>                                        
+      63 +              ))}                                              
+      64 +            </div>                                             
+      65 +          </div>                                               
+      66 +                                                               
+      67 +          {/* Socials */}                                      
+      68 +          <div>                                                
+      69 +            <span className="text-[10px] uppercase             
+         +tracking-[0.2em] text-gray-700 block mb-6">Socials</span>      
+      70 +            <div className="flex flex-col gap-3">              
+      71 +              <a href="#" className="text-sm text-gray-400     
+         +hover:text-white transition-colors">Instagram</a>              
+      72 +              <a href="#" className="text-sm text-gray-400     
+         +hover:text-white transition-colors">LinkedIn</a>               
+      73 +              <a href="#" className="text-sm text-gray-400     
+         +hover:text-white transition-colors">X / Twitter</a>            
+      74 +            </div>                                             
+      75 +          </div>                                               
+      76 +                                                               
+      77 +        </div>                                                 
+      78 +                                                               
+      79 +        {/* Bottom bar */}                                     
+      80 +        <div className="border-t border-white/10 py-8 flex     
+         +flex-col md:flex-row justify-between items-center gap-4">      
+      81 +          <p className="text-[10px] text-gray-700 uppercase    
+         +tracking-widest">&copy; 2025 AM Digital Agency.</p>            
+      82 +          <div className="flex gap-6 text-[10px] text-gray-700 
+         + uppercase tracking-widest">                                   
+      83              <Link href="/privacy" className="hover:text-white  
+          transition-colors">Privacy</Link>                              
+      84              <Link href="/terms" className="hover:text-white    
+          transition-colors">Terms</Link>                                
+      85            </div>                                               
+      86          </div>                                                 
+      87 +                                                               
+      88        </div>                                                   
+      89      </footer>                                                  
+      90    );                                                           
+
+● Bash(cd /c/Users/HP/Desktop/amda-f && npm run build 2>&1 | tail -15)
+  ⎿  ├ ○ /about                               1.48 kB         107 kB
+     ├ ○ /case-study                            162 B         106 kB
+     ├ ○ /contact                             2.32 kB         108 kB
+     … +11 lines (ctrl+o to expand)
+  ⎿  (timeout 2m)
+
+● Build clean. Now let me verify both Navbar and Footer against the skill.
+
+● Read 2 files (ctrl+o to expand)
+
+● Now let me audit both against the skill.
+
+  ---
+  Skill Verification — Navbar + Footer
+
+  Skill checklist:
+
+  Typography — "Choose fonts that are beautiful, unique. Pair a distinctive 
+  display font with a refined body font."
+  - Navbar: text-5xl/7xl/8xl massive nav links — bold, commanding. Small 10px
+  labels for numbers. Clear hierarchy.
+  - Footer: text-5xl/7xl/8xl CTA heading, 10px labels for section headers, sm
+  for body text. Clean hierarchy.
+  - Pass
+
+  Color & Theme — "Commit to a cohesive aesthetic. Dominant colors with sharp 
+  accents."
+  - Both: Pure black (bg-brand-black) + white text. Gray-600/700 for secondary.
+  No grey cards, no colored backgrounds. White CTA button is the only accent.
+  - Pass
+
+  Motion — "Focus on high-impact moments: staggered reveals."
+  - Navbar: Staggered fade-in with 75ms delay per item + translate-y entrance.
+  Overlay fades in 500ms. ChevronDown rotates on lang open.
+  - Footer: Static (no scroll-triggered animation) — this is fine for a footer,
+  it doesn't need entrance animation.
+  - Pass
+
+  Spatial Composition — "Generous negative space. Unexpected layouts."
+  - Navbar: Full-screen takeover, vertically centered, max-w-5xl. Massive
+  breathing room. Email + location at the bottom with mt-20 gap.
+  - Footer: CTA section has pt-44/pb-44 — enormous breathing room. Left-aligned
+  (not centered) matches our architectural system. Info grid with py-20.
+  - Pass
+
+  Backgrounds & Visual Details — "Create atmosphere and depth rather than 
+  defaulting to solid colors."
+  - Both use solid black. The skill says this is fine for minimalist:
+  "Minimalist or refined designs need restraint, precision, and careful 
+  attention to spacing, typography, and subtle details."
+  - Pass — bold minimal doesn't need grain/noise here
+
+  No generic AI aesthetics — "NEVER use overused font families, cliched color 
+  schemes, predictable layouts."
+  - No rounded cards, no grey boxes, no icon buttons, no gradient backgrounds,
+  no shadow-xl. Full-screen nav overlay is a premium agency pattern, not a 
+  template dropdown.
+  - Pass
+
+  Consistency with site system:
+  - Both use max-w-5xl, px-6 md:px-10, numbered items with text-[10px]
+  tracking-[0.2em] text-gray-700, border-t border-white/10 separators. Same 
+  language as Contact/About/Services.
+  - Pass
+
+  One note:
+
+  The footer CTA went from centered (text-center) to left-aligned — this matches
+   the architectural system we built across all pages. The old centered version
+  was the only element on the entire site that was center-aligned.
+
+● Both pass the skill audit. Here's the footer summary:
+
+  Footer — what changed:
+  - CTA left-aligned — matches our architectural system, no more centered layout
+   that broke the visual language
+  - max-w-7xl → max-w-5xl — matches content pages
+  - px-4 md:px-8 → px-6 md:px-10 — matches navbar padding
+  - Removed icon components (Instagram, Twitter, Linkedin icons) — replaced with
+   text links, cleaner
+  - 3-column info grid — Contact (email + location), Navigation (numbered 01-05
+  links), Socials (text links). Labeled with tiny uppercase headers.
+  - Bottom bar stripped down — just copyright + Privacy/Terms links,
+  text-[10px], subtle as possible
+  - No more grey anything — pure black + white + border lines
+
+  Both Navbar and Footer now speak the exact same visual language as every other
+   redesigned page. What's next?
+
+✻ Cogitated for 1m 52s
+
+> ok one very important question idk what u doing but pill like as in       
+  navbar  - navbar is ok what is nok when u click lang switcher its not     
+  pill like so what we gona do about that i asked u to verify u verify but  
+  u got leftovers?                                                          
+
+● You're right, my bad. The lang button is rounded-full pill but the dropdown is
+   a flat square box — that's inconsistent. Let me fix it.
+
+● Update(components\Navbar.tsx)
+  ⎿  Added 3 lines, removed 3 lines
+      72                <ChevronDown size={10}                           
+          className={`transition-transform duration-300 ${isLangOpen ?   
+          "rotate-180" : ""}`} />                                        
+      73              </button>                                          
+      74              {isLangOpen && (                                   
+      75 -              <div className="absolute top-full mt-2 right-0   
+         -w-28 border border-white/10 bg-brand-black                     
+         -overflow-hidden z-50 flex flex-col py-1">                      
+      75 +              <div className="absolute top-full mt-2 right-0   
+         +border border-white/15 bg-brand-black rounded-full             
+         +overflow-hidden z-50 flex flex-col py-2 px-1">                 
+      76                  {(["EN", "DE", "FR", "IT"] as Lang[]).map((l)  
+          => (                                                           
+      77                    <button                                      
+      78                      key={l}                                    
+      79                      onClick={() => selectLang(l)}              
+      80 -                    className={`text-[10px] font-bold uppercase
+         - tracking-widest py-2.5 px-4 text-left transition-colors ${    
+      80 +                    className={`text-[10px] font-bold uppercase
+         + tracking-widest py-2 px-4 rounded-full                        
+         +text-left transition-colors ${                                 
+      81                        lang === l                               
+      82 -                        ? "text-white"                         
+      82 +                        ? "text-white bg-white/10"             
+      83                          : "text-gray-600 hover:text-white"     
+      84                      }`}                                        
+      85                    >                                            
+
+● Bash(cd /c/Users/HP/Desktop/amda-f && npm run build 2>&1 | tail -5)
+  ⎿    code: 'ENOENT'
+     }
+     … +2 lines (ctrl+o to expand)
+  ⎿  (timeout 2m)
+
+● Build error. Let me check what's going on with the terms page.
+
+● Read 2 files (ctrl+o to expand)
+
+● Bash(cd /c/Users/HP/Desktop/amda-f && npm run build 2>&1 | head -40)
+  ⎿  > am-digital-agency@0.0.0 build
+     > next build
+     … +21 lines (ctrl+o to expand)
+  ⎿  (timeout 2m)
+
+● Actually it built clean this time — the previous error was likely a transient
+  issue. Build passes.
+
+  Fixed. The lang dropdown is now pill-shaped (rounded-full) matching the
+  button, with border-white/15 same border style, and the active language gets a
+   subtle bg-white/10 highlight. No more square box mismatch.
+
+✻ Worked for 1m 31s
+
+> is switcher too small mate its literlyt small mate please run with skills 
+   this shit again mate i dont want to write same shit 20000000 times       
+
+● You're right. Let me look at this properly against the skill — a 10px dropdown
+   with tiny tap targets on a site with text-8xl nav links is a joke.
+
+● Read 1 file (ctrl+o to expand)
+
+● Per the skill: "Spatial Composition: Generous negative space" and "Motion: 
+  hover states that surprise". Current state — 10px text, py-2 px-4 items, Globe
+   size={12}, ChevronDown size={10}. Everything is cramped and microscopic. On a
+   premium site, interactive elements need proper sizing.
+
+● Update(components\Navbar.tsx)
+  ⎿  Added 6 lines, removed 6 lines
+      65            <div className="relative">                           
+      66              <button                                            
+      67                onClick={toggleLang}                             
+      68 -              className="flex items-center gap-2 text-[10px]   
+         - font-bold uppercase tracking-widest px-4 py-2.5               
+         - border border-white/15 rounded-full mix-blend-difference      
+         -hover:border-white/40 transition-colors"                       
+      68 +              className="flex items-center gap-2.5 text-xs     
+         + font-bold uppercase tracking-widest px-5 py-3                 
+         + border border-white/15 rounded-full mix-blend-difference      
+         +hover:border-white/40 transition-colors"                       
+      69              >                                                  
+      70 -              <Globe size={12} />                              
+      70 +              <Globe size={14} />                              
+      71                {lang}                                           
+      72 -              <ChevronDown size={10                            
+         -} className={`transition-transform duration-300 ${isLangOpen ? 
+         -"rotate-180" : ""}`} />                                        
+      72 +              <ChevronDown size={12                            
+         +} className={`transition-transform duration-300 ${isLangOpen ? 
+         +"rotate-180" : ""}`} />                                        
+      73              </button>                                          
+      74              {isLangOpen && (                                   
+      75 -              <div className="absolute top-full mt-2           
+         - right-0 border border-white/15 bg-brand-black rounded-full    
+         - overflow-hidden z-50 flex flex-col py-2 px-1">                
+      75 +              <div className="absolute top-full mt-3           
+         + right-0 border border-white/15 bg-brand-black rounded-        
+         +[1.25rem] overflow-hidden z-50 flex flex-col py-2 px-1.5">     
+      76                  {(["EN", "DE", "FR", "IT"] as Lang[]).map((l)  
+          => (                                                           
+      77                    <button                                      
+      78                      key={l}                                    
+      79                      onClick={() => selectLang(l)}              
+      80 -                    className={`text-[10px]                    
+         - font-bold uppercase tracking-widest py-2 px-4 rounded-full    
+         - text-left transition-colors ${                                
+      80 +                    className={`text-xs                        
+         + font-bold uppercase tracking-widest py-3 px-5 rounded-xl      
+         + text-left transition-colors ${                                
+      81                        lang === l                               
+      82                          ? "text-white bg-white/10"             
+      83                          : "text-gray-600 hover:text-white"     
+     ...
+      93            {/* Menu toggle */}                                  
+      94            <button                                              
+      95              onClick={toggleMenu}                               
+      96 -            className="text-[10px]                             
+         - font-bold uppercase tracking-widest border border-white/15 px-
+         -6 py-2.5                                                       
+         - rounded-full mix-blend-difference hover:border-white/40       
+         -transition-colors"                                             
+      96 +            className="text-xs                                 
+         + font-bold uppercase tracking-widest border border-white/15 px-
+         +7 py-3 rounded-full mix-blend-difference hover:border-white/40 
+         +transition-colors"                                             
+      97            >                                                    
+      98              {isMenuOpen ? "Close" : "Menu"}                    
+      99            </button>                                            
+
+● Bash(cd /c/Users/HP/Desktop/amda-f && npm run build 2>&1 | tail -5)
+  ⎿    └ other shared chunks (total)          1.99 kB
+
+
+     ○  (Static)  prerendered as static content
+  ⎿  (timeout 2m)
+
+● Build clean. Here's what changed:
+
+  Button — text-[10px] → text-xs (12px), px-4 py-2.5 → px-5 py-3, Globe 12 → 14,
+   ChevronDown 10 → 12
+
+  Dropdown — text-[10px] → text-xs, py-2 px-4 → py-3 px-5 per item, rounded-full
+   container → rounded-[1.25rem] (pill-ish but doesn't clip items weirdly),
+  items rounded-xl, mt-2 → mt-3 gap from button
+
+  Menu button — also bumped to match: text-[10px] → text-xs, px-6 py-2.5 → px-7 
+  py-3
+
+  Both buttons are now the same size and the dropdown items are properly
+  tappable. No more microscopic controls on a site with 8xl headings.
+
+✻ Sautéed for 1m 13s
+
+> OR  u want to do menu like ? mate ask skills again how we proseed with    
+  this ? or add language in menu it self ? pls mate ask skills premium bold 
+   mate agency no jokes mate                                                
+
+● OK let me think about this properly with the skill.
+
+  The skill says: "Spatial Composition: Generous negative space" and "What makes
+   this UNFORGETTABLE?"
+
+  Right now the top bar has: AM. — then two pill buttons crammed together (lang
+  + menu). That's cluttered. Premium agency sites have ultra-clean top bars —
+  logo + one single trigger. That's it.
+
+  The move: Put language selection INSIDE the full-screen menu overlay. Top bar
+  becomes just AM. left, Menu right. Nothing else. When you open the menu,
+  language options sit at the bottom alongside the email/location info — part of
+   the experience, not a separate utility dropdown competing for space.
+
+  This is how agencies like Basic/Agency and Locomotive handle it. The nav bar
+  is invisible-clean, the full-screen menu has everything.
+
+  Want me to build it that way?
+
+> yea do that mate, also mate those lines are everywhere is that intended   
+  or u are adhocking                                                        
+
+● The lines (border-t border-white/10) are 100% intentional — that's the core of
+   the architectural design system we built. It's what ties every page together:
+   numbered rows separated by horizontal rules instead of
+  cards/boxes/backgrounds. It's the consistent visual language replacing all the
+   grey card bullshit we stripped out.
+
+  That said — if it feels like too much, we can pull back on some of them. But
+  that's a whole-site conversation, let's tackle navbar first.
+
+● Read 1 file (ctrl+o to expand)
+  ⎿  Interrupted · What should Claude do instead?
+
+> no dont pull them leave them just redsign as we spoke earlier OK let me   
+  think about this properly with the skill.                                 
+                                                                            
+    The skill says: "Spatial Composition: Generous negative space" and      
+  "What makes this UNFORGETTABLE?"                                          
+                                                                            
+    Right now the top bar has: AM. — then two pill buttons crammed together 
+   (lang + menu). That's cluttered. Premium agency sites have               
+    ultra-clean top bars — logo + one single trigger. That's it.            
+                                                                            
+    The move: Put language selection INSIDE the full-screen menu overlay.   
+  Top bar becomes just AM. left, Menu right. Nothing else. When             
+    you open the menu, language options sit at the bottom alongside the     
+  email/location info — part of the experience, not a separate              
+    utility dropdown competing for space.                                   
+                                                                            
+    This is how agencies like Basic/Agency and Locomotive handle it. The    
+  nav bar is invisible-clean, the full-screen menu has everything.          
+                                                                            
+    Want me to build it that way?,  also keep in mind when we put nextjs    
+  international shit idk the name we'll auto redirect them to ie /de/ /it/  
+  etc or give them option to do that right have that in mind, also AM logo  
+  wont be AM logo , i have SVG logo AM Digital agency, , actually u can put 
+   am digital agency (poppins bold small ) and pls continue with lang and   
+  menu thing right                                                          
+
+● Write(components\Navbar.tsx)
+  ⎿  Added 56 lines, removed 64 lines
+       3  import React, { useState, useEffect } from "react";            
+       4  import Link from "next/link";                                  
+       5  import { usePathname } from "next/navigation";                 
+       6 -import { Globe, ChevronDown } from "lucide-react";             
+       6                                                                 
+       7 -// TODO: Implement actual i18n/language switching              
+         -functionality                                                  
+       7 +// TODO: Implement next-intl or next-i18next for actual i18n   
+       8 +// Routes will become /de/services, /fr/about, etc.            
+       9 +// Language selection here should redirect to                  
+         +/{locale}/current-path                                         
+      10  type Lang = "EN" | "DE" | "FR" | "IT";                         
+      11                                                                 
+      12  const navItems = [                                             
+     ...
+      16    { num: "05", label: "Contact", href: "/contact" },           
+      17  ];                                                             
+      18                                                                 
+      19 +const languages: { code: Lang; label: string }[] = [           
+      20 +  { code: "EN", label: "English" },                            
+      21 +  { code: "DE", label: "Deutsch" },                            
+      22 +  { code: "FR", label: "Français" },                           
+      23 +  { code: "IT", label: "Italiano" },                           
+      24 +];                                                             
+      25 +                                                               
+      26  export const Navbar: React.FC = () => {                        
+      27    const [isMenuOpen, setIsMenuOpen] = useState(false);         
+      28    const [lang, setLang] = useState<Lang>("EN");                
+      29 -  const [isLangOpen, setIsLangOpen] = useState(false);         
+      29    const pathname = usePathname();                              
+      30                                                                 
+      31 -  // Lock body scroll when menu is open                        
+      31    useEffect(() => {                                            
+      32      if (isMenuOpen) {                                          
+      33        document.body.style.overflow = "hidden";                 
+     ...
+      36                                                                 
+      37    const toggleMenu = () => {                                   
+      38      setIsMenuOpen(!isMenuOpen);                                
+      39 -    setIsLangOpen(false);                                      
+      39    };                                                           
+      40                                                                 
+      41 -  const toggleLang = () => {                                   
+      42 -    setIsLangOpen(!isLangOpen);                                
+      43 -  };                                                           
+      44 -                                                               
+      41    const selectLang = (l: Lang) => {                            
+      42      setLang(l);                                                
+      43 -    setIsLangOpen(false);                                      
+      43 +    // TODO: router.push(`/${l.toLowerCase()}${pathname}`)     
+         +when i18n is set up                                            
+      44    };                                                           
+      45                                                                 
+      46    return (                                                     
+      47      <>                                                         
+      48 -      {/* Top bar — always visible */}                         
+      48 +      {/* Top bar — logo + menu only */}                       
+      49        <nav className="fixed top-0 left-0 right-0 z-50 px-6     
+          md:px-10 py-6 flex justify-between items-center                
+          pointer-events-none">                                          
+      50          <Link                                                  
+      51            href="/"                                             
+      52            onClick={() => setIsMenuOpen(false)}                 
+      53 -          className="                                          
+         -font-display font-bold text-2xl tracking-tighter cursor-pointer
+         - pointer-events-auto mix-blend-difference z-50 relative"       
+      53 +          className="pointer                                   
+         +-events-auto mix-blend-difference z-50 relative"               
+      54          >                                                      
+      55 -          AM.                                                  
+      55 +          <span className="font-display font-bold text-sm      
+         +uppercase tracking-[0.15em]">                                  
+      56 +            AM Digital Agency                                  
+      57 +          </span>                                              
+      58          </Link>                                                
+      59                                                                 
+      60 -        <div className="flex items-center gap-3                
+         -pointer-events-auto z-50 relative">                            
+      61 -          {/* Language */}                                     
+      62 -          <div className="relative">                           
+      63 -            <button                                            
+      64 -              onClick={toggleLang}                             
+      65 -              className="flex items-center gap-2.5 text-xs     
+         -font-bold uppercase tracking-widest px-5 py-3 border           
+         -border-white/15 rounded-full mix-blend-difference              
+         -hover:border-white/40 transition-colors"                       
+      66 -            >                                                  
+      67 -              <Globe size={14} />                              
+      68 -              {lang}                                           
+      69 -              <ChevronDown size={12}                           
+         -className={`transition-transform duration-300 ${isLangOpen ?   
+         -"rotate-180" : ""}`} />                                        
+      70 -            </button>                                          
+      71 -            {isLangOpen && (                                   
+      72 -              <div className="absolute top-full mt-3 right-0   
+         -border border-white/15 bg-brand-black rounded-[1.25rem]        
+         -overflow-hidden z-50 flex flex-col py-2 px-1.5">               
+      73 -                {(["EN", "DE", "FR", "IT"] as Lang[]).map((l)  
+         -=> (                                                           
+      74 -                  <button                                      
+      75 -                    key={l}                                    
+      76 -                    onClick={() => selectLang(l)}              
+      77 -                    className={`text-xs font-bold uppercase    
+         -tracking-widest py-3 px-5 rounded-xl text-left                 
+         -transition-colors ${                                           
+      78 -                      lang === l                               
+      79 -                        ? "text-white bg-white/10"             
+      80 -                        : "text-gray-600 hover:text-white"     
+      81 -                    }`}                                        
+      82 -                  >                                            
+      83 -                    {l}                                        
+      84 -                  </button>                                    
+      85 -                ))}                                            
+      86 -              </div>                                           
+      87 -            )}                                                 
+      88 -          </div>                                               
+      89 -                                                               
+      90 -          {/* Menu toggle */}                                  
+      91 -          <button                                              
+      92 -            onClick={toggleMenu}                               
+      93 -            className="text-xs font-bold uppercase             
+         -tracking-widest border border-white/15 px-7 py-3 rounded-full  
+         -mix-blend-difference hover:border-white/40 transition-colors"  
+      94 -          >                                                    
+      95 -            {isMenuOpen ? "Close" : "Menu"}                    
+      96 -          </button>                                            
+      97 -        </div>                                                 
+      60 +        <button                                                
+      61 +          onClick={toggleMenu}                                 
+      62 +          className="text-xs font-bold uppercase               
+         +tracking-widest border border-white/15 px-7 py-3 rounded-full  
+         +mix-blend-difference hover:border-white/40 transition-colors   
+         +pointer-events-auto z-50 relative"                             
+      63 +        >                                                      
+      64 +          {isMenuOpen ? "Close" : "Menu"}                      
+      65 +        </button>                                              
+      66        </nav>                                                   
+      67                                                                 
+      68        {/* Full-screen menu overlay */}                         
+     ...
+      108              : "opacity-0 pointer-events-none"                 
+      109          }`}                                                   
+      110        >                                                       
+      111 -        <div className="h-full flex flex-col justify-center   
+          - px-6 md:px-10 lg:px-20">                                     
+      112 -          <div className="max-w-5xl mx-auto w-full">          
+      111 +        <div className="h-full flex flex-col justify-between  
+          + px-6 md:px-10 lg:px-20 pt-24 pb-10">                         
+      112 +          <div className="max-w-5xl mx-auto w-full            
+          + flex-1 flex flex-col justify-center">                        
+      113              {/* Nav links */}                                 
+      114              <div className="flex flex-col">                   
+      115                {navItems.map((item, index) => (                
+     ...
+      145                ))}                                             
+      146                <div className="border-t border-white/10" />    
+      147              </div>                                            
+      148 +          </div>                                              
+      149                                                                
+      150 -            {/* Bottom info */}                               
+      151 -            <div                                              
+      152 -              className={`mt-16 md:mt-20                      
+          -flex flex-col md:flex-row md:items-center md:justify-between  
+          -gap-6 transition-all duration-500 ${                          
+      153 -                isMenuOpen                                    
+      154 -                  ? "opacity-100 translate-y-0"               
+      155 -                  : "opacity-0 translate-y-4"                 
+      156 -              }`}                                             
+      157 -              style={{                                        
+      158 -                                                              
+          -transitionDelay: isMenuOpen ? `${navItems.length * 75 +       
+          -250}ms` : "0ms",                                              
+      159 -              }}                                              
+      160 -            >                                                 
+      150 +          {/* Bottom bar — info + language */}                
+      151 +          <div                                                
+      152 +            className={`max-w-5xl mx-auto w-full              
+          +flex flex-col md:flex-row md:items-center md:justify-between  
+          +gap-6 transition-all duration-500 ${                          
+      153 +              isMenuOpen                                      
+      154 +                ? "opacity-100 translate-y-0"                 
+      155 +                : "opacity-0 translate-y-4"                   
+      156 +            }`}                                               
+      157 +            style={{                                          
+      158 +                                                              
+          +transitionDelay: isMenuOpen ? `${navItems.length * 75 +       
+          +250}ms` : "0ms",                                              
+      159 +            }}                                                
+      160 +          >                                                   
+      161 +            {/* Left — contact info */}                       
+      162 +            <div className="flex flex-wrap items-center       
+          +gap-6">                                                       
+      163                <a                                              
+      164                  href="mailto:hello@amdigital.agency"          
+      165                  className="text-sm text-gray-600              
+           hover:text-white transition-colors uppercase tracking-widest" 
+      166                >                                               
+      167                  hello@amdigital.agency                        
+      168                </a>                                            
+      169 +              <span className="w-1 h-1 rounded-full           
+          +bg-gray-700 hidden md:block" />                               
+      170                <span className="text-sm text-gray-700          
+           uppercase tracking-widest">                                   
+      171                  London, UK                                    
+      172                </span>                                         
+      173              </div>                                            
+      174 +                                                              
+      175 +            {/* Right — language selector */}                 
+      176 +            <div className="flex items-center gap-1">         
+      177 +              {languages.map((l) => (                         
+      178 +                <button                                       
+      179 +                  key={l.code}                                
+      180 +                  onClick={() => selectLang(l.code)}          
+      181 +                  className={`text-xs font-bold uppercase     
+          +tracking-widest px-4 py-2 rounded-full transition-colors ${   
+      182 +                    lang === l.code                           
+      183 +                      ? "text-white bg-white/10"              
+      184 +                      : "text-gray-700 hover:text-white"      
+      185 +                  }`}                                         
+      186 +                >                                             
+      187 +                  {l.code}                                    
+      188 +                </button>                                     
+      189 +              ))}                                             
+      190 +            </div>                                            
+      191            </div>                                              
+      192          </div>                                                
+      193        </div>                                                  
+
+● Bash(cd /c/Users/HP/Desktop/amda-f && npm run build 2>&1 | tail -5)
+  ⎿    └ other shared chunks (total)          1.99 kB
+
+
+     ○  (Static)  prerendered as static content
+  ⎿  (timeout 2m)
+
+● Build clean. Here's what changed:
+
+  Top bar — stripped to the bone: AM Digital Agency (Poppins bold, sm,
+  uppercase, tracked) on the left, Menu pill on the right. Nothing else. Ultra
+  clean.
+
+  Logo — no more AM. shorthand, now AM Digital Agency in small uppercase tracked
+   text. Ready to swap for your SVG later.
+
+  Language — moved inside the full-screen menu overlay, bottom-right. Four
+  inline pill buttons (EN DE FR IT), active one gets bg-white/10. Sits alongside
+   email + London, UK on the bottom bar. All stagger-animated together.
+
+  Removed — Globe icon, ChevronDown icon, separate dropdown, isLangOpen state. 
+  Cleaner code too.
+
+  i18n ready — TODO comments explain the plan: next-intl or next-i18next, routes
+   become /de/services, /fr/about, etc. The selectLang function has a 
+  placeholder for router.push(/${locale}${pathname}).
+
+✻ Cooked for 1m 12s
+
+> /usage 
+  ⎿  Status dialog dismissed
+
+> verify menu with skills one more time please 
+
+● Read 2 files (ctrl+o to expand)
+
+● OK, line by line against the skill:
+
+  Skill Verification — Navbar
+
+  1. Typography — "Choose fonts that are beautiful, unique. Pair a distinctive 
+  display font with a refined body font."
+  - Nav links: text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight — 
+  massive, commanding.
+  - Numbers: text-[10px] uppercase tracking-[0.2em] — tiny, precise, utilitarian
+   contrast.
+  - Logo: text-sm uppercase tracking-[0.15em] font-bold — clean, understated.
+  - Pass
+
+  2. Color & Theme — "Commit to a cohesive aesthetic. Dominant colors with sharp
+   accents."
+  - Black bg, white for active items, gray-600/700 hierarchy for inactive.
+  bg-white/10 accent on active lang. No grey cards, no colored backgrounds.
+  - Pass
+
+  3. Motion — "Focus on high-impact moments: staggered reveals 
+  (animation-delay)."
+  - Nav links stagger in at 75ms intervals with translate-y-4 → translate-y-0 + 
+  opacity fade.
+  - Bottom bar stagger-animated after nav links complete.
+  - Overlay fades in 500ms.
+  - Hover: group-hover:text-white on inactive links, hover:border-white/40 on
+  Menu button.
+  - Pass — but one thing: the skill says "hover states that surprise". Current
+  hovers are just color transitions. Could add a subtle translate-x nudge on
+  link hover for that extra touch.
+
+  4. Spatial Composition — "Generous negative space. Unexpected layouts."
+  - Top bar: just logo + one button. Maximum negative space.
+  - Full-screen overlay: vertically centered nav links, bottom-anchored info
+  bar. py-6 md:py-8 per link row. justify-between pushes nav center and info to
+  bottom.
+  - Pass
+
+  5. Backgrounds & Visual Details — "Create atmosphere and depth rather than 
+  defaulting to solid colors."
+  - Solid bg-brand-black. The skill also says: "Minimalist or refined designs 
+  need restraint, precision". For bold minimal, solid black is correct. No 
+  grain/noise needed here.
+  - Pass
+
+  6. No generic AI aesthetics — "NEVER use predictable layouts and component 
+  patterns, cookie-cutter design."
+  - Full-screen takeover menu, not a dropdown. Numbered rows, not a link list.
+  Language as inline pills at bottom, not a select/dropdown. Logo as tracked
+  uppercase text, not a generic bold wordmark.
+  - Pass
+
+  ---
+  One improvement I'd flag: the skill specifically calls out "hover states that 
+  surprise". Right now nav link hovers just change color. Adding a small 
+  horizontal shift would make it feel more alive:
+
+  Want me to add that hover nudge on the nav links? Something like
+  group-hover:translate-x-2 — subtle but gives that premium interactive feel the
+   skill is asking for.
+
+✻ Cogitated for 39s
+
+> do everything skills recoomand yes 
+
+● Update(components\Navbar.tsx)
+  ⎿  Added 2 lines, removed 2 lines
+       97                      transitionDelay: isMenuOpen ? `${index *  
+           75 + 150}ms` : "0ms",                                         
+       98                    }}                                          
+       99                  >                                             
+      100 -                  <span className="text-[10px] uppercase      
+          -tracking-[0.2em] text-gray-700 w-12 shrink-0">                
+      100 +                  <span className="text-[10px] uppercase      
+          +tracking-[0.2em] text-gray-700 w-12 shrink-0                  
+          + transition-colors duration-300 group-hover:text-gray-500">   
+      101                      {item.num}                                
+      102                    </span>                                     
+      103                    <span                                       
+      104 -                    className={`font-display text-5xl         
+          -md:text-7xl lg:text-8xl font-bold tracking-tight leading-none 
+          -transition-colors duration-300 ${                             
+      104 +                    className={`font-display text-5xl         
+          +md:text-7xl lg:text-8xl font-bold tracking-tight leading-none 
+          +transition-all duration-300 group-hover:translate-x-3 ${      
+      105                        pathname === item.href                  
+      106                          ? "text-white"                        
+      107                          : "text-gray-600                      
+           group-hover:text-white"                                       
+
+● Bash(cd /c/Users/HP/Desktop/amda-f && npm run build 2>&1 | tail -5)
+  ⎿  [Error [PageNotFoundError]: Cannot find module for page: /_document] {
+       code: 'ENOENT'
+     }
+     … +2 lines (ctrl+o to expand)
+  ⎿  (timeout 2m)
+
+● Build error — but not from our code. Let me check the full output.
+
+● Bash(cd /c/Users/HP/Desktop/amda-f && npm run build 2>&1)
+  ⎿  > am-digital-agency@0.0.0 build
+     > next build
+     … +21 lines (ctrl+o to expand)
+  ⎿  (timeout 2m)
+
+● Build clean — that first error was transient.
+
+  Done. Added:
+  - group-hover:translate-x-3 on nav link text — subtle horizontal nudge on
+  hover, gives that interactive "surprise" the skill asks for
+  - group-hover:text-gray-500 on the numbers — they brighten slightly on hover
+  too, feels alive instead of static
+
+✻ Worked for 1m 23s
+
+> lang too close to last line mate ?? ??? mate please check with skills     
+  again ? dont play around i need this to be PREMIUM                        
+
+● You're right. The bottom bar is sitting at pb-10 with no real separation from
+  the nav links above. Per the skill — "Generous negative space". Let me fix.
+
+● Read 1 file (ctrl+o to expand)
+
+● Update(components\Navbar.tsx)
+  ⎿  Added 3 lines, removed 4 lines
+      79              : "opacity-0 pointer-events-none"                  
+      80          }`}                                                    
+      81        >                                                        
+      82 -        <div className="h-full flex flex-col justify-between   
+         -px-6 md:px-10 lg:px-20 pt-24 pb-10">                           
+      82 +        <div className="h-full flex flex-col                   
+         +px-6 md:px-10 lg:px-20 pt-24 pb-12">                           
+      83            <div className="max-w-5xl mx-auto w-full flex-1 flex 
+           flex-col justify-center">                                     
+      84              {/* Nav links */}                                  
+      85              <div className="flex flex-col">                    
+     ...
+      114                    )}                                          
+      115                  </Link>                                       
+      116                ))}                                             
+      117 -              <div className="border-t border-white/10" />    
+      117              </div>                                            
+      118            </div>                                              
+      119                                                                
+      120 -          {/* Bottom bar — info + language */}                
+      120 +          {/* Bottom bar — info + language,                   
+          +pinned to bottom with clear separation */}                    
+      121            <div                                                
+      122 -            className={`max-w-5xl mx-auto w-full              
+          -flex flex-col md:flex-row md:items-center md:justify-between  
+          -gap-6 transition-all duration-500 ${                          
+      122 +            className={`max-w-5xl mx-auto w-full              
+          +border-t border-white/10 pt-8 mt-auto                         
+          +flex flex-col md:flex-row md:items-center md:justify-between  
+          +gap-6 transition-all duration-500 ${                          
+      123                isMenuOpen                                      
+      124                  ? "opacity-100 translate-y-0"                 
+      125                  : "opacity-0 translate-y-4"                   
+
+● Bash(cd /c/Users/HP/Desktop/amda-f && npm run build 2>&1 | tail -5)
+  ⎿    └ other shared chunks (total)          1.99 kB
+
+
+     ○  (Static)  prerendered as static content
+  ⎿  (timeout 2m)
+
+● Build clean. Here's what changed:
+
+  - Removed the duplicate closing border-t after the last nav link — the bottom
+  bar now owns its own border-t border-white/10 which creates clear visual
+  separation between the nav links zone and the info/language zone
+  - mt-auto on the bottom bar — pushes it to the actual bottom of the screen,
+  away from the nav links. No more cramped spacing
+  - pt-8 above the bottom bar border — proper breathing room between the line
+  and the content
+  - pb-12 on the container — slightly more generous bottom padding
+
+  The nav links float centered in the middle of the screen. The bottom bar with
+  email + location + language pills sits anchored at the bottom, separated by
+  its own border line with proper space above it. Two distinct zones, no
+  collision.
+
+✻ Worked for 1m 18s
+
+> back to contact and budget do we even go lower then 10k  
+
+● Good call — for a premium agency with project pricing at £6K–£80K and
+  retainers from £5K/month (per your services page), sub-10k signals budget
+  work. Want me to drop it and start at 10k? Something like:
+
+  10k – 25k · 25k – 50k · 50k – 100k · 100k +
+
+  Or shift the whole range up?
+
+> nono keep that shit, what i think isnt nessesery is i agree to temrs      
+  instead we put txt ? ask skills                                           
+
+● Per the skill — "avoid predictable patterns, cookie-cutter design". A checkbox
+   with "I agree to the Privacy Policy" is template garbage. Every form on the
+  internet has it.
+
+  Premium approach: just a subtle text line near the submit button — something
+  like "By submitting, you agree to our Privacy Policy" with Privacy Policy as a
+   link. No checkbox. Cleaner, still legally covered (GDPR-wise, form submission
+   = consent when notice is present). That's how the premium agencies do it.
+
+  Want me to swap it?
+
+> yea do that 
+
+● Read 1 file (ctrl+o to expand)
+
+● Update(components\Contact.tsx)
+  ⎿  Added 7 lines, removed 11 lines
+      155            </div>                                              
+      156                                                                
+      157            {/* Submit */}                                      
+      158 -          <div className="border-t border-white/10 pt-16      
+          -md:pt-20 flex flex-col md:flex-row md:items-center            
+          - md:justify-between gap-8">                                   
+      159 -            <div className="flex items-center gap-3">         
+      160 -              <input                                          
+      161 -                type="checkbox"                               
+      162 -                id="privacy"                                  
+      163 -                className="w-4 h-4 rounded border-white/10    
+          -bg-transparent accent-white cursor-pointer"                   
+      164 -              />                                              
+      165 -              <label htmlFor="privacy" className="text-sm     
+          -text-gray-600 cursor-pointer select-none">                    
+      166 -                I agree to the Privacy Policy                 
+      167 -              </label>                                        
+      168 -            </div>                                            
+      158 +          <div className="border-t border-white/10 pt-16      
+          +md:pt-20 flex flex-col md:flex-row md:items-end               
+          + md:justify-between gap-8">                                   
+      159 +            <p className="text-sm text-gray-700 max-w-xs      
+          +leading-relaxed">                                             
+      160 +              By submitting, you agree to our{' '}            
+      161 +              <Link href="/privacy" className="text-gray-500  
+          +hover:text-white transition-colors underline                  
+          +underline-offset-4 decoration-white/20">                      
+      162 +                Privacy Policy                                
+      163 +              </Link>.                                        
+      164 +            </p>                                              
+      165              <button                                           
+      166                type="submit"                                   
+      167                className="group inline-flex items-center gap-4 
+            bg-white text-black px-12 py-5 rounded-full font-bold        
+           text-sm uppercase tracking-widest hover:scale-105             
+           transition-transform"                                         
+
+● Now I need to add the Link import since it wasn't imported before.
+
+● Read 1 file (ctrl+o to expand)
+
+● Update(components\Contact.tsx)
+  ⎿  Added 1 line
+      1  "use client";                                                   
+      2                                                                  
+      3  import React, { useState } from 'react';                        
+      4 +import Link from 'next/link';                                   
+      5  import { ArrowUpRight } from 'lucide-react';                    
+      6                                                                  
+      7  export const Contact: React.FC = () => {                        
+
+● Bash(cd /c/Users/HP/Desktop/amda-f && npm run build 2>&1 | tail -5)
+  ⎿    └ other shared chunks (total)          1.99 kB
+
+
+     ○  (Static)  prerendered as static content
+  ⎿  (timeout 2m)
+
+● Done. Checkbox + label gone. Replaced with a subtle text line: "By submitting,
+   you agree to our Privacy Policy." — text-gray-700, Privacy Policy is an
+  underlined link with underline-offset-4 decoration-white/20 that brightens on
+  hover. Sits bottom-left, button sits bottom-right. Clean.
+
+✻ Cogitated for 1m 17s
+
+> ok now 2 things, work and homepage and works (itself), we need to talk to 
+   skills because this premium shit we need to have videos on like alot of  
+  agencies work so u need to talk to him lets first handle work , then work 
+   it self (per project) then homepage, first work check with him what we   
+  are doing and how                                                         
+
+● Let me read the current Work page and check with the skill.
+
+● Searched for 1 pattern, read 4 files (ctrl+o to expand)
+
+● OK. Here's the full skill audit on the Work page + Case Study:
+
+  ---
+  Skill Audit — Work Page
+
+  Problems per the skill:
+
+  1. Image cards with rounded-[2.5rem] grey backgrounds — same generic card
+  pattern we killed everywhere else. bg-brand-gray border border-white/5 — grey 
+  noise.
+  2. Stock Unsplash photos — "NEVER use generic AI-generated aesthetics". Stock 
+  photos of laptops and offices are the visual equivalent of AI slop. For a real
+   agency, these should be actual project screenshots/videos. Since you don't
+  have real assets yet, we need a placeholder system that doesn't look fake.
+  3. The grid layout — first item spans 2 cols, rest are 4:3. It's the standard
+  Dribbble portfolio grid. "Avoid predictable layouts and component patterns."
+  4. Category filter pills — functional but currently sitting in a header row.
+  Not terrible but doesn't match our architectural system.
+  5. No video — you specifically mentioned wanting videos like premium agencies
+  use. Right now it's just static images. Premium agencies (Basic/Agency,
+  Locomotive, Aristide) use video thumbnails that autoplay on hover — that's the
+   standard.
+  6. Page header — still old style (text-8xl without label above, max-w-7xl
+  instead of 5xl, px-4 md:px-8 instead of px-6 md:px-10). Doesn't match our 
+  system.
+  7. All projects link to /case-study — single hardcoded case study page, not
+  dynamic routes.
+
+  Skill Audit — Case Study Page
+
+  1. rounded-[2.5rem] everywhere — hero image, gallery images. Killed this on
+  every other page.
+  2. Grayscale stock photos — same issue.
+  3. w-12 h-1 bg-white/20 rounded-full — decorative line under each heading.
+  Generic divider pattern.
+  4. "Glassmorphism" reference — cringe placeholder content.
+  5. No video anywhere — for a case study, this is where video shines: project
+  walkthroughs, UI demos, motion design.
+  6. Not using our architectural system — no numbered rows, no consistent 
+  spacing, different padding values.
+
+  ---
+  What I'd recommend (per the skill):
+
+  Work page:
+  - Rebuild to our architectural system — label above, massive heading,
+  max-w-5xl, px-6 md:px-10
+  - Projects as full-width architectural rows (like Services) — numbered, with
+  video/image on one side, info on the other
+  - Each project supports a video field — autoplay muted loop on hover (or on
+  mobile, just plays). Falls back to image if no video.
+  - Dynamic routes: /work/[slug] instead of one hardcoded /case-study
+  - Kill the category filter for now (4 projects don't need filtering)
+
+  Case Study page:
+  - Rebuild as /work/[slug]/page.tsx with dynamic data
+  - Our architectural system: numbered sections, border separators, massive
+  heading
+  - Hero supports video or image
+  - Gallery supports mix of video + images
+  - Kill rounded corners, grayscale hover gimmick, decorative dividers
+
+  Video approach:
+  - Project type gets a video?: string field
+  - Thumbnail shows image by default, on hover swaps to <video autoPlay muted 
+  loop playsInline>
+  - For now we use placeholder videos or just leave the field empty — the system
+   is ready for when you have real assets
+
+  Want me to build it this way? And — do you have any real project
+  content/videos, or should I keep the placeholder structure but make it
+  video-ready?
+
+✻ Brewed for 59s
+
+> put placeholders and few projects (ask him how much is top, we have       
+  around 5-6 we are ready to display)                                       
+  do everything he recommands                                               
+
+● Per the skill — 5–6 is the sweet spot for a premium agency. Enough to show
+  range, not so many it feels like a directory. Going with 5.
+
+● First, let me set up the shared project data with video support.
+
+● Write(data\projects.ts)
+  ⎿  Wrote 1 lines to data\projects.ts
+     export interface ProjectData {
+       slug: string;
+       num: string;
+       title: string;
+       client: string;
+       category: string;
+       year: string;
+       thumbnail: string;
+       video?: string; // autoplay on hover — add real video URLs when 
+     ready
+       description: string;
+
+● Now rebuild the Work component.
+
+● Write(components\Work.tsx)
+  ⎿  Added 89 lines, removed 93 lines
+        1  "use client";                                                 
+        2                                                                
+        3 -import React, { useState } from 'react';                      
+        3 +import React, { useState, useRef } from 'react';              
+        4  import Link from 'next/link';                                 
+        5 -import { Project } from '../types';                           
+        5  import { ArrowUpRight } from 'lucide-react';                  
+        6 +import { projects } from '@/data/projects';                   
+        7                                                                
+        8 -const projects: Project[] = [                                 
+        9 -  {                                                           
+       10 -    id: '1',                                                  
+       11 -    title: 'FinTech Revolution',                              
+       12 -    client: 'NovaBank',                                       
+       13 -    category: 'Development',                                  
+       14 -    image: 'https://images.unsplash.com/photo-1556742049-0cfe 
+          -d4f7a07d?q=80&w=2670&auto=format&fit=crop',                   
+       15 -    description: 'Banking overhaul.'                          
+       16 -  },                                                          
+       17 -  {                                                           
+       18 -    id: '2',                                                  
+       19 -    title: 'Minimalist E-Comm',                               
+       20 -    client: 'Aura Home',                                      
+       21 -    category: 'Design',                                       
+       22 -    image: 'https://images.unsplash.com/photo-1441986300917-6 
+          -4674bd600d8?q=80&w=2670&auto=format&fit=crop',                
+       23 -    description: 'Shopify Plus experience.'                   
+       24 -  },                                                          
+       25 -  {                                                           
+       26 -    id: '3',                                                  
+       27 -    title: 'Market Penetration',                              
+       28 -    client: 'TechFlow',                                       
+       29 -    category: 'Strategy',                                     
+       30 -    image: 'https://images.unsplash.com/photo-1519389950473-4 
+          -7ba0277781c?q=80&w=2670&auto=format&fit=crop',                
+       31 -    description: 'GTM SaaS Strategy.'                         
+       32 -  },                                                          
+       33 -  {                                                           
+       34 -    id: '4',                                                  
+       35 -    title: 'Health AI App',                                   
+       36 -    client: 'Vitality',                                       
+       37 -    category: 'Development',                                  
+       38 -    image: 'https://images.unsplash.com/photo-1576091160399-1 
+          -12ba8d25d1d?q=80&w=2670&auto=format&fit=crop',                
+       39 -    description: 'Telemedicine platform.'                     
+       40 -  }                                                           
+       41 -];                                                            
+        8 +export const Work: React.FC = () => {                         
+        9 +  return (                                                    
+       10 +    <section className="bg-brand-black px-6 md:px-10 pb-32">  
+       11 +      <div className="max-w-5xl mx-auto">                     
+       12 +        {projects.map((project) => (                          
+       13 +          <ProjectRow key={project.slug} project={typeof      
+          +project === 'object' ? project : project} />                  
+       14 +        ))}                                                   
+       15 +        <div className="border-t border-white/10" />          
+       16 +      </div>                                                  
+       17 +    </section>                                                
+       18 +  );                                                          
+       19 +};                                                            
+       20                                                                
+       21 -const categories = ['All', 'Design', 'Development',           
+          -'Strategy'];                                                  
+       21 +function ProjectRow({ project }: { project: typeof            
+          +projects[number] }) {                                         
+       22 +  const [isHovered, setIsHovered] = useState(false);          
+       23 +  const videoRef = useRef<HTMLVideoElement>(null);            
+       24                                                                
+       25 -export const Work: React.FC = () => {                         
+       26 -  const [filter, setFilter] = useState('All');                
+       25 +  const handleMouseEnter = () => {                            
+       26 +    setIsHovered(true);                                       
+       27 +    if (videoRef.current) {                                   
+       28 +      videoRef.current.play().catch(() => {});                
+       29 +    }                                                         
+       30 +  };                                                          
+       31                                                                
+       32 -  const filteredProjects = filter === 'All'                   
+       33 -    ? projects                                                
+       34 -    : projects.filter(p => p.category === filter);            
+       32 +  const handleMouseLeave = () => {                            
+       33 +    setIsHovered(false);                                      
+       34 +    if (videoRef.current) {                                   
+       35 +      videoRef.current.pause();                               
+       36 +      videoRef.current.currentTime = 0;                       
+       37 +    }                                                         
+       38 +  };                                                          
+       39                                                                
+       40    return (                                                    
+       41 -    <section className="bg-brand-black py-24 px-4 md:px-8     
+          -border-t border-white/5">                                     
+       42 -      <div className="max-w-7xl mx-auto">                     
+       43 -        <div className="flex flex-col md:flex-row             
+          -justify-between items-start md:items-center mb-12 gap-8">     
+       44 -          <h2 className="font-display text-4xl md:text-5xl    
+          -font-bold">Selected Work</h2>                                 
+       45 -                                                              
+       46 -          <div className="flex flex-wrap gap-2">              
+       47 -            {categories.map(cat => (                          
+       48 -              <button                                         
+       49 -                key={cat}                                     
+       50 -                onClick={() => setFilter(cat)}                
+       51 -                className={`px-4 py-1.5 rounded-full text-xs  
+          -uppercase tracking-wider transition-all duration-300 border   
+          -${                                                            
+       52 -                  filter === cat                              
+       53 -                    ? 'bg-white text-black border-white'      
+       54 -                    : 'bg-transparent text-gray-500           
+          -border-white/10 hover:border-white/30 hover:text-white'       
+       55 -                }`}                                           
+       56 -              >                                               
+       57 -                {cat}                                         
+       58 -              </button>                                       
+       59 -            ))}                                               
+       41 +    <Link                                                     
+       42 +      href={`/work/${project.slug}`}                          
+       43 +      onMouseEnter={handleMouseEnter}                         
+       44 +      onMouseLeave={handleMouseLeave}                         
+       45 +      className="group block border-t border-white/10 py-12   
+          +md:py-16 transition-all duration-300"                         
+       46 +    >                                                         
+       47 +      <div className="flex flex-col gap-8">                   
+       48 +        {/* Top: number + title + arrow */}                   
+       49 +        <div className="flex items-start gap-6 md:gap-12">    
+       50 +          <span className="text-[10px] uppercase              
+          +tracking-[0.2em] text-gray-700 w-12 shrink-0 pt-3             
+          +transition-colors duration-300 group-hover:text-gray-500">    
+       51 +            {project.num}                                     
+       52 +          </span>                                             
+       53 +          <div className="flex-1">                            
+       54 +            <div className="flex items-start justify-between  
+          +gap-8">                                                       
+       55 +              <div>                                           
+       56 +                <h2 className="font-display text-4xl          
+          +md:text-6xl font-bold text-white mb-3 transition-all          
+          +duration-300 group-hover:translate-x-3">                      
+       57 +                  {project.title}                             
+       58 +                </h2>                                         
+       59 +                <div className="flex flex-wrap items-center   
+          +gap-4 text-sm text-gray-600 uppercase tracking-widest">       
+       60 +                  <span>{project.category}</span>             
+       61 +                  <span className="w-1 h-1 rounded-full       
+          +bg-gray-700" />                                               
+       62 +                  <span>{project.year}</span>                 
+       63 +                </div>                                        
+       64 +              </div>                                          
+       65 +              <div className="hidden md:flex w-12 h-12        
+          +rounded-full border border-white/10 items-center              
+          +justify-center shrink-0 mt-2 transition-all duration-300      
+          +group-hover:bg-white group-hover:border-white                 
+          +group-hover:text-black text-gray-700">                        
+       66 +                <ArrowUpRight size={20} />                    
+       67 +              </div>                                          
+       68 +            </div>                                            
+       69            </div>                                              
+       70          </div>                                                
+       71                                                                
+       72 -        <div className="grid grid-cols-1 md:grid-cols-2       
+          -gap-4">                                                       
+       73 -          {filteredProjects.map((project, index) => (         
+       74 -            <Link                                             
+       75 -              key={project.id}                                
+       76 -              href="/case-study"                              
+       77 -              className={`group relative rounded-[2.5rem]     
+          -overflow-hidden bg-brand-gray border border-white/5           
+          -cursor-pointer isolate transform-gpu block ${                 
+       78 -                index === 0 && filter === 'All' ?             
+          -'md:col-span-2 aspect-[21/9]' : 'aspect-[4/3]'                
+       72 +        {/* Media: image/video thumbnail */}                  
+       73 +        <div className="flex items-start gap-6 md:gap-12">    
+       74 +          <div className="w-12 shrink-0 hidden md:block" />   
+       75 +          <div className="flex-1 relative aspect-[16/9]       
+          +overflow-hidden bg-brand-gray">                               
+       76 +            <img                                              
+       77 +              src={project.thumbnail}                         
+       78 +              alt={project.title}                             
+       79 +              className={`absolute inset-0 w-full h-full      
+          +object-cover transition-all duration-700 ${                   
+       80 +                isHovered ? 'scale-105' : 'scale-100'         
+       81                }`}                                             
+       82 -            >                                                 
+       83 -              <img                                            
+       84 -                src={project.image}                           
+       85 -                alt={project.title}                           
+       86 -                className="absolute inset-0 w-full h-full     
+          -object-cover transition-all duration-700 grayscale            
+          -group-hover:grayscale-0 scale-100 group-hover:scale-105       
+          -rounded-[2.5rem]"                                             
+       82 +            />                                                
+       83 +            {project.video && (                               
+       84 +              <video                                          
+       85 +                ref={videoRef}                                
+       86 +                src={project.video}                           
+       87 +                muted                                         
+       88 +                loop                                          
+       89 +                playsInline                                   
+       90 +                className={`absolute inset-0 w-full h-full    
+          +object-cover transition-opacity duration-500 ${               
+       91 +                  isHovered ? 'opacity-100' : 'opacity-0'     
+       92 +                }`}                                           
+       93                />                                              
+       94 -              <div className="absolute inset-0 bg-black/40    
+          -group-hover:bg-black/20 transition-colors rounded-[2.5rem]"   
+          -/>                                                            
+       94 +            )}                                                
+       95 +          </div>                                              
+       96 +        </div>                                                
+       97                                                                
+       98 -              <div className="absolute top-6 right-6          
+          -opacity-0 group-hover:opacity-100 transition-all              
+          -duration-300">                                                
+       99 -                <div className="w-12 h-12 bg-white            
+          -rounded-full flex items-center justify-center text-black">    
+      100 -                  <ArrowUpRight size={24} />                  
+      101 -                </div>                                        
+      102 -              </div>                                          
+      103 -                                                              
+      104 -              <div className="absolute bottom-0 left-0 p-10   
+          -w-full bg-gradient-to-t from-black/90 to-transparent          
+          -rounded-b-[2.5rem]">                                          
+      105 -                <div className="flex items-center gap-3       
+          -mb-2">                                                        
+      106 -                  <span className="text-gray-400 text-xs      
+          -uppercase tracking-wide">{project.client}</span>              
+      107 -                  <span className="w-1.5 h-1.5 rounded-full   
+          -bg-gray-500"></span>                                          
+      108 -                  <span className="text-gray-400 text-xs      
+          -uppercase tracking-wide">{project.category}</span>            
+      109 -                </div>                                        
+      110 -                <h3 className="font-display text-3xl          
+          -md:text-4xl font-bold mb-2 text-white">{project.title}</h3>   
+      111 -                <p className="text-gray-400 text-sm hidden    
+          -group-hover:block transition-all">{project.description}</p>   
+      112 -              </div>                                          
+      113 -            </Link>                                           
+      114 -          ))}                                                 
+       98 +        {/* Description */}                                   
+       99 +        <div className="flex items-start gap-6 md:gap-12">    
+      100 +          <div className="w-12 shrink-0 hidden md:block" />   
+      101 +          <p className="text-gray-500 text-lg leading-relaxed 
+          + max-w-2xl">                                                  
+      102 +            {project.description}                             
+      103 +          </p>                                                
+      104          </div>                                                
+      105        </div>                                                  
+      106 -    </section>                                                
+      106 +    </Link>                                                   
+      107    );                                                          
+      108 -};                                                            
+      108 +}                                                             
+
+● Now update the Work page.
+
+● Write(app\work\page.tsx)
+  ⎿  Added 10 lines, removed 5 lines
+       4  export default function WorkPage() {                           
+       5    return (                                                     
+       6      <div className="animate-in fade-in duration-500 pt-32">    
+       7 -      <div className="px-4 md:px-8 max-w-7xl mx-auto">         
+       8 -        <h1 className="font-display text-5xl md:text-8xl       
+         -font-bold mb-6">Selected Work.</h1>                            
+       9 -        <p className="text-gray-400 max-w-2xl text-lg">        
+      10 -          A curated collection of our most impactful projects. 
+      11 -        </p>                                                   
+       7 +      <div className="px-6 md:px-10 max-w-5xl mx-auto">        
+       8 +        <div className="mb-40 mt-16 md:mt-20">                 
+       9 +          <span className="text-xs uppercase tracking-[0.3em]  
+         +text-gray-500 mb-6 block">Work</span>                          
+      10 +          <h1 className="font-display text-6xl md:text-8xl     
+         +lg:text-9xl font-bold leading-[0.9] tracking-tight mb-12">     
+      11 +            Selected<br />projects.                            
+      12 +          </h1>                                                
+      13 +          <p className="text-xl text-gray-400 leading-relaxed  
+         +max-w-3xl">                                                    
+      14 +            A curated collection of our most impactful work.   
+         +Strategy, design, and development for ambitious companies.     
+      15 +          </p>                                                 
+      16 +        </div>                                                 
+      17        </div>                                                   
+      18        <Work />                                                 
+      19        <Footer />                                               
+
+● Now build the dynamic case study page.
+
+● Read 1 file (ctrl+o to expand)
+
+● Bash(mkdir -p "C:/Users/HP/Desktop/amda-f/app/work/[slug]")
+  ⎿  Done
+
+● Write(app\work\[slug]\page.tsx)
+  ⎿  Wrote 1 lines to app\work\[slug]\page.tsx
+     import { notFound } from 'next/navigation';
+     import { projects } from '@/data/projects';
+     import { CaseStudyContent } from '@/components/CaseStudy';
+     import { Footer } from '@/components/Footer';
+
+     // Generate static params for all projects
+     export function generateStaticParams() {
+       return projects.map((project) => ({
+         slug: project.slug,
+       }));
+
+● Now rebuild the CaseStudy component to use our architectural system.
+
+● Write(components\CaseStudy.tsx)
+  ⎿  Added 139 lines, removed 64 lines
+        1 +"use client";                                                 
+        2 +                                                              
+        3  import React from 'react';                                    
+        4  import Link from 'next/link';                                 
+        5 -import { ArrowLeft } from 'lucide-react';                     
+        5 +import { ArrowLeft, ArrowUpRight } from 'lucide-react';       
+        6 +import { ProjectData, projects } from '@/data/projects';      
+        7                                                                
+        8 -export const CaseStudy: React.FC = () => {                    
+        8 +export const CaseStudyContent: React.FC<{ project:            
+          +ProjectData }> = ({ project }) => {                           
+        9 +  // Find next project for navigation                         
+       10 +  const currentIndex = projects.findIndex((p) => p.slug ===   
+          +project.slug);                                                
+       11 +  const nextProject = projects[(currentIndex + 1) %           
+          +projects.length];                                             
+       12 +                                                              
+       13    return (                                                    
+       14 -    <div className="bg-brand-black min-h-screen text-white    
+          -pb-20 px-4 md:px-8">                                          
+       14 +    <div className="bg-brand-black min-h-screen text-white px-
+          +6 md:px-10 pb-32">                                            
+       15        <div className="max-w-5xl mx-auto">                     
+       16                                                                
+       17 -        {/* Header */}                                        
+       18 -        <Link href="/work" className="flex items-center gap-2 
+          - text-gray-500 hover:text-white mb-12 transition-colors       
+          -uppercase text-xs tracking-widest">                           
+       19 -          <ArrowLeft size={16} /> Back to Work                
+       17 +        {/* Back link */}                                     
+       18 +        <Link                                                 
+       19 +          href="/work"                                        
+       20 +          className="inline-flex items-center gap-2           
+          +text-gray-700 hover:text-white transition-colors uppercase    
+          +text-[10px] tracking-widest mb-16"                            
+       21 +        >                                                     
+       22 +          <ArrowLeft size={14} /> Back to Work                
+       23          </Link>                                               
+       24                                                                
+       25 -        <div className="mb-20">                               
+       26 -          <h1 className="font-display text-5xl md:text-8xl    
+          -font-bold mb-6">FinTech Revolution</h1>                       
+       27 -          <div className="flex flex-wrap gap-4 text-sm        
+          -text-gray-400 uppercase tracking-widest border-y              
+          -border-white/10 py-6">                                        
+       28 -            <span>Client: NovaBank</span>                     
+       29 -            <span className="hidden md:inline">•</span>       
+       30 -            <span>Services: Strategy, Development, UX</span>  
+       31 -            <span className="hidden md:inline">•</span>       
+       32 -            <span>Year: 2024</span>                           
+       25 +        {/* Header */}                                        
+       26 +        <div className="mb-40">                               
+       27 +          <span className="text-xs uppercase tracking-[0.3em] 
+          + text-gray-600 mb-6 block">{project.category}</span>          
+       28 +          <h1 className="font-display text-6xl md:text-8xl    
+          +lg:text-9xl font-bold leading-[0.9] tracking-tight mb-12">    
+       29 +            {project.title}                                   
+       30 +          </h1>                                               
+       31 +          <p className="text-xl text-gray-400 leading-relaxed 
+          + max-w-3xl mb-16">                                            
+       32 +            {project.description}                             
+       33 +          </p>                                                
+       34 +                                                              
+       35 +          {/* Meta row */}                                    
+       36 +          <div className="border-t border-white/10 pt-8 flex  
+          +flex-wrap gap-12 md:gap-20">                                  
+       37 +            <div>                                             
+       38 +              <span className="text-[10px] uppercase          
+          +tracking-[0.2em] text-gray-700 block mb-2">Client</span>      
+       39 +              <span className="text-sm                        
+          +text-white">{project.client}</span>                           
+       40 +            </div>                                            
+       41 +            <div>                                             
+       42 +              <span className="text-[10px] uppercase          
+          +tracking-[0.2em] text-gray-700 block mb-2">Year</span>        
+       43 +              <span className="text-sm                        
+          +text-white">{project.year}</span>                             
+       44 +            </div>                                            
+       45 +            <div>                                             
+       46 +              <span className="text-[10px] uppercase          
+          +tracking-[0.2em] text-gray-700 block mb-2">Services</span>    
+       47 +              <span className="text-sm                        
+          +text-white">{project.services.join(', ')}</span>              
+       48 +            </div>                                            
+       49            </div>                                              
+       50          </div>                                                
+       51                                                                
+       52 -        {/* Hero Image */}                                    
+       53 -        <div className="w-full h-[60vh] bg-gray-900 mb-20     
+          -overflow-hidden relative rounded-[2.5rem]">                   
+       54 -          <img                                                
+       55 -            src="https://images.unsplash.com/photo-1556742049 
+          --0cfed4f7a07d?q=80&w=2670&auto=format&fit=crop"               
+       56 -            alt="Project Hero"                                
+       57 -            className="w-full h-full object-cover grayscale"  
+       58 -          />                                                  
+       52 +        {/* Hero media */}                                    
+       53 +        <div className="relative aspect-[16/9]                
+          +overflow-hidden mb-40">                                       
+       54 +          {project.video ? (                                  
+       55 +            <video                                            
+       56 +              src={project.video}                             
+       57 +              autoPlay                                        
+       58 +              muted                                           
+       59 +              loop                                            
+       60 +              playsInline                                     
+       61 +              className="absolute inset-0 w-full h-full       
+          +object-cover"                                                 
+       62 +            />                                                
+       63 +          ) : (                                               
+       64 +            <img                                              
+       65 +              src={project.thumbnail}                         
+       66 +              alt={project.title}                             
+       67 +              className="absolute inset-0 w-full h-full       
+          +object-cover"                                                 
+       68 +            />                                                
+       69 +          )}                                                  
+       70          </div>                                                
+       71                                                                
+       72 -        {/* Content Grid */}                                  
+       73 -        <div className="grid grid-cols-1 md:grid-cols-12      
+          -gap-12 mb-20">                                                
+       74 -                                                              
+       75 -          {/* The Problem */}                                 
+       76 -          <div className="md:col-span-4">                     
+       77 -            <h2 className="text-2xl font-display font-bold    
+          -mb-4 text-white">The Problem</h2>                             
+       78 -            <div className="w-12 h-1 bg-white/20 mb-6         
+          -rounded-full"></div>                                          
+       72 +        {/* Challenge */}                                     
+       73 +        <div className="border-t border-white/10 py-16        
+          +md:py-20">                                                    
+       74 +          <div className="flex flex-col md:flex-row gap-6     
+          +md:gap-16">                                                   
+       75 +            <div className="text-[10px] uppercase             
+          +tracking-[0.2em] text-gray-700 w-40 shrink-0 flex             
+          +items-center gap-3 md:pt-1">                                  
+       76 +              <span className="text-gray-700">01</span>       
+          +Challenge                                                     
+       77 +            </div>                                            
+       78 +            <div className="flex-1">                          
+       79 +              <p className="text-gray-400 text-lg             
+          +leading-relaxed max-w-2xl">                                   
+       80 +                {project.challenge}                           
+       81 +              </p>                                            
+       82 +            </div>                                            
+       83            </div>                                              
+       84 -          <div className="md:col-span-8">                     
+       85 -            <p className="text-gray-400 text-lg               
+          -leading-relaxed">                                             
+       86 -              NovaBank was struggling with a legacy           
+          -infrastructure that alienated younger demographics. Their     
+          -mobile experience was fragmented, slow, and lacked the        
+          -intuitive flow expected by digital-native users. They needed  
+          -a complete overhaul without disrupting service for 2M+        
+          -existing customers.                                           
+       87 -            </p>                                              
+       88 -          </div>                                              
+       84 +        </div>                                                
+       85                                                                
+       86 -          {/* Divider */}                                     
+       87 -          <div className="md:col-span-12 border-b             
+          -border-white/10"></div>                                       
+       88 -                                                              
+       89 -          {/* The Solution */}                                
+       90 -          <div className="md:col-span-4">                     
+       91 -            <h2 className="text-2xl font-display font-bold    
+          -mb-4 text-white">The Solution</h2>                            
+       92 -             <div className="w-12 h-1 bg-white/20 mb-6        
+          -rounded-full"></div>                                          
+       86 +        {/* Solution */}                                      
+       87 +        <div className="border-t border-white/10 py-16        
+          +md:py-20">                                                    
+       88 +          <div className="flex flex-col md:flex-row gap-6     
+          +md:gap-16">                                                   
+       89 +            <div className="text-[10px] uppercase             
+          +tracking-[0.2em] text-gray-700 w-40 shrink-0 flex             
+          +items-center gap-3 md:pt-1">                                  
+       90 +              <span className="text-gray-700">02</span>       
+          +Solution                                                      
+       91 +            </div>                                            
+       92 +            <div className="flex-1">                          
+       93 +              <p className="text-gray-400 text-lg             
+          +leading-relaxed max-w-2xl">                                   
+       94 +                {project.solution}                            
+       95 +              </p>                                            
+       96 +            </div>                                            
+       97            </div>                                              
+       98 -          <div className="md:col-span-8">                     
+       99 -            <p className="text-gray-400 text-lg               
+          -leading-relaxed">                                             
+      100 -              We proposed a headless architecture decoupling  
+          -the frontend from the legacy banking core. This allowed us to 
+          - build a lightning-fast React Native mobile app and a Next.js 
+          - web dashboard. We implemented a "Glassmorphism" design       
+          -system to convey transparency and modernity.                  
+      101 -            </p>                                              
+      102 -          </div>                                              
+       98 +        </div>                                                
+       99                                                                
+      100 -           {/* Divider */}                                    
+      101 -          <div className="md:col-span-12 border-b             
+          -border-white/10"></div>                                       
+      102 -                                                              
+      103 -           {/* The Results */}                                
+      104 -           <div className="md:col-span-4">                    
+      105 -            <h2 className="text-2xl font-display font-bold    
+          -mb-4 text-white">The Results</h2>                             
+      106 -             <div className="w-12 h-1 bg-white/20 mb-6        
+          -rounded-full"></div>                                          
+      100 +        {/* Gallery */}                                       
+      101 +        {project.gallery.length > 0 && (                      
+      102 +          <div className="my-20 flex flex-col gap-6">         
+      103 +            {project.gallery.map((item, idx) => (             
+      104 +              <div key={idx} className="relative              
+          +aspect-[16/9] overflow-hidden">                               
+      105 +                {item.type === 'video' ? (                    
+      106 +                  <video                                      
+      107 +                    src={item.src}                            
+      108 +                    autoPlay                                  
+      109 +                    muted                                     
+      110 +                    loop                                      
+      111 +                    playsInline                               
+      112 +                    className="absolute inset-0 w-full h-full 
+          + object-cover"                                                
+      113 +                  />                                          
+      114 +                ) : (                                         
+      115 +                  <img                                        
+      116 +                    src={item.src}                            
+      117 +                    alt={`${project.title} — ${idx + 1}`}     
+      118 +                    className="absolute inset-0 w-full h-full 
+          + object-cover"                                                
+      119 +                  />                                          
+      120 +                )}                                            
+      121 +              </div>                                          
+      122 +            ))}                                               
+      123            </div>                                              
+      124 -          <div className="md:col-span-8">                     
+      125 -            <ul className="grid grid-cols-1 md:grid-cols-2    
+          -gap-4">                                                       
+      126 -              {['User Journey Mapping', 'Information          
+          -Architecture', 'React Native Development', 'Design System     
+          -Creation', 'API Middleware Layer', 'Accessibility             
+          -Audit'].map((item) => (                                       
+      127 -                <li key={item} className="flex items-center   
+          -gap-3 text-gray-400">                                         
+      128 -                  <div className="w-1.5 h-1.5 bg-white        
+          -rounded-full"></div>                                          
+      129 -                  {item}                                      
+      130 -                </li>                                         
+      124 +        )}                                                    
+      125 +                                                              
+      126 +        {/* Results */}                                       
+      127 +        <div className="border-t border-white/10 py-16        
+          +md:py-20">                                                    
+      128 +          <div className="flex flex-col md:flex-row gap-6     
+          +md:gap-16">                                                   
+      129 +            <div className="text-[10px] uppercase             
+          +tracking-[0.2em] text-gray-700 w-40 shrink-0 flex             
+          +items-center gap-3 md:pt-1">                                  
+      130 +              <span className="text-gray-700">03</span>       
+          +Results                                                       
+      131 +            </div>                                            
+      132 +            <div className="flex-1 grid grid-cols-1           
+          +md:grid-cols-3 gap-12">                                       
+      133 +              {project.results.map((result, idx) => (         
+      134 +                <div key={idx}>                               
+      135 +                  <span className="font-display text-4xl      
+          +md:text-5xl font-bold text-white block mb-3">                 
+      136 +                    {result.value}                            
+      137 +                  </span>                                     
+      138 +                  <span className="text-sm text-gray-600      
+          +uppercase tracking-widest">                                   
+      139 +                    {result.label}                            
+      140 +                  </span>                                     
+      141 +                </div>                                        
+      142                ))}                                             
+      143 -            </ul>                                             
+      143 +            </div>                                            
+      144            </div>                                              
+      145          </div>                                                
+      146 +        <div className="border-t border-white/10" />          
+      147                                                                
+      148 -        {/* Gallery */}                                       
+      149 -        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 
+          - mb-20">                                                      
+      150 -           <img src="https://images.unsplash.com/photo-161607 
+          -7168079-7e09a677fb2c?q=80&w=2670&auto=format&fit=crop"        
+          -className="w-full h-auto grayscale hover:grayscale-0          
+          -transition-all duration-500 rounded-[2.5rem]" />              
+      151 -           <img src="https://images.unsplash.com/photo-155128 
+          -8049-bebda4e38f71?q=80&w=2670&auto=format&fit=crop"           
+          -className="w-full h-auto grayscale hover:grayscale-0          
+          -transition-all duration-500 rounded-[2.5rem]" />              
+      148 +        {/* Next project */}                                  
+      149 +        <div className="pt-32 md:pt-40">                      
+      150 +          <span className="text-[10px] uppercase              
+          +tracking-[0.2em] text-gray-700 block mb-8">Next               
+          +project</span>                                                
+      151 +          <Link                                               
+      152 +            href={`/work/${nextProject.slug}`}                
+      153 +            className="group flex items-center                
+          +justify-between"                                              
+      154 +          >                                                   
+      155 +            <h2 className="font-display text-5xl md:text-7xl  
+          +font-bold text-gray-600 group-hover:text-white transition-all 
+          + duration-300 group-hover:translate-x-3">                     
+      156 +              {nextProject.title}                             
+      157 +            </h2>                                             
+      158 +            <div className="w-12 h-12 rounded-full border     
+          +border-white/10 flex items-center justify-center shrink-0     
+          +transition-all duration-300 group-hover:bg-white              
+          +group-hover:border-white group-hover:text-black               
+          +text-gray-700">                                               
+      159 +              <ArrowUpRight size={20} />                      
+      160 +            </div>                                            
+      161 +          </Link>                                             
+      162          </div>                                                
+      163                                                                
+      164        </div>                                                  
+
+● Now let me clean up the old case-study route since we're using /work/[slug]
+  now.
+
+● Read 1 file (ctrl+o to expand)
+
+● Old case-study page references old CaseStudy export. Let me redirect it to
+  /work since we now use /work/[slug].
+
+● Write(app\case-study\page.tsx)
+  ⎿  Added 2 lines, removed 8 lines
+      1 -import { CaseStudy } from "@/components/CaseStudy";             
+      2 -import { Footer } from "@/components/Footer";                   
+      1 +import { redirect } from 'next/navigation';                     
+      2                                                                  
+      3  export default function CaseStudyPage() {                       
+      4 -  return (                                                      
+      5 -    <div className="animate-in fade-in duration-500 pt-32">     
+      6 -      <CaseStudy />                                             
+      7 -      <Footer />                                                
+      8 -    </div>                                                      
+      9 -  );                                                            
+      4 +  redirect('/work');                                            
+      5  }                                                               
+
+● Bash(cd /c/Users/HP/Desktop/amda-f && npm run build 2>&1)
+  ⎿  > am-digital-agency@0.0.0 build
+     > next build
+     … +21 lines (ctrl+o to expand)
+  ⎿  (timeout 2m)
+
+● Build clean. All 5 project routes generated: /work/novabank, /work/aura-home,
+  /work/techflow, /work/vitality, /work/meridian-property.
+
+● Here's everything that was built:
+
+  Shared project data (data/projects.ts):
+  - 5 projects: NovaBank, Aura Home, TechFlow, Vitality, Meridian
+  - Each has: slug, num, title, client, category, year, thumbnail, optional
+  video, description, services, challenge, solution, results (with metrics),
+  gallery (supports mix of image + video)
+  - Video field is commented out per project — uncomment and add real URLs when
+  ready
+
+  Work page (/work):
+  - Our architectural header (label + text-9xl + subtitle)
+  - Each project is a full-width row: numbered (01–05), title with
+  hover:translate-x-3, category + year meta, 16:9 media thumbnail, description
+  below
+  - Video on hover: image shows by default, if video field exists it autoplays
+  muted on hover and pauses on leave
+  - Arrow circle on the right that inverts on hover
+  - Links to /work/[slug]
+
+  Case study pages (/work/[slug]):
+  - Dynamic routes with generateStaticParams
+  - Back to Work link
+  - Architectural header: category label, massive title (text-9xl), description,
+   meta row (Client / Year / Services) with border separator
+  - Hero media: video or image, 16:9, no rounded corners
+  - Numbered architectural rows: 01 Challenge, 02 Solution
+  - Gallery: full-width images/videos stacked, no rounded corners, no grayscale
+  gimmick
+  - 03 Results: big bold metric values with labels
+  - Next project navigation at the bottom — links to the next case study with
+  hover animation
+
+  Cleaned up:
+  - Old /case-study route redirects to /work
+  - Killed category filter pills (5 projects don't need filtering)
+  - Killed rounded-[2.5rem], grey cards, grayscale hover, gradient overlays, 
+  stock photo grid
+
+  What's next — homepage?
+
+✻ Churned for 4m 29s
+
+> no first copact then check with skils is work + work (it self projects)   
+  ok                                                                        
+
+● Got it — let me verify both Work page and individual project pages against the
+   skill.
+
+● Read 5 files (ctrl+o to expand)
+
+● Skill Verification — Work Page + Case Study Pages
+
+  Work Page (/work)
+
+  1. Typography — "Distinctive, characterful. Clear hierarchy."
+  - Header: label text-xs + heading text-9xl + subtitle text-xl — strong 
+  hierarchy, matches system.
+  - Project rows: title text-4xl md:text-6xl, meta text-sm, description text-lg
+  — clear levels.
+  - Pass
+
+  2. Color & Theme — "Cohesive. Dominant colors with sharp accents."
+  - Black bg, white titles, gray-600/700 meta, gray-500 descriptions. Arrow
+  circle inverts to white on hover. Consistent.
+  - Pass
+
+  3. Motion — "Hover states that surprise. High-impact moments."
+  - Title group-hover:translate-x-3 — nudge on hover.
+  - Image scale-105 on hover — subtle zoom.
+  - Arrow circle fills white on hover.
+  - Video autoplay on hover — premium agency pattern.
+  - Pass
+
+  4. Spatial Composition — "Generous negative space."
+  - py-12 md:py-16 per project row, mb-40 header gap, gap-8 between
+  title/media/description.
+  - Pass
+
+  5. No generic patterns — "Avoid predictable layouts."
+  - No card grid, no rounded corners, no gradient overlays. Full-width
+  architectural rows with numbered labels. Video-ready.
+  - Pass
+
+  6. One flag: The typeof project === 'object' ? project : project on line 13 of
+   Work.tsx is dead code — does nothing. Minor cleanup.
+
+  ---
+  Case Study Pages (/work/[slug])
+
+  1. Typography
+  - Header text-9xl, numbered sections, results text-5xl bold. Clean hierarchy.
+  - Pass
+
+  2. Color & Theme
+  - Consistent black+white+gray system.
+  - Pass
+
+  3. Motion — "Use animations for effects. Staggered reveals."
+  - Issue: No entrance animations at all. The page just appears. Skill says "one
+   well-orchestrated page load with staggered reveals creates more delight." The
+   Work listing page has the page-level animate-in fade-in but the case study 
+  content has zero stagger or reveal animation on its sections.
+  - Needs fix
+
+  4. Spatial Composition
+  - Header mb-40, hero mb-40, sections py-16 md:py-20, gallery my-20, next 
+  project pt-32 md:pt-40. Generous and consistent.
+  - Pass
+
+  5. Backgrounds & Visual Details — "Create atmosphere and depth."
+  - Solid black throughout. For bold minimal this is fine per "Minimalist 
+  designs need restraint."
+  - Pass
+
+  6. Hover states — "Hover states that surprise."
+  - Next project link has hover:translate-x-3 + arrow fill — good.
+  - Back to Work link just changes color — could use arrow nudge.
+  - Needs fix
+
+  7. Consistency check:
+  - Gallery my-20 is tighter than other spacing (mb-40, py-20). Inconsistent.
+  - Gallery gap-6 between images — should it be more? For bold minimal, gap-6 is
+   fine between media items.
+  - Minor fix needed on gallery margin
+
+  ---
+  Fixes needed:
+
+  1. Dead code cleanup in Work.tsx
+  2. Case study: add hover nudge on Back to Work link
+  3. Case study: gallery spacing my-20 → my-40 to match the rhythm
+  4. Case study: stagger animation on sections
+
+  Want me to apply all these fixes?
+
+✻ Worked for 59s
+
+> ye 
+
+● Update(components\Work.tsx)
+  ⎿  Added 1 line, removed 1 line
+      10      <section className="bg-brand-black px-6 md:px-10 pb-32">   
+      11        <div className="max-w-5xl mx-auto">                      
+      12          {projects.map((project) => (                           
+      13 -          <ProjectRow key={project.slug} project={typeof       
+         -project === 'object' ? project : project} />                   
+      13 +          <ProjectRow key={project.slug} project={project} />  
+      14          ))}                                                    
+      15          <div className="border-t border-white/10" />           
+      16        </div>                                                   
+
+● Now fix the CaseStudy — back link hover, gallery spacing, and stagger
+  animations on sections.
+
+● Write(components\CaseStudy.tsx)
+  ⎿  Added 30 lines, removed 10 lines
+       6  import { ProjectData, projects } from '@/data/projects';       
+       7                                                                 
+       8  export const CaseStudyContent: React.FC<{ project: ProjectData 
+           }> = ({ project }) => {                                       
+       9 -  // Find next project for navigation                          
+       9    const currentIndex = projects.findIndex((p) => p.slug ===    
+          project.slug);                                                 
+      10    const nextProject = projects[(currentIndex + 1) %            
+          projects.length];                                              
+      11                                                                 
+     ...
+      17          {/* Back link */}                                      
+      18          <Link                                                  
+      19            href="/work"                                         
+      20 -          className="                                          
+         -inline-flex items-center gap-2 text-gray-700 hover:text-white  
+         -transition-colors uppercase text-[10px] tracking-widest mb-16" 
+      20 +          className="group                                     
+         +inline-flex items-center gap-2 text-gray-700 hover:text-white  
+         +transition-colors uppercase text-[10px] tracking-widest mb-16" 
+      21          >                                                      
+      22 -          <ArrowLeft size={14} /> Back to Work                 
+      22 +          <ArrowLeft size={14} className="transition-transform 
+         + duration-300 group-hover:-translate-x-1" /> Back to Work      
+      23          </Link>                                                
+      24                                                                 
+      25          {/* Header */}                                         
+      26 -        <div className="mb-40">                                
+      26 +        <div                                                   
+      27 +          className="mb-40 animate-in fade-in                  
+         +slide-in-from-bottom-4 duration-500"                           
+      28 +          style={{ animationDelay: '100ms', animationFillMode: 
+         + 'both' }}                                                     
+      29 +        >                                                      
+      30            <span className="text-xs uppercase tracking-[0.3em]  
+          text-gray-600 mb-6 block">{project.category}</span>            
+      31            <h1 className="font-display text-6xl md:text-8xl     
+          lg:text-9xl font-bold leading-[0.9] tracking-tight mb-12">     
+      32              {project.title}                                    
+     ...
+      50          </div>                                                 
+      51                                                                 
+      52          {/* Hero media */}                                     
+      53 -        <div className="relative aspect-[16/9] overflow-hidden 
+         - mb-40">                                                       
+      53 +        <div                                                   
+      54 +          className="relative aspect-[16/9] overflow-hidden    
+         +mb-40 animate-in fade-in slide-in-from-bottom-4 duration-500"  
+      55 +          style={{ animationDelay: '250ms', animationFillMode: 
+         + 'both' }}                                                     
+      56 +        >                                                      
+      57            {project.video ? (                                   
+      58              <video                                             
+      59                src={project.video}                              
+     ...
+      70          </div>                                                 
+      71                                                                 
+      72          {/* Challenge */}                                      
+      73 -        <div className="border-t border-white/10 py-16         
+         -md:py-20">                                                     
+      73 +        <div                                                   
+      74 +          className="border-t border-white/10 py-16 md:py-20   
+         +animate-in fade-in slide-in-from-bottom-4 duration-500"        
+      75 +          style={{ animationDelay: '400ms', animationFillMode: 
+         + 'both' }}                                                     
+      76 +        >                                                      
+      77            <div className="flex flex-col md:flex-row gap-6      
+          md:gap-16">                                                    
+      78              <div className="text-[10px] uppercase              
+          tracking-[0.2em] text-gray-700 w-40 shrink-0 flex items-center 
+           gap-3 md:pt-1">                                               
+      79                <span className="text-gray-700">01</span>        
+          Challenge                                                      
+     ...
+      84          </div>                                                 
+      85                                                                 
+      86          {/* Solution */}                                       
+      87 -        <div className="border-t border-white/10 py-16         
+         -md:py-20">                                                     
+      87 +        <div                                                   
+      88 +          className="border-t border-white/10 py-16 md:py-20   
+         +animate-in fade-in slide-in-from-bottom-4 duration-500"        
+      89 +          style={{ animationDelay: '550ms', animationFillMode: 
+         + 'both' }}                                                     
+      90 +        >                                                      
+      91            <div className="flex flex-col md:flex-row gap-6      
+          md:gap-16">                                                    
+      92              <div className="text-[10px] uppercase              
+          tracking-[0.2em] text-gray-700 w-40 shrink-0 flex items-center 
+           gap-3 md:pt-1">                                               
+      93                <span className="text-gray-700">02</span>        
+          Solution                                                       
+     ...
+       99                                                                
+      100          {/* Gallery */}                                       
+      101          {project.gallery.length > 0 && (                      
+      102 -          <div className="my-20 flex flex-col gap-6">         
+      102 +          <div                                                
+      103 +            className="my-40 flex flex-col gap-6 animate-in   
+          +fade-in slide-in-from-bottom-4 duration-500"                  
+      104 +            style={{ animationDelay: '700ms',                 
+          +animationFillMode: 'both' }}                                  
+      105 +          >                                                   
+      106              {project.gallery.map((item, idx) => (             
+      107                <div key={idx} className="relative              
+           aspect-[16/9] overflow-hidden">                               
+      108                  {item.type === 'video' ? (                    
+     ...
+      124          )}                                                    
+      125                                                                
+      126          {/* Results */}                                       
+      127 -        <div className="border-t border-white/10 py-16        
+          -md:py-20">                                                    
+      127 +        <div                                                  
+      128 +          className="border-t border-white/10 py-16 md:py-20  
+          +animate-in fade-in slide-in-from-bottom-4 duration-500"       
+      129 +          style={{ animationDelay: '850ms',                   
+          +animationFillMode: 'both' }}                                  
+      130 +        >                                                     
+      131            <div className="flex flex-col md:flex-row gap-6     
+           md:gap-16">                                                   
+      132              <div className="text-[10px] uppercase             
+           tracking-[0.2em] text-gray-700 w-40 shrink-0 flex             
+           items-center gap-3 md:pt-1">                                  
+      133                <span className="text-gray-700">03</span>       
+           Results                                                       
+     ...
+      146          <div className="border-t border-white/10" />          
+      147                                                                
+      148          {/* Next project */}                                  
+      149 -        <div className="pt-32 md:pt-40">                      
+      149 +        <div                                                  
+      150 +          className="pt-32 md:pt-40 animate-in fade-in        
+          +slide-in-from-bottom-4 duration-500"                          
+      151 +          style={{ animationDelay: '1000ms',                  
+          +animationFillMode: 'both' }}                                  
+      152 +        >                                                     
+      153            <span className="text-[10px] uppercase              
+           tracking-[0.2em] text-gray-700 block mb-8">Next               
+           project</span>                                                
+      154            <Link                                               
+      155              href={`/work/${nextProject.slug}`}                
+
+● Bash(cd /c/Users/HP/Desktop/amda-f && npm run build 2>&1 | tail -15)
+  ⎿  ├ ○ /work                                  173 B         110 kB
+     └ ● /work/[slug]                          4.8 kB         110 kB
+         ├ /work/novabank
+     … +11 lines (ctrl+o to expand)
+  ⎿  (timeout 2m)
+
+● Build clean. All fixes applied:
+
+  1. Dead code — removed typeof project === 'object' ? project : project 
+  nonsense
+  2. Back to Work — arrow now nudges left on hover (group-hover:-translate-x-1)
+  3. Gallery — my-20 → my-40 to match the spacing rhythm
+  4. Staggered reveals — every section on the case study page now fades in with
+  slide-in-from-bottom-4 at 150ms intervals: header (100ms) → hero (250ms) →
+  challenge (400ms) → solution (550ms) → gallery (700ms) → results (850ms) →
+  next project (1000ms). Per the skill: "one well-orchestrated page load with 
+  staggered reveals creates more delight"
+
+✻ Cooked for 1m 32s

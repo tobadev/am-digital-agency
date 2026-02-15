@@ -1,0 +1,168 @@
+SESSION EXPORT — 2026-02-15
+============================
+
+## WHAT WAS DONE THIS SESSION
+
+### 1. Gray → Neutral sweep (ALL files)
+- Replaced every `gray-*` Tailwind class with `neutral-*` across 14 files
+- Kills the blue/cool undertone from Tailwind's default gray scale
+- Now pure neutral grays matching brand colors (#050505, #0a0a0a)
+
+### 2. Padding consistency fix
+- About, Contact, Services: `px-4 md:px-8` → `px-6 md:px-10`
+
+### 3. Stagger animations added
+- About, Contact, Services, Work rows now have `animate-in fade-in slide-in-from-bottom-4` with incrementing `animationDelay` + `animationFillMode: 'both'`
+- Matches CaseStudy.tsx which was the only page doing it correctly
+
+### 4. Hover states added
+- About values rows: `group-hover:translate-x-3` on titles, `group-hover:text-neutral-500` on numbers
+- Services rows: same hover pattern on service titles, engagement titles
+
+### 5. About page — new sections added
+- Team directory: Andrija Milosevic (Founder), Luka Petrovic (Account Manager), Daria Morozova (DACH Account Manager), Aleksa Velickovic (Outreach Specialist), Nikita Kozlov (Outreach Specialist)
+- Sorted by position (Founder → Managers → Specialists)
+- Each name is a mailto link (amilosevic@, lpetrovic@, dmorozova@, avelickovic@, nkozlov@amdigital.agency)
+- Selected clients section: Dachreach, Clyra.biz, Calem.app, CostaeAI, Veltrix
+- Header rewritten: "Independent studio. Global reach."
+
+### 6. Services page — new sections added
+- Sectors/Industries section with pill tags (rounded-full): SaaS & Platforms, E-commerce, FinTech, Healthcare, B2B, Real Estate, Startups, Enterprise
+- Removed duplicate CTA (Footer already has one)
+
+### 7. globals.css cleanup
+- Removed dead animations: float, glitch, blob keyframes
+- Removed .glitch-bg class
+- Removed brand-gray and brand-lightGray color tokens (old template)
+- Only brand-black (#050505), brand-dark (#0a0a0a), brand-accent (#ffffff) remain
+
+### 8. Misc fixes
+- Work.tsx: `bg-brand-gray` → `bg-brand-dark`
+- Footer: copyright hardcoded 2025 → `{new Date().getFullYear()}`
+
+### 9. Homepage — PARTIAL rebuild
+- Stripped Process.tsx and Testimonials.tsx from homepage
+- Removed old z-index wrapper from page.tsx
+- Hero.tsx rebuilt — USER APPROVED THIS:
+  - Centered, full-viewport, massive `clamp(3rem,10vw,12rem)` headline
+  - "We build digital products that work."
+  - Single CTA button centered below
+  - Bottom info strip: "AM Digital Agency" / "London, UK — Est. 2023" / "Strategy / Design / Development"
+  - Staggered animations (300ms headline, 800ms CTA, 1200ms bottom strip)
+  - NO numbered rows, NO borders, NO section labels — genuinely different from inner pages
+- ServicesHome.tsx rebuilt — USER DID NOT APPROVE:
+  - I made it with broken word typography (Str/ate/gy) in 3 columns
+  - User said it's still "the same shit" — needs to be GENUINELY different from inner pages
+  - THIS NEEDS TO BE REDONE IN NEXT SESSION
+
+### 10. Homepage composition is now:
+- Hero → ServicesHome → Work → Footer
+- Process and Testimonials removed from homepage
+
+## WHAT STILL NEEDS TO BE DONE
+
+### CRITICAL — Homepage ServicesHome section
+- Hero is APPROVED
+- ServicesHome needs complete rethink — must NOT use numbered rows, border-t separators, or any pattern from inner pages
+- The research says: "Let project tags imply capabilities" or "1-3 high-level service labels" without full taxonomy
+- Consider: Lottie animations for each service, or just let Work section's project tags carry the capability story
+- Maybe don't even need a separate services section — research shows Locomotive and Dogstudio skip it on homepage entirely
+
+### HIGH — Terms.tsx and Privacy.tsx
+- Still completely old template
+- Wrong padding (px-4 md:px-8), wrong max-width (max-w-4xl), uses `prose` class
+- Need: max-w-5xl, px-6 md:px-10, pb-32, system heading, stagger animations
+
+### MEDIUM — Work section on homepage
+- Currently shows ALL 5 projects — research says homepage should show 3-4 curated pieces max
+- Layout should be different from /work page (more visual, fewer details)
+- Currently identical to /work page
+
+### LOW — Section label colors
+- Some use text-neutral-500, some text-neutral-600
+- Should standardize
+
+## PERPLEXITY RESEARCH — HOMEPAGE (user provided this)
+
+Key findings from researching Locomotive, Active Theory, Fantasy, Dogstudio, BASIC:
+
+1. HERO = brand thesis + immediate proof, NOT information header
+   - Centered massive type, minimal copy, one CTA
+   - Bottom strip with credentials (like we built — APPROVED)
+
+2. SERVICES PREVIEW on homepage:
+   - Fantasy: 3 numeric labels, no borders, minimal
+   - Locomotive: NO services section — capabilities inferred from featured work tags
+   - Dogstudio: NO services section — moves straight to featured projects
+   - BASIC: Featured engagements rail instead of services
+   - Active Theory: NO services listed at all
+   - KEY INSIGHT: "Let case tags and captions carry the capability story"
+
+3. WORK PREVIEW on homepage:
+   - 4-6 flagship cases, curated, NOT the full archive
+   - Different layout from Work page — "oversized imagery, scroll-snapped sections"
+   - Emotional one-liners, not factual descriptions
+   - "Homepage work module should have its own composition"
+
+4. VISUAL DIFFERENCES:
+   - Homepage: poster-like, big type, big media, low UI noise
+   - Homepage: choreographed motion across sections
+   - Homepage: sparse, declarative, emotional copy
+   - Inner pages: grid/list-based, repeatable blocks, more conventional hierarchy
+
+5. LOTTIE: User mentioned wanting Lottie animations, potentially for services
+
+## PERPLEXITY RESEARCH — AGENCY PAGES (from earlier)
+
+Key findings for About and Services pages:
+
+About (Locomotive pattern): hero → positioning → manifesto → capabilities → team by discipline → awards
+Services (BASIC pattern): 3-4 big categories → detail pages with metrics + featured work
+Dogstudio tone: opinionated, call out who you DON'T want as clients
+Fantasy density: resist over-explaining, push detail into case studies
+
+## DESIGN SYSTEM REFERENCE
+
+- Black (#050505) + white + Tailwind neutral-* (NO gray-*)
+- border-t border-white/10 as separators (INNER PAGES ONLY — homepage should NOT use these)
+- Section labels: text-xs uppercase tracking-[0.3em] (above headings)
+- Row labels: text-[10px] uppercase tracking-[0.2em] (inline with numbers)
+- Page headings: text-6xl md:text-8xl lg:text-9xl
+- Content: max-w-5xl, px-6 md:px-10
+- Spacing: mb-40 header gaps
+- Hover: group-hover:translate-x-3
+- Animations: animationDelay + animationFillMode: 'both'
+- Font: Poppins (font-display + font-sans)
+- Pills: rounded-full
+- NO rounded cards, NO grey boxes, NO gradient blobs, NO backdrop-blur
+
+## FILES MODIFIED THIS SESSION
+
+components/About.tsx — rebuilt with team + clients
+components/Services.tsx — sectors + removed dupe CTA
+components/Contact.tsx — padding + stagger animations
+components/Work.tsx — bg-brand-gray fix + stagger on rows
+components/CaseStudy.tsx — gray→neutral
+components/Navbar.tsx — gray→neutral
+components/Footer.tsx — gray→neutral + dynamic year
+components/Hero.tsx — FULL REBUILD (approved)
+components/ServicesHome.tsx — FULL REBUILD (NOT approved, needs redo)
+components/Testimonials.tsx — gray→neutral (removed from homepage)
+components/Process.tsx — gray→neutral (removed from homepage)
+components/Terms.tsx — gray→neutral (still needs full redesign)
+components/Privacy.tsx — gray→neutral (still needs full redesign)
+app/page.tsx — stripped to Hero+ServicesHome+Work+Footer
+app/work/page.tsx — gray→neutral
+app/globals.css — stripped dead code + old tokens
+
+## SKILL FILE LOCATION
+.agents/skills/frontend-design/SKILL.md
+
+## IMPORTANT NOTES
+- User is AM (Andrija Milosevic), founder of AM Digital Agency, London UK
+- User speaks Serbian sometimes when frustrated
+- User is very particular about PREMIUM quality — always verify with skills
+- User wants Lottie animations integrated (mentioned for services)
+- User is behind schedule ("kasnim 5 godine")
+- ALWAYS consult skill BEFORE building, not after
+- Homepage MUST feel different from inner pages — the whole point

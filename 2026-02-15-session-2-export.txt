@@ -1,0 +1,149 @@
+SESSION 2 EXPORT — 2026-02-15
+===============================
+
+## WHAT WAS DONE THIS SESSION
+
+### 1. Homepage complete rebuild
+- Removed ServicesHome.tsx from homepage (rejected twice last session)
+- New flow: Hero -> BrandStatement -> WorkHome -> Clients -> Footer
+
+### 2. BrandStatement.tsx — NEW COMPONENT
+- Single editorial sentence, two-tone text
+- "An independent London digital agency" (white) + "helping ambitious companies define strategy, shape brands, and build products people actually use." (starts #404040, reveals to white)
+- Scroll-reveal effect: word-by-word transition from dim to white as user scrolls
+- Left-aligned with md:max-w-[75%] creating asymmetric negative space
+- Uses useRef + scroll event listener for progress tracking
+
+### 3. WorkHome.tsx — NEW COMPONENT
+- 3 curated projects: NovaBank, Aura Home, Meridian
+- Asymmetric image grid: first project full-width aspect-[16/9], next two side-by-side aspect-[4/3]
+- Title + category overlaid on images with gradient overlay
+- Hover: image scale-105 + overlay darkens
+- "All projects" link with arrow button at bottom-right
+- Completely different from /work page (no rows, no borders, no numbers)
+
+### 4. Clients.tsx — NEW COMPONENT
+- Horizontal centered row of 5 client names
+- Dot separators between names (hidden on mobile)
+- text-sm md:text-base text-neutral-600 uppercase tracking-[0.2em]
+
+### 5. Footer.tsx — restructured
+- Asymmetric grid: md:grid-cols-[2fr_1fr_1fr] — Contact gets double width
+- Contact expanded: email + full address (27 Old Gloucester Street, London, WC1N 3AX, UK)
+- Navigation: stripped numbered prefixes (was 01 Home, now just Home)
+- Socials: Facebook, Instagram, LinkedIn (removed X/Twitter)
+- Bottom bar consolidated: "© 2026 AM Digital Agency Ltd · Company No. 14167111"
+- Single "Legal" link (replaced separate Privacy + Terms links)
+
+### 6. Legal page — NEW (consolidated Terms + Privacy)
+- /legal route replaces /terms and /privacy
+- Sections: Company Information, Privacy Policy, Intellectual Property, Limitation of Liability
+- Two-column layout (label left, content right)
+- Styled with design system: max-w-5xl, px-6 md:px-10, stagger animations
+- No prose class, no old template styling
+- Company info: AM Digital Agency Ltd, Company No. 14167111, registered address
+
+### 7. NovaBank thumbnail fix
+- Old Unsplash URL was 404
+- Swapped to working URL from gallery: photo-1551288049-bebda4e38f71
+
+### 8. Navbar fixes
+- mix-blend-difference disabled when menu is open (was causing transparency issues on mobile)
+- Nav links area: added min-h-0 overflow-y-auto (was pushing bottom bar off-screen on FHD)
+- Bottom bar: added shrink-0 so language switchers always visible
+
+### 9. Final skill audit — all passed
+- About.tsx: "Independent studio." -> "Independent digital agency. Global reach."
+- Contact.tsx: /privacy link -> /legal
+- Section label colors standardized to text-neutral-500 (CaseStudy, Footer CTA, Legal were text-neutral-600)
+- FAQ max-h-40 -> max-h-96 for mobile safety
+- All pages verified mobile-friendly
+
+## CURRENT HOMEPAGE FLOW
+Hero -> BrandStatement (scroll reveal) -> WorkHome (3 projects, image grid) -> Clients -> Footer
+
+## CURRENT SITE ROUTES
+/ — Homepage
+/services — Services page
+/work — Work archive (all 5 projects)
+/work/[slug] — Case studies (novabank, aura-home, techflow, vitality, meridian-property)
+/about — About page
+/contact — Contact page
+/legal — Legal page (privacy + terms consolidated)
+/terms — DEAD (still exists, nothing links to it)
+/privacy — DEAD (still exists, nothing links to it)
+
+## FILES CREATED THIS SESSION
+components/BrandStatement.tsx
+components/WorkHome.tsx
+components/Clients.tsx
+components/Legal.tsx
+app/legal/page.tsx
+
+## FILES MODIFIED THIS SESSION
+app/page.tsx — new homepage composition
+components/Footer.tsx — restructured, asymmetric grid, address, company info
+components/Navbar.tsx — mix-blend fix, overflow fix for language switchers
+components/About.tsx — "studio" -> "digital agency"
+components/Contact.tsx — /privacy -> /legal link
+components/CaseStudy.tsx — section label color standardized
+components/Services.tsx — FAQ max-h fix
+data/projects.ts — NovaBank thumbnail URL fix
+
+## DESIGN SYSTEM REFERENCE (updated)
+- Black (#050505) + white + Tailwind neutral-* (NO gray-*)
+- border-t border-white/10 as separators (INNER PAGES ONLY)
+- Section labels: text-xs uppercase tracking-[0.3em] text-neutral-500
+- Row labels: text-[10px] uppercase tracking-[0.2em] text-neutral-700
+- Page headings: text-6xl md:text-8xl lg:text-9xl
+- Content: max-w-5xl, px-6 md:px-10
+- Homepage uses max-w-6xl for WorkHome
+- Spacing: mb-40 header gaps
+- Hover: group-hover:translate-x-3
+- Animations: animationDelay + animationFillMode: 'both'
+- Font: Poppins (font-display + font-sans)
+- Pills: rounded-full
+- NO rounded cards, NO grey boxes, NO gradient blobs, NO backdrop-blur
+
+## BUSINESS INFO
+- Company: AM Digital Agency Ltd
+- Company No: 14167111
+- Address: 27 Old Gloucester Street, London, WC1N 3AX, United Kingdom
+- Email: hello@amdigital.agency
+- Founder: Andrija Milosevic (amilosevic@amdigital.agency)
+- Team: 5 people (see About.tsx)
+- Clients: Dachreach, Clyra.biz, Calem.app, CostaeAI, Veltrix
+- Socials: Facebook, Instagram, LinkedIn
+
+## WHAT STILL NEEDS TO BE DONE
+
+### NEXT — i18n + SEO
+- English as default (stays as /)
+- German: /de/ with German route names (kontakt, dienstleistungen, etc.)
+- Italian: /it/ with Italian route names
+- French: /fr/ with French route names
+- German requires Impressum page
+- SEO: metadata, hreflang tags, sitemap
+- Language switcher in navbar already exists (EN/DE/FR/IT) but needs wiring
+
+### MEDIUM — Lottie animations
+- User wants Lottie integrated (mentioned for services or homepage)
+
+### LOW — Dead pages cleanup
+- /terms and /privacy routes still exist but nothing links to them
+- Can be removed after i18n is set up
+
+### LOW — Placeholder content
+- All 5 projects use Unsplash placeholder images
+- Social links (#) need real URLs
+
+## SKILL FILE LOCATION
+.agents/skills/frontend-design/SKILL.md
+
+## IMPORTANT NOTES
+- User is AM (Andrija Milosevic), founder of AM Digital Agency, London UK
+- User speaks Serbian sometimes when frustrated
+- User is very particular about PREMIUM quality — always verify with skills
+- ALWAYS consult skill BEFORE building, not after
+- Homepage MUST feel different from inner pages — this is now achieved
+- Hero: APPROVED, BrandStatement: APPROVED, WorkHome: APPROVED
