@@ -36,7 +36,8 @@ const stats = [
 ];
 
 const team = [
-  { name: 'Andrija Milosevic', role: 'Founder', email: 'amilosevic@amdigital.agency', year: '2023' },
+  { name: 'Andrija Milosevic', role: 'Founder & Creative Director', email: 'amilosevic@amdigital.agency', year: '2023' },
+  { name: 'Novica Markovic', role: 'Lead Developer', email: 'nmarkovic@amdigital.agency', year: '2024' },
   { name: 'Luka Petrovic', role: 'Account Manager', email: 'lpetrovic@amdigital.agency', year: '2023' },
   { name: 'Nikita Kozlov', role: 'DACH Account Manager', email: 'nkozlov@amdigital.agency', year: '2024' },
   { name: 'Daria Morozova', role: 'Outreach Specialist', email: 'dmorozova@amdigital.agency', year: '2024' },
