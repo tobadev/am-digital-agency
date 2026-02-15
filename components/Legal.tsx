@@ -84,7 +84,6 @@ export const Legal: React.FC = () => {
           className="mb-40 animate-in fade-in slide-in-from-bottom-6 duration-700"
           style={{ animationDelay: '100ms', animationFillMode: 'both' }}
         >
-          <span className="text-xs uppercase tracking-[0.3em] text-neutral-500 mb-8 block">Legal</span>
           <h1 className="font-display text-6xl md:text-8xl lg:text-9xl font-bold leading-[0.85] tracking-tight">
             Legal
           </h1>
