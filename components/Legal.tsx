@@ -36,7 +36,8 @@ const sections = [
   {
     title: 'How We Use Your Data',
     content: [
-      'To provide and maintain our service. To manage your account and registration as a user. To contact you with updates, marketing, and promotional materials. To manage your requests and inquiries. For business development and analytical purposes.',
+      'To provide and maintain our service. To contact you with updates, marketing, and promotional materials. To manage your requests and inquiries. For business development and analytical purposes.',
+      'We process your data based on legitimate interest, consent, or contractual necessity in accordance with GDPR Article 6.',
     ],
   },
   {
@@ -57,12 +58,6 @@ const sections = [
     title: 'Security',
     content: [
       'We use commercially acceptable means to protect your personal data, but no method of transmission or storage is 100% secure. We strive to protect your data but cannot guarantee absolute security.',
-    ],
-  },
-  {
-    title: "Children's Privacy",
-    content: [
-      'Our service does not address anyone under the age of 13. We do not knowingly collect personal data from children under 13.',
     ],
   },
   {
