@@ -40,7 +40,6 @@ const team = [
   { name: 'Luka Petrovic', role: 'Business Director', email: 'lpetrovic@amdigital.agency', year: '2023' },
   { name: 'Novica Markovic', role: 'Lead Developer', email: 'nmarkovic@amdigital.agency', year: '2024' },
   { name: 'Nikita Kozlov', role: 'DACH Account Manager', email: 'nkozlov@amdigital.agency', year: '2024' },
-  { name: 'Daria Morozova', role: 'Outreach Specialist', email: 'dmorozova@amdigital.agency', year: '2024' },
   { name: 'Aleksa Velickovic', role: 'Outreach Specialist', email: 'avelickovic@amdigital.agency', year: '2023' },
 ];
 
