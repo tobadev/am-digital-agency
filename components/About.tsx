@@ -37,10 +37,9 @@ const stats = [
 
 const team = [
   { name: 'Andrija Milosevic', role: 'Founder', email: 'amilosevic@amdigital.agency', year: '2023' },
-  { name: 'Luka Petrovic', role: 'Account Manager', email: 'lpetrovic@amdigital.agency', year: '2024' },
-  { name: 'Daria Morozova', role: 'DACH Account Manager', email: 'dmorozova@amdigital.agency', year: '2024' },
+  { name: 'Luka Petrovic', role: 'DACH Account Manager', email: 'lpetrovic@amdigital.agency', year: '2023' },
+  { name: 'Daria Morozova', role: 'Outreach Specialist', email: 'dmorozova@amdigital.agency', year: '2024' },
   { name: 'Aleksa Velickovic', role: 'Outreach Specialist', email: 'avelickovic@amdigital.agency', year: '2023' },
-  { name: 'Nikita Kozlov', role: 'Outreach Specialist', email: 'nkozlov@amdigital.agency', year: '2024' },
 ];
 
 const clients = ['Dachreach', 'Clyra.biz', 'Calem.app', 'CostaeAI', 'Veltrix'];
