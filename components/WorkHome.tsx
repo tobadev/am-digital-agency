@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import { projects } from '@/data/projects';
 
-const featured = [projects[0], projects[1], projects[4]]; // NovaBank, Aura Home, Meridian
+const featured = [projects[0], projects[1], projects[3]]; // Clyra.biz, Dachreach, KRONBERG Zeithaus
 
 export const WorkHome: React.FC = () => {
   return (
