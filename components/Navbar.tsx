@@ -57,15 +57,13 @@ export const Navbar: React.FC = () => {
         <Link
           href="/"
           onClick={() => setIsMenuOpen(false)}
-          className={`pointer-events-auto z-50 relative ${!isMenuOpen ? 'mix-blend-difference' : ''}`}
+          className="pointer-events-auto z-50 relative"
         >
-          <Image
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
             src="/am-logo.svg"
             alt="AM Digital Agency"
-            width={240}
-            height={32}
-            className="h-6 md:h-7 w-auto"
-            priority
+            className={`h-6 md:h-7 w-auto ${!isMenuOpen ? 'mix-blend-difference' : ''}`}
           />
         </Link>
 
