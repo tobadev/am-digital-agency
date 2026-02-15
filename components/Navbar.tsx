@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import AmLogo from "@/public/am-logo.svg";
 
 // TODO: Implement next-intl or next-i18next for actual i18n
 // Routes will become /de/services, /fr/about, etc.
@@ -52,24 +52,32 @@ export const Navbar: React.FC = () => {
 
   return (
     <>
-      {/* Top bar — logo + menu only */}
-      <nav className="fixed top-0 left-0 right-0 z-50 px-6 md:px-10 py-6 flex justify-between items-center pointer-events-none">
+      {/* Logo — separate fixed element, no z-index so mix-blend-difference blends with page content */}
+      {!isMenuOpen && (
+        <Link
+          href="/"
+          className="fixed top-6 left-6 md:left-10 mix-blend-difference pointer-events-auto"
+        >
+          <AmLogo className="h-6 md:h-7 w-auto" aria-label="AM Digital Agency" />
+        </Link>
+      )}
+
+      {/* Menu overlay logo — no blend mode needed */}
+      {isMenuOpen && (
         <Link
           href="/"
           onClick={() => setIsMenuOpen(false)}
-          className="pointer-events-auto z-50 relative"
+          className="fixed top-6 left-6 md:left-10 z-50 pointer-events-auto"
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/am-logo.svg"
-            alt="AM Digital Agency"
-            className={`h-6 md:h-7 w-auto ${!isMenuOpen ? 'mix-blend-difference' : ''}`}
-          />
+          <AmLogo className="h-6 md:h-7 w-auto text-white" aria-label="AM Digital Agency" />
         </Link>
+      )}
 
+      {/* Menu button */}
+      <nav className="fixed top-0 right-0 z-50 px-6 md:px-10 py-6 pointer-events-none">
         <button
           onClick={toggleMenu}
-          className="text-xs font-bold uppercase tracking-widest bg-black/80 backdrop-blur-sm border border-white/15 px-7 py-3 rounded-full hover:border-white/40 transition-colors pointer-events-auto z-50 relative"
+          className="text-xs font-bold uppercase tracking-widest bg-black/80 backdrop-blur-sm border border-white/15 px-7 py-3 rounded-full hover:border-white/40 transition-colors pointer-events-auto"
         >
           {isMenuOpen ? "Close" : "Menu"}
         </button>
