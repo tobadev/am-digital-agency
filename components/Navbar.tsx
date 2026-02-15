@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -58,9 +59,14 @@ export const Navbar: React.FC = () => {
           onClick={() => setIsMenuOpen(false)}
           className={`pointer-events-auto z-50 relative ${!isMenuOpen ? 'mix-blend-difference' : ''}`}
         >
-          <span className="font-display font-bold text-sm uppercase tracking-[0.15em]">
-            AM Digital Agency
-          </span>
+          <Image
+            src="/am-logo.svg"
+            alt="AM Digital Agency"
+            width={240}
+            height={32}
+            className="h-6 md:h-7 w-auto"
+            priority
+          />
         </Link>
 
         <button
