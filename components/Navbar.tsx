@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import AmLogo from "@/public/am-logo.svg";
 
 // TODO: Implement next-intl or next-i18next for actual i18n
 // Routes will become /de/services, /fr/about, etc.
@@ -52,32 +51,22 @@ export const Navbar: React.FC = () => {
 
   return (
     <>
-      {/* Logo — separate fixed element, no z-index so mix-blend-difference blends with page content */}
-      {!isMenuOpen && (
-        <Link
-          href="/"
-          className="fixed top-6 left-6 md:left-10 mix-blend-difference pointer-events-auto"
-        >
-          <AmLogo className="h-6 md:h-7 w-auto" aria-label="AM Digital Agency" />
-        </Link>
-      )}
-
-      {/* Menu overlay logo — no blend mode needed */}
-      {isMenuOpen && (
+      {/* Top bar — logo + menu */}
+      <nav className="fixed top-0 left-0 right-0 z-50 px-6 md:px-10 py-6 flex justify-between items-center pointer-events-none">
         <Link
           href="/"
           onClick={() => setIsMenuOpen(false)}
-          className="fixed top-6 left-6 md:left-10 z-50 pointer-events-auto"
+          className="pointer-events-auto z-50 relative"
         >
-          <AmLogo className="h-6 md:h-7 w-auto text-white" aria-label="AM Digital Agency" />
+          <svg viewBox="41 0 199 32" className="h-6 md:h-7 w-auto" fill="white" aria-label="AM Digital Agency">
+            <path d="m41.6 15.6c0 8.3 5.3 13.8 12.1 13.8 4.2 0 7.2-2 8.8-4.3v3.9h6.7v-26.5h-6.7v3.7c-1.6-2.2-4.5-4.2-8.8-4.2-6.8 0-12.1 5.4-12.1 13.6zm20.9 0.1c0 5.1-3.4 7.8-7.1 7.8-3.6 0-7-2.8-7-7.9 0-5 3.4-7.7 7-7.7 3.7 0 7.1 2.8 7.1 7.8zm49.9 13.3h6.7v-15.6c0-7.3-4.5-11.3-10.8-11.3-3.9 0-7.4 2-9.1 5.1-1.9-3.3-5.3-5.1-9.4-5.1-3.3 0-6.1 1.4-7.8 3.6v-3.2h-6.7v26.5h6.7v-14.7c0-4.2 2.4-6.4 6-6.4 3.5 0 5.9 2.2 5.9 6.4v14.7h6.7v-14.7c0-4.2 2.3-6.4 5.9-6.4 3.6 0 5.9 2.2 5.9 6.4z"/>
+            <path fillOpacity="0.9" d="m125.4 8.4c0 2.2 1.5 3.7 3.3 3.7 1.1 0 2-0.5 2.4-1.2v1.1h1.8v-9.6h-1.8v3.4c-0.5-0.7-1.4-1.1-2.4-1.1-1.8 0-3.3 1.4-3.3 3.7zm5.7 0c0 1.4-0.9 2.1-1.9 2.1-1 0-1.9-0.8-1.9-2.1 0-1.4 0.9-2.1 1.9-2.1 1 0 1.9 0.7 1.9 2.1zm3.8 3.6h1.8v-7.2h-1.8zm0.9-8.1c0.7 0 1.1-0.4 1.1-1 0-0.6-0.4-1.1-1.1-1.1-0.6 0-1.1 0.5-1.1 1.1 0 0.6 0.5 1 1.1 1zm1.6 4.5c0 2.2 1.5 3.7 3.3 3.7 1.1 0 2-0.5 2.4-1.2v1.1c0 1.4-0.8 2-1.8 2-0.9 0-1.6-0.5-1.8-1.1h-1.8c0.2 1.6 1.6 2.6 3.7 2.6 2.3 0 3.5-1.5 3.5-3.5v-7.2h-1.8v1c-0.4-0.6-1.3-1.1-2.4-1.1-1.8 0-3.3 1.4-3.3 3.7zm5.7 0c0 1.4-0.9 2.1-1.9 2.1-1 0-1.9-0.8-1.9-2.1 0-1.4 0.9-2.1 1.9-2.1 1 0 1.9 0.7 1.9 2.1zm3.8 3.6h1.8v-7.2h-1.8zm0.9-8.1c0.7 0 1.1-0.4 1.1-1 0-0.6-0.4-1.1-1.1-1.1-0.6 0-1.1 0.5-1.1 1.1 0 0.6 0.5 1 1.1 1zm3.4 5.9c0 1.6 0.9 2.2 2.3 2.2h1.1v-1.5h-0.8c-0.6 0-0.8-0.2-0.8-0.7v-3.5h1.6v-1.5h-1.6v-1.8h-1.8v1.8h-0.9v1.5h0.9zm4.2-1.4c0 2.2 1.5 3.7 3.3 3.7 1.1 0 2-0.5 2.4-1.1v1h1.8v-7.2h-1.8v1c-0.4-0.5-1.2-1.1-2.4-1.1-1.8 0-3.3 1.4-3.3 3.7zm5.7 0c0 1.4-0.9 2.1-1.9 2.1-1 0-1.9-0.7-1.9-2.1 0-1.4 0.9-2.1 1.9-2.1 1 0 1.9 0.8 1.9 2.1zm3.8 3.6h1.8v-9.6h-1.8zm-39.5 12.4c0 2.2 1.5 3.7 3.3 3.7 1.1 0 2-0.5 2.4-1.1v1h1.8v-7.2h-1.8v1c-0.4-0.6-1.2-1.1-2.4-1.1-1.8 0-3.3 1.4-3.3 3.7zm5.7 0c0 1.4-0.9 2.1-1.9 2.1-1 0-1.9-0.8-1.9-2.1 0-1.4 0.9-2.1 1.9-2.1 1 0 1.9 0.7 1.9 2.1zm3.3 0c0 2.2 1.5 3.7 3.3 3.7 1.1 0 2-0.5 2.4-1.2v1.2c0 1.3-0.8 1.9-1.8 1.9-0.9 0-1.6-0.5-1.8-1.1h-1.8c0.2 1.6 1.6 2.7 3.7 2.7 2.3 0 3.5-1.6 3.5-3.5v-7.3h-1.8v1c-0.4-0.6-1.3-1.1-2.4-1.1-1.8 0-3.3 1.4-3.3 3.7zm5.7 0c0 1.4-0.9 2.1-1.9 2.1-1 0-1.9-0.8-1.9-2.1 0-1.4 0.9-2.1 1.9-2.1 1 0 1.9 0.7 1.9 2.1zm6.9-2.2c0.9 0 1.7 0.6 1.7 1.5h-3.4c0.1-1 0.8-1.5 1.7-1.5zm3.4 3.5h-2c-0.2 0.5-0.6 0.9-1.4 0.9-0.9 0-1.6-0.6-1.7-1.7h5.2c0.1-0.2 0.1-0.4 0.1-0.7 0-2.1-1.5-3.5-3.6-3.5-2.1 0-3.6 1.4-3.6 3.7 0 2.3 1.5 3.7 3.6 3.7 1.8 0 3-1 3.4-2.4zm6.5 2.3h1.9v-4.2c0-2-1.2-3.1-2.9-3.1-0.9 0-1.7 0.4-2.2 1v-0.9h-1.8v7.2h1.8v-4c0-1.1 0.7-1.8 1.6-1.8 1 0 1.6 0.7 1.6 1.8zm2.5-3.6c0 2.3 1.5 3.7 3.6 3.7 1.8 0 3-1 3.4-2.5h-2c-0.2 0.6-0.7 1-1.4 1-1 0-1.7-0.8-1.7-2.2 0-1.4 0.7-2.1 1.7-2.1 0.7 0 1.2 0.3 1.4 1h2c-0.4-1.7-1.6-2.6-3.4-2.6-2.1 0-3.6 1.5-3.6 3.7zm11.6 1.5l-1.9-5.1h-2l2.9 7-1.6 3.6h1.9l4.5-10.6h-2z"/>
+          </svg>
         </Link>
-      )}
 
-      {/* Menu button */}
-      <nav className="fixed top-0 right-0 z-50 px-6 md:px-10 py-6 pointer-events-none">
         <button
           onClick={toggleMenu}
-          className="text-xs font-bold uppercase tracking-widest bg-black/80 backdrop-blur-sm border border-white/15 px-7 py-3 rounded-full hover:border-white/40 transition-colors pointer-events-auto"
+          className="text-xs font-bold uppercase tracking-widest bg-black/80 backdrop-blur-sm border border-white/15 px-7 py-3 rounded-full hover:border-white/40 transition-colors pointer-events-auto z-50 relative"
         >
           {isMenuOpen ? "Close" : "Menu"}
         </button>
