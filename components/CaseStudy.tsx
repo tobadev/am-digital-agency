@@ -69,7 +69,7 @@ export const CaseStudyContent: React.FC<{ project: ProjectData }> = ({ project }
             <img
               src={project.thumbnail}
               alt={project.title}
-              className="absolute inset-0 w-full h-full object-cover"
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 hover:scale-105"
             />
           )}
         </div>
@@ -129,7 +129,7 @@ export const CaseStudyContent: React.FC<{ project: ProjectData }> = ({ project }
                   <img
                     src={item.src}
                     alt={`${project.title} — ${idx + 1}`}
-                    className="absolute inset-0 w-full h-full object-cover"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                   />
                 )}
               </div>
