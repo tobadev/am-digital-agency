@@ -121,7 +121,7 @@ export const projects: ProjectData[] = [
     solution: 'We built Calem as a creative copilot. Designers input brand strategy and reference materials; the AI generates multiple design directions, not templates. The designer reviews, refines, and builds from the best direction — augmenting their own work rather than starting from scratch. The output is always human-approved and human-edited. This isn\'t automation, it\'s leverage.',
     results: [
       { label: 'Avg. Project Fee', value: '€1K' },
-      { label: 'Delivery Time', value: '< 72hrs' },
+      { label: 'Delivery Time', value: '< 15min' },
       { label: 'Client Satisfaction', value: '94%' },
     ],
     gallery: [
