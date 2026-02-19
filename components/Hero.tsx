@@ -24,6 +24,13 @@ export const Hero: React.FC = () => {
         <span className="text-[10px] text-neutral-600 uppercase tracking-[0.2em]">
           AM Digital Agency
         </span>
+
+        {/* Scroll indicator — mobile only, sits in the empty center slot */}
+        <div className="flex flex-col items-center gap-1.5 md:hidden">
+          <span className="text-[9px] text-neutral-700 uppercase tracking-[0.25em]">Scroll</span>
+          <div className="w-px h-5 bg-neutral-700 animate-nudge-down" />
+        </div>
+
         <span className="text-[10px] text-neutral-600 uppercase tracking-[0.2em]">
           London, UK — Est. 2023
         </span>
