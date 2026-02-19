@@ -11,7 +11,7 @@ export const Hero: React.FC = () => {
           className="font-display text-[clamp(2.5rem,10vw,10rem)] font-bold leading-[0.92] tracking-tighter animate-in fade-in slide-in-from-bottom-6 duration-1000"
           style={{ animationDelay: '300ms', animationFillMode: 'both' }}
         >
-          We build digital<br className="hidden md:block" />products that work.
+          We build digital <br className="hidden md:block" />products that work.
         </h1>
 
       </div>
