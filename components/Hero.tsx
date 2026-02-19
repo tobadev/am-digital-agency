@@ -1,17 +1,47 @@
 "use client";
 
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 
 export const Hero: React.FC = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const h1Ref = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    const fitText = () => {
+      const h1 = h1Ref.current;
+      const container = containerRef.current;
+      if (!h1 || !container) return;
+
+      if (window.innerWidth >= 768) {
+        h1.style.fontSize = '';
+        return;
+      }
+
+      // Set a base size, measure each line, scale to widest one filling container
+      h1.style.fontSize = '100px';
+      const spans = Array.from(h1.querySelectorAll<HTMLElement>('.fit-line'));
+      const maxScrollWidth = Math.max(...spans.map(s => s.scrollWidth));
+      const ratio = container.clientWidth / maxScrollWidth;
+      h1.style.fontSize = `${100 * ratio}px`;
+    };
+
+    fitText();
+    window.addEventListener('resize', fitText);
+    return () => window.removeEventListener('resize', fitText);
+  }, []);
+
   return (
     <section className="relative h-dvh flex flex-col justify-center items-start md:items-center text-left md:text-center px-6 md:px-10">
-      <div className="max-w-7xl mx-auto w-full">
+      <div ref={containerRef} className="max-w-7xl mx-auto w-full">
 
         <h1
-          className="font-display text-[clamp(3.5rem,10vw,10rem)] font-bold leading-[0.92] tracking-tighter animate-in fade-in slide-in-from-bottom-6 duration-1000"
+          ref={h1Ref}
+          className="font-display md:text-[clamp(2.5rem,10vw,10rem)] font-bold leading-[0.88] tracking-tighter animate-in fade-in slide-in-from-bottom-6 duration-1000"
           style={{ animationDelay: '300ms', animationFillMode: 'both' }}
         >
-          We build digital <br className="hidden md:block" />products that work.
+          <span className="fit-line block md:inline whitespace-nowrap">We build digital</span>
+          <br className="hidden md:block" />
+          <span className="fit-line block md:inline whitespace-nowrap">products that work.</span>
         </h1>
 
       </div>
