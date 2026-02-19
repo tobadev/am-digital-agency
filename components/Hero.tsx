@@ -18,7 +18,7 @@ export const Hero: React.FC = () => {
 
       {/* Bottom info strip */}
       <div
-        className="absolute bottom-8 left-6 right-6 md:left-10 md:right-10 flex justify-center md:justify-between items-center animate-in fade-in duration-1000"
+        className="absolute bottom-8 left-6 right-6 md:left-10 md:right-10 flex justify-start md:justify-between items-center animate-in fade-in duration-1000"
         style={{ animationDelay: '1200ms', animationFillMode: 'both' }}
       >
         <span className="text-[10px] text-neutral-600 uppercase tracking-[0.2em] hidden md:block">
