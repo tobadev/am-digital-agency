@@ -29,12 +29,3 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
-
-@keyframes nudge-down {
-  0%, 100% { transform: translateY(0); opacity: 0.35; }
-  50% { transform: translateY(6px); opacity: 1; }
-}
-
-.animate-nudge-down {
-  animation: nudge-down 2s ease-in-out infinite;
-}
