@@ -11,7 +11,21 @@ export const Hero: React.FC = () => {
           className="font-display text-[clamp(3rem,10vw,10rem)] font-bold leading-[0.92] tracking-tighter animate-in fade-in slide-in-from-bottom-6 duration-1000"
           style={{ animationDelay: '300ms', animationFillMode: 'both' }}
         >
-          We build digital <br className="hidden md:block" />products that work.
+          We build digital <br className="hidden md:block" />products that{' '}
+          <span
+            className="inline-block"
+            style={{
+              backgroundImage: 'url(/hero-work.webp)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              WebkitBackgroundClip: 'text',
+              backgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              color: 'transparent',
+            }}
+          >
+            work.
+          </span>
         </h1>
 
       </div>
