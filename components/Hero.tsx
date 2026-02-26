@@ -1,8 +1,11 @@
 "use client";
 
 import React from 'react';
+import { useTranslations } from 'next-intl';
 
 export const Hero: React.FC = () => {
+  const t = useTranslations('Hero');
+
   return (
     <section className="relative h-dvh flex flex-col justify-center items-center text-center px-6 md:px-10">
       <div className="max-w-7xl mx-auto w-full">
@@ -11,7 +14,7 @@ export const Hero: React.FC = () => {
           className="font-display text-[clamp(3rem,10vw,10rem)] font-bold leading-[0.92] tracking-tighter animate-in fade-in slide-in-from-bottom-6 duration-1000"
           style={{ animationDelay: '300ms', animationFillMode: 'both' }}
         >
-          We build digital <br className="hidden md:block" />products that{' '}
+          {t('heading_line1')} <br className="hidden md:block" />{t('heading_line2')}{' '}
           <span
             className="inline-block"
             style={{
@@ -24,7 +27,7 @@ export const Hero: React.FC = () => {
               color: 'transparent',
             }}
           >
-            work.
+            {t('heading_highlight')}
           </span>
         </h1>
 
@@ -36,13 +39,13 @@ export const Hero: React.FC = () => {
         style={{ animationDelay: '1200ms', animationFillMode: 'both' }}
       >
         <span className="text-[10px] text-neutral-600 uppercase tracking-[0.2em]">
-          AM Digital Agency
+          {t('agency')}
         </span>
         <span className="text-[10px] text-neutral-600 uppercase tracking-[0.2em]">
-          London, UK — Est. 2023
+          {t('location')}
         </span>
         <span className="text-[10px] text-neutral-600 uppercase tracking-[0.2em] hidden md:block">
-          Strategy / Design / Development
+          {t('services')}
         </span>
       </div>
     </section>

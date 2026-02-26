@@ -1,0 +1,453 @@
+{
+  "Metadata": {
+    "home": {
+      "title": "AM Digital Agency",
+      "description": "Wir liefern digitale Produkte, die wirklich funktionieren. Wir helfen ambitionierten Unternehmen beim Aufbau, Launch und Wachstum."
+    },
+    "services": {
+      "title": "Leistungen — AM Digital Agency",
+      "description": "Strategie-, Design- und Entwicklungsdienstleistungen für ambitionierte Unternehmen."
+    },
+    "work": {
+      "title": "Arbeiten — AM Digital Agency",
+      "description": "Ausgewählte Projekte — Strategie, Design und Entwicklung vom Konzept bis zum Launch."
+    },
+    "about": {
+      "title": "Über uns — AM Digital Agency",
+      "description": "Unabhängige Digitalagentur mit Sitz in London. Strategie, Design und Entwicklung mit Präzision geliefert."
+    },
+    "contact": {
+      "title": "Kontakt — AM Digital Agency",
+      "description": "Nehmen Sie Kontakt auf, um Ihr nächstes digitales Projekt zu starten."
+    },
+    "legal": {
+      "title": "Rechtliches — AM Digital Agency",
+      "description": "Rechtliche Informationen, Datenschutz und Unternehmensdetails."
+    },
+    "impressum": {
+      "title": "Impressum — AM Digital Agency",
+      "description": "Impressum und rechtliche Angaben der AM Digital Agency Ltd."
+    }
+  },
+  "Navbar": {
+    "menu": "Menü",
+    "close": "Schließen",
+    "items": {
+      "home": "Startseite",
+      "services": "Leistungen",
+      "work": "Arbeiten",
+      "about": "Über uns",
+      "contact": "Kontakt"
+    },
+    "email": "hello@amdigital.agency",
+    "location": "London, UK"
+  },
+  "Hero": {
+    "heading_line1": "Wir entwickeln digitale",
+    "heading_line2": "Produkte, die",
+    "heading_highlight": "wirken.",
+    "agency": "AM Digital Agency",
+    "location": "London, UK — Gegr. 2023",
+    "services": "Strategie / Design / Entwicklung"
+  },
+  "BrandStatement": {
+    "headline": "Eine unabhängige Londoner Digitalagentur,",
+    "reveal": "die ambitionierten Unternehmen hilft, Strategien zu definieren, Marken zu formen und Produkte zu entwickeln, die Menschen wirklich nutzen."
+  },
+  "WorkHome": {
+    "allWork": "Alle Arbeiten"
+  },
+  "WorkPage": {
+    "label": "Arbeiten",
+    "title_line1": "Ausgewählte",
+    "title_line2": "Arbeiten.",
+    "description": "Strategie, Design und Entwicklung — vom Konzept bis zum Launch."
+  },
+  "CaseStudy": {
+    "backToWork": "Zurück zu Arbeiten",
+    "client": "Kunde",
+    "year": "Jahr",
+    "servicesLabel": "Leistungen",
+    "challenge": "Herausforderung",
+    "solution": "Lösung",
+    "results": "Ergebnisse",
+    "nextProject": "Nächstes Projekt"
+  },
+  "Services": {
+    "label": "Leistungen",
+    "title_line1": "Wir entwickeln digitale",
+    "title_line2": "Produkte, die echtes",
+    "title_line3": "Wachstum schaffen.",
+    "description": "Wir arbeiten mit ambitionierten Unternehmen zusammen, um digitale Erlebnisse zu schaffen, die wirklich etwas bewegen. Kein Blabla. Kein verschwendetes Budget.",
+    "timeline": "Zeitrahmen",
+    "idealFor": "Ideal für",
+    "items": [
+      {
+        "num": "01",
+        "title": "Strategie",
+        "subtitle": "Eine klare Position in wettbewerbsintensiven Märkten definieren.",
+        "description": "Strategie kommt vor Design und Entwicklung. Der Fokus liegt auf dem Verständnis der Marktlandschaft, des Wettbewerbsdrucks und der Rolle, die die Marke einnehmen sollte. Forschungsbasiert und kommerziell fundiert.",
+        "deliverables": [
+          "Markt- und Wettbewerbsanalyse",
+          "Markenpositionierungs-Framework",
+          "Strategische Messaging-Struktur",
+          "Umsetzungs- und Rollout-Fahrplan"
+        ],
+        "timeline": "2–3 Wochen",
+        "idealFor": "Startups vor dem Launch, Rebrands, Unternehmen in der Skalierungsphase"
+      },
+      {
+        "num": "02",
+        "title": "Design",
+        "subtitle": "Systeme für Klarheit, Benutzerfreundlichkeit und Conversion.",
+        "description": "Design wird als funktionales System behandelt, nicht als Dekoration. Kohärente Designsysteme, die über Produkte und Plattformen skalieren. Jedes Element ist bewusst gesetzt und unterstützt Konsistenz, Benutzerfreundlichkeit und langfristiges Wachstum.",
+        "deliverables": [
+          "UX-Struktur und Informationsarchitektur",
+          "High-Fidelity-UI-Design",
+          "Designsystem und wiederverwendbare Komponenten",
+          "Entwicklerfertige Design-Übergabe"
+        ],
+        "timeline": "3–5 Wochen",
+        "idealFor": "SaaS-Unternehmen, B2B-Plattformen, ambitionierte digitale Produkte"
+      },
+      {
+        "num": "03",
+        "title": "Entwicklung",
+        "subtitle": "Zuverlässige, skalierbare Lösungen für Wachstum.",
+        "description": "Strategie und Design umgesetzt in produktionsreife digitale Produkte. Saubere Architektur, Performance und Wartbarkeit. Keine unnötige Komplexität.",
+        "deliverables": [
+          "Technische Planung und Systemarchitektur",
+          "Front-End- und Back-End-Entwicklung",
+          "Performance- und Sicherheitsoptimierung",
+          "Deployment und Post-Launch-Support"
+        ],
+        "timeline": "6–8 Wochen",
+        "idealFor": "Finanzierte Startups, wachsende Unternehmen, Plattform-Modernisierung"
+      }
+    ],
+    "engagementLabel": "Zusammenarbeit",
+    "engagementTitle_line1": "Zwei Wege der",
+    "engagementTitle_line2": "Zusammenarbeit.",
+    "bestFor": "Ideal für",
+    "engagements": [
+      {
+        "num": "01",
+        "title": "Projektbasiert",
+        "price": "6K – 80K €",
+        "description": "Fester Umfang, fester Zeitplan, festes Budget. Perfekt für spezifische Initiativen mit klaren Ergebnissen.",
+        "bestFor": "Launches, Redesigns, neue Features"
+      },
+      {
+        "num": "02",
+        "title": "Partnerschafts-Retainer",
+        "price": "Ab 5K €/Monat",
+        "description": "Laufende Zusammenarbeit für kontinuierliche Verbesserung und Wachstum. Dedizierte Team-Zuweisung.",
+        "bestFor": "Wachsende Unternehmen, kontinuierliche Optimierung"
+      }
+    ],
+    "faqLabel": "FAQ",
+    "faqTitle_line1": "Häufige",
+    "faqTitle_line2": "Fragen.",
+    "faqs": [
+      {
+        "num": "01",
+        "q": "Wie vergleicht sich das mit einer internen Einstellung?",
+        "a": "Expertise auf Senior-Level ohne langfristigen Overhead. Vermeidet Einstellungsrisiken, verkürzt die Einarbeitungszeit und liefert fokussierte Ergebnisse schneller als der Aufbau eines internen Teams."
+      },
+      {
+        "num": "02",
+        "q": "Was, wenn die Richtung nicht stimmt?",
+        "a": "Die Arbeit ist in klare Phasen mit definierten Checkpoints strukturiert. Die Ausrichtung wird frühzeitig validiert, um das Risiko falscher Annahmen zu minimieren."
+      },
+      {
+        "num": "03",
+        "q": "Werden internationale Kunden unterstützt?",
+        "a": "Ja. Projekte werden für Kunden in ganz Europa, Großbritannien und Nordamerika geliefert, mit Erfahrung in der Arbeit über Zeitzonen und Geschäftskulturen hinweg."
+      },
+      {
+        "num": "04",
+        "q": "Kann das in ein bestehendes Team integriert werden?",
+        "a": "Ja. Engagements ergänzen oft interne Designer, Entwickler oder Produktteams, füllen Lücken und beschleunigen die Umsetzung."
+      },
+      {
+        "num": "05",
+        "q": "Was passiert nach dem Projekt?",
+        "a": "Laufender Support, Wartung und Retainer-basierte Partnerschaften stehen Teams zur Verfügung, die kontinuierliche Iteration oder langfristige Zusammenarbeit benötigen."
+      }
+    ],
+    "industriesLabel": "Branchen",
+    "industriesTitle_line1": "Branchen, in denen",
+    "industriesTitle_line2": "wir arbeiten.",
+    "sectors": ["SaaS & Plattformen", "E-Commerce", "FinTech", "Gesundheitswesen", "B2B", "Immobilien", "Startups", "Enterprise"]
+  },
+  "About": {
+    "label": "Über uns",
+    "title_line1": "Unabhängige Digital-",
+    "title_line2": "agentur. Globale Reichweite.",
+    "description": "Wir sind ein kleines, fokussiertes Team, das digitale Produkte für ambitionierte Unternehmen entwickelt. Strategie, Design und Entwicklung — präzise geliefert und ohne Overhead.",
+    "stats": [
+      { "num": "01", "label": "Projekte geliefert", "value": "21+" },
+      { "num": "02", "label": "Sitz in", "value": "London, UK" },
+      { "num": "03", "label": "Tätig", "value": "Weltweit" }
+    ],
+    "teamLabel": "Das Team",
+    "teamTitle_line1": "Kleines Team.",
+    "teamTitle_line2": "Senior-Ergebnisse.",
+    "since": "Seit",
+    "team": [
+      { "name": "Andrija Milosevic", "role": "Gründer & Creative Director", "email": "amilosevic@amdigital.agency", "year": "2023" },
+      { "name": "Luka Petrovic", "role": "Business Director", "email": "lpetrovic@amdigital.agency", "year": "2023" },
+      { "name": "Novica Markovic", "role": "Lead Developer", "email": "nmarkovic@amdigital.agency", "year": "2024" },
+      { "name": "Nikita Kozlov", "role": "DACH Account Manager", "email": "nkozlov@amdigital.agency", "year": "2024" },
+      { "name": "Aleksa Velickovic", "role": "Outreach-Spezialist", "email": "avelickovic@amdigital.agency", "year": "2023" }
+    ],
+    "clientsLabel": "Ausgewählte Marken",
+    "clientsTitle_line1": "Unternehmen, mit denen",
+    "clientsTitle_line2": "wir gearbeitet haben.",
+    "clients": ["Costae AI", "Clyra.biz", "Dachreach", "Calem AI", "KRONBERG Zeithaus"],
+    "valuesLabel": "Was uns antreibt",
+    "valuesTitle_line1": "Prinzipien, keine",
+    "valuesTitle_line2": "Prozesse.",
+    "values": [
+      { "num": "01", "title": "Design, das funktioniert.", "desc": "Ästhetik ist wichtig, aber Klarheit kommt immer zuerst. Jede Entscheidung ist bewusst und unterstützt das Nutzererlebnis." },
+      { "num": "02", "title": "Technologie mit Zweck.", "desc": "Wir bauen skalierbare, schnelle und zukunftssichere Lösungen. Keine Abkürzungen. Keine unnötige Komplexität." },
+      { "num": "03", "title": "Echte Partnerschaft.", "desc": "Zusammenarbeit geschieht Seite an Seite, mit abgestimmten Zielen und gemeinsamer Verantwortung in jeder Phase." },
+      { "num": "04", "title": "Langfristiges Denken.", "desc": "Lösungen, die halten. Flexibel genug zum Skalieren. Stabil genug, um Veränderungen zu überstehen." }
+    ]
+  },
+  "Contact": {
+    "label": "Kontakt aufnehmen",
+    "title_line1": "Lassen Sie uns etwas",
+    "title_line2": "Neues starten.",
+    "email": "hello@amdigital.agency",
+    "location": "London, UK",
+    "nameLabel": "Name",
+    "namePlaceholder": "Ihr vollständiger Name",
+    "emailLabel": "E-Mail",
+    "emailPlaceholder": "ihre@email.com",
+    "companyLabel": "Unternehmen",
+    "companyPlaceholder": "Ihr Firmenname",
+    "serviceLabel": "Leistung",
+    "services": ["Design", "Entwicklung", "Strategie"],
+    "budgetLabel": "Budget",
+    "budgets": ["< 10k", "10k – 25k", "25k – 50k", "50k – 100k", "100k +"],
+    "messageLabel": "Nachricht",
+    "messagePlaceholder": "Erzählen Sie uns von Ihrem Projekt, Ihren Zielen und Ihrem Zeitplan...",
+    "privacyText": "Mit dem Absenden stimmen Sie unserer",
+    "privacyLink": "Datenschutzerklärung",
+    "submit": "Nachricht senden"
+  },
+  "Clients": {
+    "clients": ["Costae AI", "Clyra.biz", "Dachreach", "Calem AI", "KRONBERG Zeithaus"]
+  },
+  "Footer": {
+    "nextStep": "Nächster Schritt",
+    "cta_line1": "Lassen Sie uns etwas",
+    "cta_line2": "Großartiges bauen.",
+    "startProject": "Projekt starten",
+    "contact": "Kontakt",
+    "address_line1": "27 Old Gloucester Street",
+    "address_line2": "London, WC1N 3AX",
+    "address_line3": "Vereinigtes Königreich",
+    "navigation": "Navigation",
+    "navLinks": {
+      "home": "Startseite",
+      "services": "Leistungen",
+      "work": "Arbeiten",
+      "about": "Über uns",
+      "contact": "Kontakt"
+    },
+    "socials": "Soziale Medien",
+    "legal": "Rechtliches",
+    "copyright": "AM Digital Agency Ltd · Company No. 14167111"
+  },
+  "Legal": {
+    "title": "Rechtliches",
+    "lastUpdated": "Zuletzt aktualisiert: Februar 2026",
+    "sections": [
+      {
+        "title": "Unternehmensinformationen",
+        "content": [
+          "AM Digital Agency Ltd ist ein in England und Wales registriertes Unternehmen.",
+          "Registrierungsnummer: 14167111",
+          "USt-IdNr.: GB422190922",
+          "Registrierter Sitz: 27 Old Gloucester Street, London, WC1N 3AX, Vereinigtes Königreich",
+          "Kontakt: hello@amdigital.agency"
+        ]
+      },
+      {
+        "title": "Datenschutzerklärung",
+        "content": [
+          "AM Digital Agency Ltd. ('wir', 'uns' oder 'unser') ist eine Digitalagentur, die Webdesign, Webentwicklung, Branding und Beratungsdienstleistungen anbietet. Wir verpflichten uns, Ihre Privatsphäre zu schützen und ein sicheres Online-Erlebnis zu gewährleisten.",
+          "Der Verantwortliche für Ihre Daten ist AM Digital Agency Ltd., ansässig in 27 Old Gloucester Street, London, WC1N 3AX, Vereinigtes Königreich."
+        ]
+      },
+      {
+        "title": "Daten, die wir erfassen",
+        "content": [
+          "Von Ihnen bereitgestellte Informationen: Name, E-Mail-Adresse und Telefonnummer, die Sie uns freiwillig über Kontaktformulare, E-Mail, Telefon oder soziale Medien übermitteln.",
+          "Automatisch erfasste Informationen: Nutzungsdaten einschließlich Ihrer IP-Adresse, Browsertyp, Browserversion, besuchte Seiten, Datum und Uhrzeit Ihres Besuchs, auf Seiten verbrachte Zeit und andere Diagnosedaten. Gerätedaten wie eindeutige Mobilgeräte-ID, IP-Adresse, Betriebssystem und Browsertyp."
+        ]
+      },
+      {
+        "title": "Verwendung von Cookies",
+        "content": [
+          "Wir verwenden Cookies und ähnliche Tracking-Technologien, um die Aktivität auf unserer Website zu überwachen und bestimmte Informationen zu speichern. Sie können Ihren Browser so einstellen, dass Cookies abgelehnt werden oder angezeigt wird, wenn ein Cookie gesendet wird. Wenn Sie jedoch keine Cookies akzeptieren, funktionieren einige Teile unseres Dienstes möglicherweise nicht ordnungsgemäß.",
+          "Notwendige Cookies: Unverzichtbar für die Bereitstellung von Diensten und die Aktivierung bestimmter Funktionen auf unserer Website.",
+          "Performance-Cookies: Werden für statistische Analysen zur Verbesserung der Website-Leistung verwendet."
+        ]
+      },
+      {
+        "title": "Wie wir Ihre Daten verwenden",
+        "content": [
+          "Zur Bereitstellung und Wartung unseres Dienstes. Um Sie mit Updates, Marketing- und Werbematerialien zu kontaktieren. Zur Verwaltung Ihrer Anfragen. Für Geschäftsentwicklung und analytische Zwecke.",
+          "Wir verarbeiten Ihre Daten auf Grundlage berechtigter Interessen, Einwilligung oder vertraglicher Notwendigkeit gemäß DSGVO Artikel 6."
+        ]
+      },
+      {
+        "title": "Weitergabe Ihrer Daten",
+        "content": [
+          "Wir können Ihre personenbezogenen Daten an Dienstleister weitergeben, um unsere Dienste zu ermöglichen, bei Unternehmensübertragungen im Falle einer Fusion oder Übernahme, an verbundene Unternehmen unter gemeinsamer Kontrolle, die diese Richtlinie einhalten müssen, und an Geschäftspartner, um Ihnen bestimmte Produkte oder Dienstleistungen anzubieten."
+        ]
+      },
+      {
+        "title": "Datenspeicherung & Ihre Rechte",
+        "content": [
+          "Wir bewahren Ihre personenbezogenen Daten nur so lange auf, wie es für die in dieser Richtlinie dargelegten Zwecke erforderlich ist.",
+          "Sie haben das Recht, auf Ihre personenbezogenen Daten zuzugreifen, sie zu korrigieren oder zu löschen. Ihre Informationen können auf Computer übertragen und dort gespeichert werden, die sich außerhalb Ihres Rechtsgebiets befinden, wo die Datenschutzgesetze abweichen können.",
+          "Um Ihre Rechte auszuüben oder die Löschung Ihrer Daten zu beantragen, kontaktieren Sie uns unter hello@amdigital.agency."
+        ]
+      },
+      {
+        "title": "Sicherheit",
+        "content": [
+          "Wir verwenden kommerziell akzeptable Mittel zum Schutz Ihrer personenbezogenen Daten, aber keine Methode der Übertragung oder Speicherung ist zu 100% sicher. Wir bemühen uns, Ihre Daten zu schützen, können jedoch keine absolute Sicherheit garantieren."
+        ]
+      },
+      {
+        "title": "Änderungen dieser Richtlinie",
+        "content": [
+          "Wir können diese Richtlinie von Zeit zu Zeit aktualisieren. Wir werden Sie über Änderungen informieren, indem wir die neue Richtlinie auf dieser Seite veröffentlichen und das Datum 'Zuletzt aktualisiert' aktualisieren."
+        ]
+      },
+      {
+        "title": "Haftungsbeschränkung",
+        "content": [
+          "AM Digital Agency Ltd haftet nicht für indirekte, zufällige, besondere, Folge- oder Strafschäden oder für entgangene Gewinne oder Einnahmen. Alle Dienstleistungen unterliegen einer separaten, von beiden Parteien unterzeichneten Dienstleistungsvereinbarung."
+        ]
+      }
+    ]
+  },
+  "Impressum": {
+    "title": "Impressum",
+    "sections": [
+      {
+        "title": "Angaben gemäß § 5 TMG",
+        "content": [
+          "AM Digital Agency Ltd",
+          "27 Old Gloucester Street",
+          "London, WC1N 3AX",
+          "Vereinigtes Königreich"
+        ]
+      },
+      {
+        "title": "Vertreten durch",
+        "content": [
+          "Geschäftsführer: Andrija Milosevic"
+        ]
+      },
+      {
+        "title": "Kontakt",
+        "content": [
+          "E-Mail: hello@amdigital.agency"
+        ]
+      },
+      {
+        "title": "Registereintrag",
+        "content": [
+          "Registriert in England und Wales",
+          "Registrierungsnummer: 14167111",
+          "USt-IdNr.: GB422190922"
+        ]
+      },
+      {
+        "title": "Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV",
+        "content": [
+          "Andrija Milosevic",
+          "27 Old Gloucester Street",
+          "London, WC1N 3AX",
+          "Vereinigtes Königreich"
+        ]
+      },
+      {
+        "title": "Streitschlichtung",
+        "content": [
+          "Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: https://ec.europa.eu/consumers/odr",
+          "Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen."
+        ]
+      }
+    ]
+  },
+  "NotFound": {
+    "title": "404",
+    "message": "Diese Seite existiert nicht.",
+    "backHome": "Zurück zur Startseite"
+  },
+  "projects": {
+    "clyra-biz": {
+      "description": "All-in-One-Plattform für nicht ansässige Unternehmer zur Gründung und Führung von US-Unternehmen in unter 48 Stunden.",
+      "challenge": "Nicht ansässige Gründer stehen vor einem rechtlichen Labyrinth — Unternehmensgründung, IRS-Anmeldungen, virtuelle Adressen, Telefonnummern. Jeder Anbieter arbeitet unabhängig und zwingt Unternehmer, separate Logins zu verwalten und Systeme manuell abzugleichen. Das Ergebnis: Verwirrung, Compliance-Lücken und monatelange Reibung vor dem Launch.",
+      "solution": "Wir haben den gesamten Workflow in eine einzige Kommandozentrale konsolidiert. Anstelle separater Tools sehen Nutzer eine einheitliche Oberfläche, in der Unternehmensgründung, Adressbereitstellung und Compliance-Dokumentation als ein einziger Prozess ablaufen. Das System handhabt die Backend-Komplexität — Registerdatenbanken, Telekommunikationsintegrationen, regulatorische Updates — während die Oberfläche alles mühelos erscheinen lässt.",
+      "services": ["Plattformentwicklung", "Dokumentenautomatisierung", "Dashboard UI/UX"],
+      "results": [
+        { "label": "Erste Firma live", "value": "< 48 Std." },
+        { "label": "Onboarding-Abschluss", "value": "92%" },
+        { "label": "Aktive Unternehmen", "value": "500+" }
+      ]
+    },
+    "dachreach": {
+      "description": "Cold-Outreach-Plattform speziell für den deutschsprachigen Markt, mit integrierter DSGVO-Konformität.",
+      "challenge": "Deutsche Mittelstandskäufer agieren mit regulatorischer Vorsicht — DSGVO-Verstöße bergen echte rechtliche Risiken. Dachreach war als generisches Cold-Outreach-Tool positioniert und konkurrierte über Features. Interessenten vertrauten nicht darauf, dass Sicherheit eingebaut und nicht nachträglich aufgesetzt war. Die Conversion war nahezu flach.",
+      "solution": "Wir haben die Positionierung umgekehrt: Statt eines Tools mit DSGVO-Konformität positionierten wir es als DSGVO-First-Intelligence-Plattform. Die Markenidentität bewegte sich weg von SaaS-Klischees hin zu institutioneller Seriosität — visuelle Sprache, die vom deutschen Finanzdesign entlehnt ist, nicht von Startup-Ästhetik. Die Landing Page führte Interessenten durch Referenzen etablierter deutscher Unternehmen und demonstrierte Compliance als zentrale Engineering-Verpflichtung.",
+      "services": ["Markenidentität", "Landing-Page-Design", "Conversion-Optimierung"],
+      "results": [
+        { "label": "Landing-Page-Conversion", "value": "+22%" },
+        { "label": "Demo-Buchungen", "value": "3x" },
+        { "label": "Vertrauensbewertung", "value": "4,8/5" }
+      ]
+    },
+    "costae-ai": {
+      "description": "Generative-KI-Plattform, die natürliche Sprache in produktionsreife Web-Apps verwandelt.",
+      "challenge": "Nicht-technische Gründer stoßen an eine Wand: Web-Anwendungen zu erstellen erfordert entweder Programmierkenntnisse oder mühsame visuelle Builder mit zu starrem Output. Die kognitive Belastung ist hoch, die Time-to-Prototype beträgt Wochen, und das Ergebnis fühlt sich oft eingeschränkt an.",
+      "solution": "Wir haben die Oberfläche als kollaboratives Gespräch gestaltet, nicht als Builder. Nutzer beschreiben, was sie wollen, in einfacher Sprache; die KI interpretiert die Absicht, generiert sauberen React-Code in Echtzeit und rendert sofort eine funktionierende Vorschau. Bearbeitungen geschehen im Chat — bitten Sie es, ein Zahlungsformular hinzuzufügen oder die Header-Schrift zu ändern, und es regeneriert Code und Vorschau zusammen. Die Oberfläche löscht die Grenze zwischen Denken und Bauen.",
+      "services": ["Produktdesign", "Prompt-Interface", "KI-Workflow-Strategie"],
+      "results": [
+        { "label": "Idee zum Prototyp", "value": "< 60 Min." },
+        { "label": "Erfolgreiche Deployments", "value": "2.500+" },
+        { "label": "Wöchentliche Retention", "value": "68%" }
+      ]
+    },
+    "kronberg-zeithaus": {
+      "description": "Digitale Präsenz für ein exklusives Uhrenhaus — gestaltet, um vermögende Sammler anzuziehen, die nach investitionswürdigen Zeitmessern suchen.",
+      "challenge": "Patek Philippe- und Audemars Piguet-Sammler wollen nicht nur Uhren sehen — sie wollen die Investitionsthese verstehen. Kronbergs Zielgruppe ist hochgebildet, global verteilt und skeptisch gegenüber Hype. Die digitale Präsenz musste sich wie eine private Beratung anfühlen, nicht wie Einzelhandel.",
+      "solution": "Wir haben die Website als kuratorisches Erlebnis gestaltet. Jedes Stück wird durch Provenienzforschung, historische Bedeutung und Marktpositionierung kontextualisiert. Die Oberfläche ist bewusst zurückhaltend: schwarze Hintergründe, großzügiger Weißraum, Typografie, die nicht mit der Fotografie konkurriert. Ein direkter Kanal zur privaten Beratung ist durchgehend eingewebt — nie aufdringlich, immer dem Moment angemessen.",
+      "services": ["Markenidentität", "Portfolio-Showcase-Website", "Druckmaterialien"],
+      "results": [
+        { "label": "Durchschn. Transaktion", "value": "85K €+" },
+        { "label": "Beratungsanfragen", "value": "+150%" },
+        { "label": "Akquisitionskosten", "value": "-30%" }
+      ]
+    },
+    "calem-ai": {
+      "description": "KI-gestützte Kreativplattform, die Branding, Strategie und Webdesign aus einem einzigen Briefing liefert.",
+      "challenge": "Designer und kleine Agenturinhaber sind überlastet — mehr Anfragen als Kapazität. Sie müssen den Output erweitern, ohne einzustellen, aber das Outsourcing an günstigere Agenturen beeinträchtigt die Qualität. Sie stecken zwischen Wachstum und Einschränkung fest.",
+      "solution": "Wir haben Calem als kreativen Copiloten gebaut. Designer geben Markenstrategie und Referenzmaterialien ein; die KI generiert mehrere Designrichtungen, keine Templates. Der Designer überprüft, verfeinert und baut auf der besten Richtung auf — erweitert die eigene Arbeit, anstatt von Null zu beginnen. Das Ergebnis ist immer von Menschen genehmigt und bearbeitet. Das ist keine Automatisierung, das ist Hebelwirkung.",
+      "services": ["Produktstrategie", "KI-Pipeline-Design", "Plattformentwicklung"],
+      "results": [
+        { "label": "Durchschn. Projektgebühr", "value": "1K €" },
+        { "label": "Lieferzeit", "value": "< 15 Min." },
+        { "label": "Kundenzufriedenheit", "value": "94%" }
+      ]
+    }
+  }
+}

@@ -1,31 +1,30 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useLocale, useTranslations } from "next-intl";
+import { Link, usePathname, useRouter } from "@/i18n/navigation";
 
-// TODO: Implement next-intl or next-i18next for actual i18n
-// Routes will become /de/services, /fr/about, etc.
-// Language selection here should redirect to /{locale}/current-path
-type Lang = "EN" | "DE";
+type Lang = "en" | "de";
 
 const navItems = [
-  { num: "01", label: "Home", href: "/" },
-  { num: "02", label: "Services", href: "/services" },
-  { num: "03", label: "Work", href: "/work" },
-  { num: "04", label: "About", href: "/about" },
-  { num: "05", label: "Contact", href: "/contact" },
+  { num: "01", key: "home" as const, href: "/" as const },
+  { num: "02", key: "services" as const, href: "/services" as const },
+  { num: "03", key: "work" as const, href: "/work" as const },
+  { num: "04", key: "about" as const, href: "/about" as const },
+  { num: "05", key: "contact" as const, href: "/contact" as const },
 ];
 
 const languages: { code: Lang; label: string }[] = [
-  { code: "EN", label: "English" },
-  { code: "DE", label: "Deutsch" },
+  { code: "en", label: "EN" },
+  { code: "de", label: "DE" },
 ];
 
 export const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [lang, setLang] = useState<Lang>("EN");
   const pathname = usePathname();
+  const router = useRouter();
+  const locale = useLocale() as Lang;
+  const t = useTranslations("Navbar");
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -42,9 +41,10 @@ export const Navbar: React.FC = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const selectLang = (l: Lang) => {
-    setLang(l);
-    // TODO: router.push(`/${l.toLowerCase()}${pathname}`) when i18n is set up
+  const switchLocale = (target: Lang) => {
+    if (target === locale) return;
+    router.replace(pathname as any, { locale: target });
+    setIsMenuOpen(false);
   };
 
   return (
@@ -66,7 +66,7 @@ export const Navbar: React.FC = () => {
           onClick={toggleMenu}
           className="text-xs font-bold uppercase tracking-widest bg-black/80 backdrop-blur-sm border border-white/15 px-7 py-3 rounded-full hover:border-white/40 transition-colors pointer-events-auto z-50 relative"
         >
-          {isMenuOpen ? "Close" : "Menu"}
+          {isMenuOpen ? t("close") : t("menu")}
         </button>
       </nav>
 
@@ -106,7 +106,7 @@ export const Navbar: React.FC = () => {
                         : "text-neutral-600 group-hover:text-white"
                     }`}
                   >
-                    {item.label}
+                    {t(`items.${item.key}`)}
                   </span>
                   {pathname === item.href && (
                     <span className="w-2 h-2 rounded-full bg-white shrink-0" />
@@ -130,14 +130,14 @@ export const Navbar: React.FC = () => {
             {/* Left — contact info */}
             <div className="flex flex-wrap items-center gap-6">
               <a
-                href="mailto:hello@amdigital.agency"
+                href={`mailto:${t("email")}`}
                 className="text-sm text-neutral-600 hover:text-white transition-colors uppercase tracking-widest"
               >
-                hello@amdigital.agency
+                {t("email")}
               </a>
               <span className="w-1 h-1 rounded-full bg-neutral-700 hidden md:block" />
               <span className="text-sm text-neutral-700 uppercase tracking-widest">
-                London, UK
+                {t("location")}
               </span>
             </div>
 
@@ -146,14 +146,14 @@ export const Navbar: React.FC = () => {
               {languages.map((l) => (
                 <button
                   key={l.code}
-                  onClick={() => selectLang(l.code)}
+                  onClick={() => switchLocale(l.code)}
                   className={`text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full transition-colors ${
-                    lang === l.code
+                    locale === l.code
                       ? "text-white bg-white/10"
                       : "text-neutral-700 hover:text-white"
                   }`}
                 >
-                  {l.code}
+                  {l.label}
                 </button>
               ))}
             </div>

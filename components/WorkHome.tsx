@@ -1,13 +1,16 @@
 "use client";
 
 import React, { useState, useRef } from 'react';
-import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
+import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
 import { projects } from '@/data/projects';
 
-const featured = [projects[0], projects[1], projects[3]]; // Clyra.biz, Dachreach, KRONBERG Zeithaus
+const featured = [projects[0], projects[1], projects[3]];
 
 export const WorkHome: React.FC = () => {
+  const t = useTranslations('WorkHome');
+
   return (
     <section className="bg-brand-black px-6 md:px-10 pb-32">
       <div className="max-w-6xl mx-auto">
@@ -45,7 +48,7 @@ export const WorkHome: React.FC = () => {
             href="/work"
             className="group inline-flex items-center gap-3 text-neutral-600 hover:text-white transition-colors text-sm uppercase tracking-widest"
           >
-            All work
+            {t('allWork')}
             <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:border-white group-hover:text-black transition-all duration-300">
               <ArrowUpRight size={16} />
             </div>
@@ -86,7 +89,7 @@ function ProjectCard({
 
   return (
     <Link
-      href={`/work/${project.slug}`}
+      href={{ pathname: '/work/[slug]', params: { slug: project.slug } }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       className="group relative block overflow-hidden"
@@ -112,7 +115,7 @@ function ProjectCard({
           />
         )}
 
-        {/* Gradient overlay — always visible, darkens on hover */}
+        {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent group-hover:from-black/80 transition-all duration-500" />
 
         {/* Title + category overlaid */}

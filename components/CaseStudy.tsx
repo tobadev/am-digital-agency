@@ -1,13 +1,35 @@
 "use client";
 
 import React from 'react';
-import Link from 'next/link';
 import { ArrowLeft, ArrowUpRight } from 'lucide-react';
+import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
 import { ProjectData, projects } from '@/data/projects';
 
 export const CaseStudyContent: React.FC<{ project: ProjectData }> = ({ project }) => {
+  const t = useTranslations('CaseStudy');
+  const tp = useTranslations('projects');
   const currentIndex = projects.findIndex((p) => p.slug === project.slug);
   const nextProject = projects[(currentIndex + 1) % projects.length];
+
+  const description = tp(`${project.slug}.description`);
+  const challenge = tp(`${project.slug}.challenge`);
+  const solution = tp(`${project.slug}.solution`);
+
+  // Get translated services array
+  const services: string[] = [];
+  for (let i = 0; i < project.services.length; i++) {
+    services.push(tp(`${project.slug}.services.${i}`));
+  }
+
+  // Get translated results array
+  const results: { label: string; value: string }[] = [];
+  for (let i = 0; i < project.results.length; i++) {
+    results.push({
+      label: tp(`${project.slug}.results.${i}.label`),
+      value: tp(`${project.slug}.results.${i}.value`),
+    });
+  }
 
   return (
     <div className="bg-brand-black min-h-screen text-white px-6 md:px-10 pb-32">
@@ -18,7 +40,7 @@ export const CaseStudyContent: React.FC<{ project: ProjectData }> = ({ project }
           href="/work"
           className="group inline-flex items-center gap-2 text-neutral-700 hover:text-white transition-colors uppercase text-[10px] tracking-widest mb-16"
         >
-          <ArrowLeft size={14} className="transition-transform duration-300 group-hover:-translate-x-1" /> Back to Work
+          <ArrowLeft size={14} className="transition-transform duration-300 group-hover:-translate-x-1" /> {t('backToWork')}
         </Link>
 
         {/* Header */}
@@ -31,22 +53,22 @@ export const CaseStudyContent: React.FC<{ project: ProjectData }> = ({ project }
             {project.title}
           </h1>
           <p className="text-xl text-neutral-400 leading-relaxed max-w-3xl mb-16">
-            {project.description}
+            {description}
           </p>
 
           {/* Meta row */}
           <div className="border-t border-white/10 pt-8 flex flex-wrap gap-12 md:gap-20">
             <div>
-              <span className="text-[10px] uppercase tracking-[0.2em] text-neutral-700 block mb-2">Client</span>
+              <span className="text-[10px] uppercase tracking-[0.2em] text-neutral-700 block mb-2">{t('client')}</span>
               <span className="text-sm text-white">{project.client}</span>
             </div>
             <div>
-              <span className="text-[10px] uppercase tracking-[0.2em] text-neutral-700 block mb-2">Year</span>
+              <span className="text-[10px] uppercase tracking-[0.2em] text-neutral-700 block mb-2">{t('year')}</span>
               <span className="text-sm text-white">{project.year}</span>
             </div>
             <div>
-              <span className="text-[10px] uppercase tracking-[0.2em] text-neutral-700 block mb-2">Services</span>
-              <span className="text-sm text-white">{project.services.join(', ')}</span>
+              <span className="text-[10px] uppercase tracking-[0.2em] text-neutral-700 block mb-2">{t('servicesLabel')}</span>
+              <span className="text-sm text-white">{services.join(', ')}</span>
             </div>
           </div>
         </div>
@@ -81,11 +103,11 @@ export const CaseStudyContent: React.FC<{ project: ProjectData }> = ({ project }
         >
           <div className="flex flex-col md:flex-row gap-6 md:gap-16">
             <div className="text-[10px] uppercase tracking-[0.2em] text-neutral-700 w-40 shrink-0 flex items-center gap-3 md:pt-1">
-              <span className="text-neutral-700">01</span> Challenge
+              <span className="text-neutral-700">01</span> {t('challenge')}
             </div>
             <div className="flex-1">
               <p className="text-neutral-400 text-lg leading-relaxed max-w-2xl">
-                {project.challenge}
+                {challenge}
               </p>
             </div>
           </div>
@@ -98,11 +120,11 @@ export const CaseStudyContent: React.FC<{ project: ProjectData }> = ({ project }
         >
           <div className="flex flex-col md:flex-row gap-6 md:gap-16">
             <div className="text-[10px] uppercase tracking-[0.2em] text-neutral-700 w-40 shrink-0 flex items-center gap-3 md:pt-1">
-              <span className="text-neutral-700">02</span> Solution
+              <span className="text-neutral-700">02</span> {t('solution')}
             </div>
             <div className="flex-1">
               <p className="text-neutral-400 text-lg leading-relaxed max-w-2xl">
-                {project.solution}
+                {solution}
               </p>
             </div>
           </div>
@@ -144,10 +166,10 @@ export const CaseStudyContent: React.FC<{ project: ProjectData }> = ({ project }
         >
           <div className="flex flex-col md:flex-row gap-6 md:gap-16">
             <div className="text-[10px] uppercase tracking-[0.2em] text-neutral-700 w-40 shrink-0 flex items-center gap-3 md:pt-1">
-              <span className="text-neutral-700">03</span> Results
+              <span className="text-neutral-700">03</span> {t('results')}
             </div>
             <div className="flex-1 grid grid-cols-1 md:grid-cols-3 gap-12">
-              {project.results.map((result, idx) => (
+              {results.map((result, idx) => (
                 <div key={idx}>
                   <span className="font-display text-4xl md:text-5xl font-bold text-white block mb-3">
                     {result.value}
@@ -167,9 +189,9 @@ export const CaseStudyContent: React.FC<{ project: ProjectData }> = ({ project }
           className="pt-32 md:pt-40 animate-in fade-in slide-in-from-bottom-4 duration-500"
           style={{ animationDelay: '1000ms', animationFillMode: 'both' }}
         >
-          <span className="text-[10px] uppercase tracking-[0.2em] text-neutral-700 block mb-8">Next project</span>
+          <span className="text-[10px] uppercase tracking-[0.2em] text-neutral-700 block mb-8">{t('nextProject')}</span>
           <Link
-            href={`/work/${nextProject.slug}`}
+            href={{ pathname: '/work/[slug]', params: { slug: nextProject.slug } }}
             className="group flex items-center justify-between"
           >
             <h2 className="font-display text-5xl md:text-7xl font-bold text-neutral-600 group-hover:text-white transition-all duration-300 group-hover:translate-x-3">

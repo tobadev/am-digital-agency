@@ -1,119 +1,69 @@
-# i18n + SEO Implementation Plan
+# i18n Implementation — next-intl (Complete)
+
+## Status: Implemented
 
 ## Locales
-- EN (default, no prefix — `/`)
-- DE (`/de/`)
-- FR (`/fr/`)
-- IT (`/it/`)
+- **EN** (default, no prefix — `/`)
+- **DE** (`/de/` with localized paths)
 
 ## Route Structure
 
-| Page | EN | DE | FR | IT |
-|------|----|----|----|----|
-| Home | `/` | `/de` | `/fr` | `/it` |
-| Services | `/services` | `/de/dienstleistungen` | `/fr/services` | `/it/servizi` |
-| Work | `/work` | `/de/arbeiten` | `/fr/projets` | `/it/lavori` |
-| Case Study | `/work/[slug]` | `/de/arbeiten/[slug]` | `/fr/projets/[slug]` | `/it/lavori/[slug]` |
-| About | `/about` | `/de/ueber-uns` | `/fr/a-propos` | `/it/chi-siamo` |
-| Contact | `/contact` | `/de/kontakt` | `/fr/contact` | `/it/contatto` |
-| Legal | `/legal` | `/de/rechtliches` | `/fr/mentions-legales` | `/it/note-legali` |
-| Impressum | — | `/de/impressum` | — | — |
+| Page | EN | DE |
+|------|----|----|
+| Home | `/` | `/de` |
+| Services | `/services` | `/de/dienstleistungen` |
+| Work | `/work` | `/de/arbeiten` |
+| Case Study | `/work/[slug]` | `/de/arbeiten/[slug]` |
+| About | `/about` | `/de/ueber-uns` |
+| Contact | `/contact` | `/de/kontakt` |
+| Legal | `/legal` | `/de/rechtliches` |
+| Impressum | — | `/de/impressum` |
 
-Case study slugs (novabank, aura-home, etc.) stay same across all languages.
+Case study slugs stay the same across both languages.
 
-## Approach — Next.js Built-in (no external library)
+## Architecture
 
-Using official Next.js pattern from docs:
-1. `[lang]` dynamic segment in app directory
-2. JSON dictionary files for translations
-3. Middleware for locale detection + localized route rewrites
-4. `generateStaticParams` for static generation
+Using `next-intl` with the following file structure:
 
-## Steps
+### i18n Infrastructure
+- `i18n/routing.ts` — `defineRouting()` with locales, `localePrefix: 'as-needed'`, pathname map
+- `i18n/navigation.ts` — `createNavigation(routing)` exports `Link`, `usePathname`, `useRouter`, `getPathname`
+- `i18n/request.ts` — `getRequestConfig()` that loads `messages/{locale}.json`
+- `middleware.ts` — `createMiddleware(routing)` with matcher
+- `next.config.ts` — wrapped with `createNextIntlPlugin`
 
-### 1. Install dependencies
-```
-npm i negotiator @formatjs/intl-localematcher server-only
-npm i -D @types/negotiator
-```
+### Message Files
+- `messages/en.json` — all UI strings, namespaced by component
+- `messages/de.json` — German translations, same structure
+- Namespaces: Navbar, Hero, BrandStatement, WorkHome, WorkPage, CaseStudy, Services, About, Contact, Clients, Footer, Legal, Impressum, NotFound, Metadata, projects
 
-### 2. Create i18n config
-- `i18n/config.ts` — locales array, default locale, route name mappings
-- `i18n/dictionaries.ts` — `getDictionary(locale)` with dynamic imports
-
-### 3. Create middleware.ts
-- Detect locale from URL prefix or Accept-Language header
-- Rewrite localized paths to internal English paths (e.g. `/de/kontakt` → `/de/contact`)
-- EN has no prefix, stays at `/`
-- Skip _next, static files, api routes
-
-### 4. Restructure app directory
-Move all pages under `app/[lang]/`:
+### App Directory
 ```
 app/
-  [lang]/
-    layout.tsx          ← html lang={lang}, font, navbar, generateStaticParams
-    page.tsx            ← homepage
+  layout.tsx              ← passthrough root layout
+  globals.css
+  sitemap.ts
+  robots.ts
+  [locale]/
+    layout.tsx            ← NextIntlClientProvider, generateStaticParams
+    page.tsx              ← home
+    not-found.tsx
     services/page.tsx
     work/page.tsx
     work/[slug]/page.tsx
     about/page.tsx
     contact/page.tsx
     legal/page.tsx
-    impressum/page.tsx  ← returns notFound() if lang !== 'de'
-    not-found.tsx
-  globals.css
-  sitemap.ts
-  robots.ts
+    impressum/page.tsx    ← notFound() if locale !== 'de'
 ```
 
-### 5. Create translation files
-```
-i18n/dictionaries/
-  en.json
-  de.json
-  fr.json
-  it.json
-```
+### Components
+- **Client components** use `useTranslations('Namespace')`: Hero, BrandStatement, WorkHome, Work, CaseStudy, Services, About, Contact, Navbar
+- **Server components** use `getTranslations('Namespace')`: Footer, Legal, Clients
+- All internal links use `Link` from `@/i18n/navigation`
+- Navbar language switcher uses `useRouter` from `@/i18n/navigation` + `useLocale()`
 
-Namespaced by section:
-- common, nav, hero, brandStatement, about, services, contact, work, projects, footer, legal, impressum
-
-ALL content translated — UI text, page copy, case studies (descriptions, challenges, solutions, results).
-
-### 6. Update all components
-- Server components: accept `dict` prop, replace hardcoded strings
-- Client components: accept `dict` prop (serializable JSON from server)
-- Pages call `getDictionary(lang)` and pass to components
-
-### 7. Wire language switcher
-- Navbar accepts current `lang` param
-- Language buttons navigate to equivalent page in target locale
-- Maps current path to localized path for target language
-
-### 8. SEO
-- `generateMetadata` per page with locale-specific title/description
-- Open Graph tags (title, description, locale, url, siteName)
-- `alternates.languages` for hreflang links
-- `app/sitemap.ts` — all pages × 4 languages + DE impressum
+### SEO
+- `generateMetadata` on every page with locale-specific title/description and hreflang alternates
+- `app/sitemap.ts` — all pages × 2 locales + DE-only impressum
 - `app/robots.ts` — allow all, reference sitemap
-
-### 9. Cleanup
-Delete dead files:
-- app/terms/, app/privacy/
-- components/Terms.tsx, Privacy.tsx, ServicesHome.tsx, Process.tsx, Testimonials.tsx
-
-## Files to Create
-- i18n/config.ts
-- i18n/dictionaries.ts
-- i18n/dictionaries/en.json, de.json, fr.json, it.json
-- middleware.ts
-- app/[lang]/layout.tsx + all page.tsx files
-- app/[lang]/impressum/page.tsx
-- app/sitemap.ts
-- app/robots.ts
-
-## Files to Modify
-- All 12 components — accept dict prop
-- data/projects.ts — per-locale content
-- components/Navbar.tsx — wire language switcher

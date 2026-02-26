@@ -1,13 +1,15 @@
 "use client";
 
 import React, { useRef, useEffect, useState } from 'react';
-
-const HEADLINE = "An independent London digital agency";
-const REVEAL_WORDS = "helping ambitious companies define strategy, shape brands, and build products people actually use.".split(' ');
+import { useTranslations } from 'next-intl';
 
 export const BrandStatement: React.FC = () => {
+  const t = useTranslations('BrandStatement');
   const sectionRef = useRef<HTMLElement>(null);
   const [progress, setProgress] = useState(0);
+
+  const HEADLINE = t('headline');
+  const REVEAL_WORDS = t('reveal').split(' ');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,7 +17,6 @@ export const BrandStatement: React.FC = () => {
       const rect = sectionRef.current.getBoundingClientRect();
       const vh = window.innerHeight;
 
-      // Reveal starts when section is 70% down viewport, ends at 20%
       const start = vh * 0.7;
       const end = vh * 0.2;
       const raw = (start - rect.top) / (start - end);

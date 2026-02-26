@@ -1,0 +1,43 @@
+import { setRequestLocale, getTranslations } from "next-intl/server";
+import { About } from "@/components/About";
+import { Footer } from "@/components/Footer";
+import { routing } from "@/i18n/routing";
+import type { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Metadata" });
+
+  return {
+    title: t("about.title"),
+    description: t("about.description"),
+    alternates: {
+      languages: Object.fromEntries(
+        routing.locales.map((l) => [
+          l,
+          l === "en" ? "/about" : `/${l}/ueber-uns`,
+        ])
+      ),
+    },
+  };
+}
+
+export default async function AboutPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
+  return (
+    <div className="animate-in fade-in duration-500 pt-32">
+      <About />
+      <Footer />
+    </div>
+  );
+}

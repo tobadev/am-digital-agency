@@ -1,11 +1,14 @@
 "use client";
 
 import React, { useState, useRef } from 'react';
-import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
+import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
 import { projects } from '@/data/projects';
 
 export const Work: React.FC = () => {
+  const t = useTranslations('projects');
+
   return (
     <section className="bg-brand-black px-6 md:px-10 pb-32">
       <div className="max-w-5xl mx-auto">
@@ -15,7 +18,7 @@ export const Work: React.FC = () => {
             className="animate-in fade-in slide-in-from-bottom-4 duration-500"
             style={{ animationDelay: `${idx * 150}ms`, animationFillMode: 'both' }}
           >
-            <ProjectRow project={project} />
+            <ProjectRow project={project} description={t(`${project.slug}.description`)} />
           </div>
         ))}
         <div className="border-t border-white/10" />
@@ -24,7 +27,7 @@ export const Work: React.FC = () => {
   );
 };
 
-function ProjectRow({ project }: { project: typeof projects[number] }) {
+function ProjectRow({ project, description }: { project: typeof projects[number]; description: string }) {
   const [isHovered, setIsHovered] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -45,7 +48,7 @@ function ProjectRow({ project }: { project: typeof projects[number] }) {
 
   return (
     <Link
-      href={`/work/${project.slug}`}
+      href={{ pathname: '/work/[slug]', params: { slug: project.slug } }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       className="group block border-t border-white/10 py-12 md:py-16 transition-all duration-300"
@@ -75,7 +78,7 @@ function ProjectRow({ project }: { project: typeof projects[number] }) {
           </div>
         </div>
 
-        {/* Media: image/video thumbnail */}
+        {/* Media */}
         <div className="flex items-start gap-6 md:gap-12">
           <div className="w-12 shrink-0 hidden md:block" />
           <div className="flex-1 relative aspect-[16/9] overflow-hidden bg-brand-dark">
@@ -105,7 +108,7 @@ function ProjectRow({ project }: { project: typeof projects[number] }) {
         <div className="flex items-start gap-6 md:gap-12">
           <div className="w-12 shrink-0 hidden md:block" />
           <p className="text-neutral-500 text-lg leading-relaxed max-w-2xl">
-            {project.description}
+            {description}
           </p>
         </div>
       </div>
