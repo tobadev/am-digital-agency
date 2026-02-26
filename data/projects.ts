@@ -59,8 +59,8 @@ export const projects: ProjectData[] = [
       { label: 'Trust Rating', value: '4.8/5' },
     ],
     gallery: [
-      { type: 'image', src: `${IMG}1586023492125-27b2c045efd7?q=80&w=2670&auto=format&fit=crop` },
-      { type: 'image', src: `${IMG}1556228453-efd6c1ff04f6?q=80&w=2670&auto=format&fit=crop` },
+      { type: 'image', src: '/projects/dachreach/2nd.webp' },
+      { type: 'image', src: '/projects/dachreach/3rd.webp' },
     ],
   },
   {
