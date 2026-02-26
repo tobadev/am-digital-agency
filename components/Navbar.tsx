@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 // TODO: Implement next-intl or next-i18next for actual i18n
 // Routes will become /de/services, /fr/about, etc.
 // Language selection here should redirect to /{locale}/current-path
-type Lang = "EN" | "DE" | "FR" | "IT";
+type Lang = "EN" | "DE";
 
 const navItems = [
   { num: "01", label: "Home", href: "/" },
@@ -20,8 +20,6 @@ const navItems = [
 const languages: { code: Lang; label: string }[] = [
   { code: "EN", label: "English" },
   { code: "DE", label: "Deutsch" },
-  { code: "FR", label: "Français" },
-  { code: "IT", label: "Italiano" },
 ];
 
 export const Navbar: React.FC = () => {
