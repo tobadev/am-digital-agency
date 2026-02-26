@@ -14,9 +14,9 @@ const poppins = Poppins({
 
 export default async function NotFound() {
   const headersList = await headers();
-  const url = headersList.get("x-invoke-path") || headersList.get("x-matched-path") || "";
-  const pathSegment = url.split("/")[1] || "";
-  const locale = routing.locales.includes(pathSegment as any) ? pathSegment : routing.defaultLocale;
+  const locale = routing.locales.includes(headersList.get("x-locale") as any)
+    ? headersList.get("x-locale")!
+    : routing.defaultLocale;
 
   const messages = await getMessages({ locale });
 
