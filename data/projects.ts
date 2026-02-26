@@ -26,7 +26,7 @@ export const projects: ProjectData[] = [
     client: 'Clyra.biz',
     category: 'Strategy, Design & Development',
     year: '2025',
-    thumbnail: `${IMG}1551288049-bebda4e38f71?q=80&w=2670&auto=format&fit=crop`,
+    thumbnail: '/projects/clyra-biz/hero.webp',
     description: 'All-in-one platform for non-resident entrepreneurs to register and operate US companies in under 48 hours.',
     services: ['Platform Development', 'Document Automation', 'Dashboard UI/UX'],
     challenge: 'Non-resident founders face a legal maze — entity formation, IRS filings, virtual addresses, phone numbers. Each vendor operates independently, forcing entrepreneurs to maintain separate logins and manually reconcile systems. The result: confusion, compliance gaps, and months of friction before launch.',
@@ -37,8 +37,8 @@ export const projects: ProjectData[] = [
       { label: 'Active Companies', value: '500+' },
     ],
     gallery: [
-      { type: 'image', src: `${IMG}1616077168079-7e09a677fb2c?q=80&w=2670&auto=format&fit=crop` },
-      { type: 'image', src: `${IMG}1551288049-bebda4e38f71?q=80&w=2670&auto=format&fit=crop` },
+      { type: 'image', src: '/projects/clyra-biz/2nd.webp' },
+      { type: 'image', src: '/projects/clyra-biz/3rd.webp' },
     ],
   },
   {
