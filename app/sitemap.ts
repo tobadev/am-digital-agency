@@ -15,7 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const entries: MetadataRoute.Sitemap = [];
 
-  // Static pages × both locales
+  // Static pages — one entry per page with alternates
   for (const route of staticRoutes) {
     entries.push({
       url: `${BASE_URL}${route.en}`,
@@ -26,29 +26,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
         },
       },
     });
-    entries.push({
-      url: `${BASE_URL}${route.de}`,
-      alternates: {
-        languages: {
-          en: `${BASE_URL}${route.en}`,
-          de: `${BASE_URL}${route.de}`,
-        },
-      },
-    });
   }
 
-  // Project pages × both locales
+  // Project pages — one entry per project with alternates
   for (const project of projects) {
     const en = `/work/${project.slug}`;
     const de = `/de/arbeiten/${project.slug}`;
     entries.push({
       url: `${BASE_URL}${en}`,
-      alternates: {
-        languages: { en: `${BASE_URL}${en}`, de: `${BASE_URL}${de}` },
-      },
-    });
-    entries.push({
-      url: `${BASE_URL}${de}`,
       alternates: {
         languages: { en: `${BASE_URL}${en}`, de: `${BASE_URL}${de}` },
       },

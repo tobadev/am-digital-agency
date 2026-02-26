@@ -15,6 +15,9 @@ export async function generateMetadata({
   return {
     title: t("impressum.title"),
     description: t("impressum.description"),
+    alternates: {
+      canonical: '/de/impressum',
+    },
   };
 }
 

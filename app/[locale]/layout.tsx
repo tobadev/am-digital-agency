@@ -14,6 +14,10 @@ const poppins = Poppins({
   variable: "--font-sans",
 });
 
+export const metadata: Metadata = {
+  metadataBase: new URL('https://amdigital.agency'),
+};
+
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }

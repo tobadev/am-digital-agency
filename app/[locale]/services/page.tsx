@@ -16,11 +16,9 @@ export async function generateMetadata({
     title: t("services.title"),
     description: t("services.description"),
     alternates: {
+      canonical: locale === "en" ? "/services" : "/de/dienstleistungen",
       languages: Object.fromEntries(
-        routing.locales.map((l) => [
-          l,
-          l === "en" ? "/services" : `/${l}/dienstleistungen`,
-        ])
+        routing.locales.map((l) => [l, l === "en" ? "/services" : `/${l}/dienstleistungen`])
       ),
     },
   };

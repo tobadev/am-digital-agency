@@ -27,11 +27,9 @@ export async function generateMetadata({
     title: `${project.title} — AM Digital Agency`,
     description: t(`${slug}.description`),
     alternates: {
+      canonical: locale === "en" ? `/work/${slug}` : `/de/arbeiten/${slug}`,
       languages: Object.fromEntries(
-        routing.locales.map((l) => [
-          l,
-          l === "en" ? `/work/${slug}` : `/${l}/arbeiten/${slug}`,
-        ])
+        routing.locales.map((l) => [l, l === "en" ? `/work/${slug}` : `/${l}/arbeiten/${slug}`])
       ),
     },
   };

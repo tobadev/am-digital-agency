@@ -4,7 +4,6 @@ import { BrandStatement } from "@/components/BrandStatement";
 import { WorkHome } from "@/components/WorkHome";
 import { Clients } from "@/components/Clients";
 import { Footer } from "@/components/Footer";
-import { getPathname } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import type { Metadata } from "next";
 
@@ -22,10 +21,7 @@ export async function generateMetadata({
     alternates: {
       canonical: locale === "en" ? "/" : `/${locale}`,
       languages: Object.fromEntries(
-        routing.locales.map((l) => [
-          l,
-          l === "en" ? "/" : `/${l}`,
-        ])
+        routing.locales.map((l) => [l, l === "en" ? "/" : `/${l}`])
       ),
     },
   };
