@@ -125,8 +125,8 @@ export const projects: ProjectData[] = [
       { label: 'Client Satisfaction', value: '94%' },
     ],
     gallery: [
-      { type: 'image', src: '/projects/calem-ai/2nd.webp' },
       { type: 'image', src: '/projects/calem-ai/3rd.webp' },
+      { type: 'image', src: '/projects/calem-ai/2nd.webp' },
     ],
   },
 ];
