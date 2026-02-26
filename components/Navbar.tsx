@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { useLocale, useTranslations } from "next-intl";
+import { useParams } from "next/navigation";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 
 type Lang = "en" | "de";
@@ -22,6 +23,7 @@ const languages: { code: Lang; label: string }[] = [
 export const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
+  const params = useParams();
   const router = useRouter();
   const locale = useLocale() as Lang;
   const t = useTranslations("Navbar");
@@ -43,7 +45,8 @@ export const Navbar: React.FC = () => {
 
   const switchLocale = (target: Lang) => {
     if (target === locale) return;
-    router.replace(pathname as any, { locale: target });
+    // @ts-expect-error -- params needed for dynamic routes like /work/[slug]
+    router.replace({ pathname, params }, { locale: target });
     setIsMenuOpen(false);
   };
 
