@@ -81,8 +81,8 @@ export const projects: ProjectData[] = [
       { label: 'Weekly Retention', value: '68%' },
     ],
     gallery: [
-      { type: 'image', src: `${IMG}1460925895917-afdab827c52f?q=80&w=2670&auto=format&fit=crop` },
-      { type: 'image', src: `${IMG}1553877522-43269d4ea984?q=80&w=2670&auto=format&fit=crop` },
+      { type: 'image', src: '/projects/costae-ai/2nd.webp' },
+      { type: 'image', src: '/projects/costae-ai/3rd.webp' },
     ],
   },
   {
