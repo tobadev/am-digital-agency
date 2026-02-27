@@ -21,9 +21,12 @@ export async function generateMetadata({
     description,
     alternates: {
       canonical: url,
-      languages: Object.fromEntries(
-        routing.locales.map((l) => [l, l === "en" ? "/legal" : `/${l}/rechtliches`])
-      ),
+      languages: {
+        ...Object.fromEntries(
+          routing.locales.map((l) => [l, l === "en" ? "/legal" : `/${l}/rechtliches`])
+        ),
+        "x-default": "/legal",
+      },
     },
     openGraph: {
       title,
