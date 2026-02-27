@@ -418,7 +418,7 @@
       ]
     },
     "costae-ai": {
-      "description": "Generative-KI-Plattform, die natürliche Sprache in produktionsreife Web-Apps verwandelt. Beschreiben Sie Ihre Idee und deployen Sie einen funktionierenden Prototyp in unter einer Stunde.",
+      "description": "Generative-KI-Plattform, die natürliche Sprache in produktionsreife Web-Apps verwandelt. Idee beschreiben und einen Prototyp in unter einer Stunde deployen.",
       "challenge": "Nicht-technische Gründer stoßen an eine Wand: Web-Anwendungen zu erstellen erfordert entweder Programmierkenntnisse oder mühsame visuelle Builder mit zu starrem Output. Die kognitive Belastung ist hoch, die Time-to-Prototype beträgt Wochen, und das Ergebnis fühlt sich oft eingeschränkt an.",
       "solution": "Wir haben die Oberfläche als kollaboratives Gespräch gestaltet, nicht als Builder. Nutzer beschreiben, was sie wollen, in einfacher Sprache; die KI interpretiert die Absicht, generiert sauberen React-Code in Echtzeit und rendert sofort eine funktionierende Vorschau. Bearbeitungen geschehen im Chat — bitten Sie es, ein Zahlungsformular hinzuzufügen oder die Header-Schrift zu ändern, und es regeneriert Code und Vorschau zusammen. Die Oberfläche löscht die Grenze zwischen Denken und Bauen.",
       "services": ["Produktdesign", "Prompt-Interface", "KI-Workflow-Strategie"],
@@ -440,7 +440,7 @@
       ]
     },
     "calem-ai": {
-      "description": "KI-gestützte Kreativplattform, die Branding, Strategie und Webdesign aus einem einzigen Briefing liefert. Entwickelt für Designer, die ihren Output skalieren wollen, ohne Qualität einzubüßen.",
+      "description": "KI-gestützte Kreativplattform für Branding, Strategie und Webdesign aus einem einzigen Briefing. Für Designer, die Output skalieren wollen, ohne Qualität einzubüßen.",
       "challenge": "Designer und kleine Agenturinhaber sind überlastet — mehr Anfragen als Kapazität. Sie müssen den Output erweitern, ohne einzustellen, aber das Outsourcing an günstigere Agenturen beeinträchtigt die Qualität. Sie stecken zwischen Wachstum und Einschränkung fest.",
       "solution": "Wir haben Calem als kreativen Copiloten gebaut. Designer geben Markenstrategie und Referenzmaterialien ein; die KI generiert mehrere Designrichtungen, keine Templates. Der Designer überprüft, verfeinert und baut auf der besten Richtung auf — erweitert die eigene Arbeit, anstatt von Null zu beginnen. Das Ergebnis ist immer von Menschen genehmigt und bearbeitet. Das ist keine Automatisierung, das ist Hebelwirkung.",
       "services": ["Produktstrategie", "KI-Pipeline-Design", "Plattformentwicklung"],

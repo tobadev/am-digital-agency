@@ -27,7 +27,7 @@ export const projects: ProjectData[] = [
     category: 'Strategy, Design & Development',
     year: '2025',
     thumbnail: '/projects/calem-ai/hero.webp',
-    description: 'AI-powered creative platform that delivers branding, strategy, and web design from a single brief. Built for designers who need to scale output without sacrificing quality.',
+    description: 'AI-powered creative platform that delivers branding, strategy, and web design from a single brief. Built for designers scaling output without sacrificing quality.',
     services: ['Product Strategy', 'AI Pipeline Design', 'Platform Development'],
     challenge: 'Designers and small agency owners are overwhelmed — more requests than capacity. They need to expand output without hiring, but outsourcing to cheaper agencies compromises quality. They\'re stuck between growing and staying constrained.',
     solution: 'We built Calem as a creative copilot. Designers input brand strategy and reference materials; the AI generates multiple design directions, not templates. The designer reviews, refines, and builds from the best direction — augmenting their own work rather than starting from scratch. The output is always human-approved and human-edited. This isn\'t automation, it\'s leverage.',
