@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { setRequestLocale, getTranslations } from "next-intl/server";
-import { routing } from "@/i18n/routing";
+import { Footer } from "@/components/Footer";
 import type { Metadata } from "next";
 
 export async function generateMetadata({
@@ -85,8 +85,14 @@ export default async function ImpressumPage({
               </div>
             </div>
           ))}
+
+          {/* Last updated */}
+          <div className="border-t border-white/10 pt-12">
+            <p className="text-neutral-700 text-sm">{t('lastUpdated')}</p>
+          </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 }
