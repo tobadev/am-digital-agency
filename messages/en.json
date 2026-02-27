@@ -204,7 +204,7 @@
     "clientsLabel": "Selected brands",
     "clientsTitle_line1": "Companies we've",
     "clientsTitle_line2": "worked with.",
-    "clients": ["Costae AI", "Clyra.biz", "Dachreach", "Calem AI", "KRONBERG Zeithaus"],
+    "clients": ["Calem AI", "KRONBERG Zeithaus", "Costae AI", "Dachreach", "Clyra.biz"],
     "valuesLabel": "What drives us",
     "valuesTitle_line1": "Principles, not",
     "valuesTitle_line2": "processes.",
@@ -238,7 +238,7 @@
     "submit": "Send message"
   },
   "Clients": {
-    "clients": ["Costae AI", "Clyra.biz", "Dachreach", "Calem AI", "KRONBERG Zeithaus"]
+    "clients": ["Calem AI", "KRONBERG Zeithaus", "Costae AI", "Dachreach", "Clyra.biz"]
   },
   "Footer": {
     "nextStep": "Next step",
