@@ -40,11 +40,13 @@ export async function generateMetadata({
       },
     },
     openGraph: {
+      type: 'website',
+      siteName: 'AM Digital Agency',
       title,
       description,
       url,
       locale: locale === "en" ? "en_US" : "de_DE",
-      images: [{ url: project.thumbnail, alt: project.title }],
+      images: [{ url: project.thumbnail, width: 1920, height: 1080, alt: project.title }],
     },
   };
 }

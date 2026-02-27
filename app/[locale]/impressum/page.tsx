@@ -22,6 +22,8 @@ export async function generateMetadata({
       canonical: '/de/impressum',
     },
     openGraph: {
+      type: 'website',
+      siteName: 'AM Digital Agency',
       title,
       description,
       url: '/de/impressum',

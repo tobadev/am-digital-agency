@@ -32,6 +32,8 @@ export async function generateMetadata({
       },
     },
     openGraph: {
+      type: 'website',
+      siteName: 'AM Digital Agency',
       title,
       description,
       url,
