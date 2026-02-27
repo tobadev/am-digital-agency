@@ -20,9 +20,11 @@ export const metadata: Metadata = {
     type: 'website',
     siteName: 'AM Digital Agency',
     locale: 'en',
+    images: [{ url: '/og.webp', width: 2400, height: 1260, alt: 'AM Digital Agency' }],
   },
   twitter: {
     card: 'summary_large_image',
+    images: ['/og.webp'],
   },
 };
 
