@@ -12,11 +12,20 @@ export async function generateMetadata({
   if (locale !== "de") return {};
   const t = await getTranslations({ locale, namespace: "Metadata" });
 
+  const title = t("impressum.title");
+  const description = t("impressum.description");
+
   return {
-    title: t("impressum.title"),
-    description: t("impressum.description"),
+    title,
+    description,
     alternates: {
       canonical: '/de/impressum',
+    },
+    openGraph: {
+      title,
+      description,
+      url: '/de/impressum',
+      locale: 'de_DE',
     },
   };
 }

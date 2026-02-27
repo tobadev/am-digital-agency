@@ -23,14 +23,25 @@ export async function generateMetadata({
 
   const t = await getTranslations({ locale, namespace: "projects" });
 
+  const title = `${project.title} — AM Digital Agency`;
+  const description = t(`${slug}.description`);
+  const url = locale === "en" ? `/work/${slug}` : `/de/arbeiten/${slug}`;
+
   return {
-    title: `${project.title} — AM Digital Agency`,
-    description: t(`${slug}.description`),
+    title,
+    description,
     alternates: {
-      canonical: locale === "en" ? `/work/${slug}` : `/de/arbeiten/${slug}`,
+      canonical: url,
       languages: Object.fromEntries(
         routing.locales.map((l) => [l, l === "en" ? `/work/${slug}` : `/${l}/arbeiten/${slug}`])
       ),
+    },
+    openGraph: {
+      title,
+      description,
+      url,
+      locale: locale === "en" ? "en_US" : "de_DE",
+      images: [{ url: project.thumbnail, alt: project.title }],
     },
   };
 }

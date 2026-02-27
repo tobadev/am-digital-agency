@@ -15,14 +15,24 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Metadata" });
 
+  const title = t("home.title");
+  const description = t("home.description");
+  const url = locale === "en" ? "/" : `/${locale}`;
+
   return {
-    title: t("home.title"),
-    description: t("home.description"),
+    title,
+    description,
     alternates: {
-      canonical: locale === "en" ? "/" : `/${locale}`,
+      canonical: url,
       languages: Object.fromEntries(
         routing.locales.map((l) => [l, l === "en" ? "/" : `/${l}`])
       ),
+    },
+    openGraph: {
+      title,
+      description,
+      url,
+      locale: locale === "en" ? "en_US" : "de_DE",
     },
   };
 }

@@ -12,14 +12,24 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Metadata" });
 
+  const title = t("legal.title");
+  const description = t("legal.description");
+  const url = locale === "en" ? "/legal" : "/de/rechtliches";
+
   return {
-    title: t("legal.title"),
-    description: t("legal.description"),
+    title,
+    description,
     alternates: {
-      canonical: locale === "en" ? "/legal" : "/de/rechtliches",
+      canonical: url,
       languages: Object.fromEntries(
         routing.locales.map((l) => [l, l === "en" ? "/legal" : `/${l}/rechtliches`])
       ),
+    },
+    openGraph: {
+      title,
+      description,
+      url,
+      locale: locale === "en" ? "en_US" : "de_DE",
     },
   };
 }
