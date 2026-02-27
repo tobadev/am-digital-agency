@@ -26,6 +26,7 @@ export async function generateMetadata({
       description,
       url: '/de/impressum',
       locale: 'de_DE',
+      images: [{ url: '/og.webp', width: 2400, height: 1260, alt: 'AM Digital Agency' }],
     },
   };
 }

@@ -33,6 +33,7 @@ export async function generateMetadata({
       description,
       url,
       locale: locale === "en" ? "en_US" : "de_DE",
+      images: [{ url: '/og.webp', width: 2400, height: 1260, alt: 'AM Digital Agency' }],
     },
   };
 }
