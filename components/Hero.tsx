@@ -8,6 +8,26 @@ export const Hero: React.FC = () => {
 
   return (
     <section className="relative h-dvh flex flex-col justify-center items-center text-center px-6 md:px-10">
+      <style>{`
+        .hero-text-bg {
+          background-image: url(/hero-work-640w.webp);
+          background-size: cover;
+          background-position: center;
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          color: transparent;
+        }
+        @media (min-width: 768px) {
+          .hero-text-bg { background-image: url(/hero-work-960w.webp); }
+        }
+        @media (min-width: 1280px) {
+          .hero-text-bg { background-image: url(/hero-work-1280w.webp); }
+        }
+        @media (min-width: 1920px) {
+          .hero-text-bg { background-image: url(/hero-work.webp); }
+        }
+      `}</style>
       <div className="max-w-7xl mx-auto w-full">
 
         <h1
@@ -15,18 +35,7 @@ export const Hero: React.FC = () => {
           style={{ animationDelay: '300ms', animationFillMode: 'both' }}
         >
           {t('heading_line1')} <br className="hidden md:block" />{t('heading_line2')}{' '}
-          <span
-            className="inline-block"
-            style={{
-              backgroundImage: 'url(/hero-work.webp)',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              WebkitBackgroundClip: 'text',
-              backgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              color: 'transparent',
-            }}
-          >
+          <span className="inline-block hero-text-bg">
             {t('heading_highlight')}
           </span>
         </h1>

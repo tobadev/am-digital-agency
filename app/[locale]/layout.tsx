@@ -16,6 +16,9 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://amdigital.agency'),
+  icons: {
+    icon: '/favicon.svg',
+  },
   openGraph: {
     type: 'website',
     siteName: 'AM Digital Agency',

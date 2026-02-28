@@ -40,6 +40,32 @@ const nextConfig: NextConfig = {
           },
         ],
       },
+      {
+        source: '/projects/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/hero-work(.*)\.webp',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+    ];
+  },
+  async rewrites() {
+    return [
+      {
+        source: '/favicon.ico',
+        destination: '/favicon.svg',
+      },
     ];
   },
   images: {
