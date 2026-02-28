@@ -5,6 +5,7 @@ import { ArrowUpRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { projects } from '@/data/projects';
+import { getSrcSet } from '@/lib/responsive-image';
 
 export const Work: React.FC = () => {
   const t = useTranslations('projects');
@@ -84,6 +85,8 @@ function ProjectRow({ project, description }: { project: typeof projects[number]
           <div className="flex-1 relative aspect-[16/9] overflow-hidden bg-brand-dark">
             <img
               src={project.thumbnail}
+              srcSet={getSrcSet(project.thumbnail)}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 960px"
               alt={project.title}
               className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ${
                 isHovered ? 'scale-105' : 'scale-100'

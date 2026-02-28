@@ -5,6 +5,7 @@ import { ArrowUpRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { projects } from '@/data/projects';
+import { getSrcSet } from '@/lib/responsive-image';
 
 const featured = [projects[0], projects[1], projects[3]];
 
@@ -97,6 +98,8 @@ function ProjectCard({
       <div className={`relative ${aspect} overflow-hidden`}>
         <img
           src={project.thumbnail}
+          srcSet={getSrcSet(project.thumbnail)}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 640px"
           alt={project.title}
           className={`absolute inset-0 w-full h-full object-cover transition-transform duration-700 ${
             isHovered ? 'scale-105' : 'scale-100'

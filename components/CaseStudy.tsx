@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowUpRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { ProjectData, projects } from '@/data/projects';
+import { getSrcSet } from '@/lib/responsive-image';
 
 export const CaseStudyContent: React.FC<{ project: ProjectData }> = ({ project }) => {
   const t = useTranslations('CaseStudy');
@@ -90,6 +91,8 @@ export const CaseStudyContent: React.FC<{ project: ProjectData }> = ({ project }
           ) : (
             <img
               src={project.thumbnail}
+              srcSet={getSrcSet(project.thumbnail)}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1120px"
               alt={project.title}
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 hover:scale-105"
             />
@@ -150,6 +153,8 @@ export const CaseStudyContent: React.FC<{ project: ProjectData }> = ({ project }
                 ) : (
                   <img
                     src={item.src}
+                    srcSet={getSrcSet(item.src)}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1120px"
                     alt={`${project.title} — ${idx + 1}`}
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                   />
