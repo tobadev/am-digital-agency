@@ -235,7 +235,10 @@
     "messagePlaceholder": "Erzählen Sie uns von Ihrem Projekt, Ihren Zielen und Ihrem Zeitplan...",
     "privacyText": "Mit dem Absenden stimmen Sie unserer",
     "privacyLink": "Datenschutzerklärung",
-    "submit": "Nachricht senden"
+    "submit": "Nachricht senden",
+    "sending": "Wird gesendet...",
+    "success": "Nachricht erfolgreich gesendet. Wir melden uns bald bei Ihnen.",
+    "error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt."
   },
   "Clients": {
     "clients": ["Calem AI", "KRONBERG Zeithaus", "Costae AI", "Dachreach", "Clyra.biz"]

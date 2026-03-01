@@ -235,7 +235,10 @@
     "messagePlaceholder": "Tell us about your project, goals, and timeline...",
     "privacyText": "By submitting, you agree to our",
     "privacyLink": "Privacy Policy",
-    "submit": "Send message"
+    "submit": "Send message",
+    "sending": "Sending...",
+    "success": "Message sent successfully. We'll get back to you soon.",
+    "error": "Something went wrong. Please try again or email us directly."
   },
   "Clients": {
     "clients": ["Calem AI", "KRONBERG Zeithaus", "Costae AI", "Dachreach", "Clyra.biz"]

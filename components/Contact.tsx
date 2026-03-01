@@ -10,9 +10,48 @@ export const Contact: React.FC = () => {
   const [selectedService, setSelectedService] = useState<string>(t('services.0'));
   const [budget, setBudget] = useState<string>('');
   const [focusedField, setFocusedField] = useState<string | null>(null);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [company, setCompany] = useState('');
+  const [message, setMessage] = useState('');
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
 
   const servicesCount = 3;
   const budgetsCount = 5;
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!name || !email || !message) return;
+
+    setStatus('sending');
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name,
+          email,
+          company,
+          service: selectedService,
+          budget,
+          message,
+        }),
+      });
+
+      if (!res.ok) throw new Error();
+
+      setStatus('success');
+      setName('');
+      setEmail('');
+      setCompany('');
+      setMessage('');
+      setBudget('');
+      setSelectedService(t('services.0'));
+    } catch {
+      setStatus('error');
+    }
+  };
 
   return (
     <div className="bg-brand-black min-h-screen px-6 md:px-10 pb-32">
@@ -37,7 +76,7 @@ export const Contact: React.FC = () => {
         </div>
 
         {/* Form */}
-        <form className="space-y-0" onSubmit={(e) => e.preventDefault()}>
+        <form className="space-y-0" onSubmit={handleSubmit}>
 
           {/* Name */}
           <div
@@ -50,6 +89,9 @@ export const Contact: React.FC = () => {
               </label>
               <input
                 type="text"
+                required
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 onFocus={() => setFocusedField('name')}
                 onBlur={() => setFocusedField(null)}
                 className="flex-1 bg-transparent text-2xl md:text-3xl font-light focus:outline-none text-white placeholder-neutral-700 caret-white"
@@ -69,6 +111,9 @@ export const Contact: React.FC = () => {
               </label>
               <input
                 type="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 onFocus={() => setFocusedField('email')}
                 onBlur={() => setFocusedField(null)}
                 className="flex-1 bg-transparent text-2xl md:text-3xl font-light focus:outline-none text-white placeholder-neutral-700 caret-white"
@@ -88,6 +133,8 @@ export const Contact: React.FC = () => {
               </label>
               <input
                 type="text"
+                value={company}
+                onChange={(e) => setCompany(e.target.value)}
                 onFocus={() => setFocusedField('company')}
                 onBlur={() => setFocusedField(null)}
                 className="flex-1 bg-transparent text-2xl md:text-3xl font-light focus:outline-none text-white placeholder-neutral-700 caret-white"
@@ -168,6 +215,9 @@ export const Contact: React.FC = () => {
                 <span className="text-neutral-700">06</span> {t('messageLabel')}
               </label>
               <textarea
+                required
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
                 onFocus={() => setFocusedField('message')}
                 onBlur={() => setFocusedField(null)}
                 className="flex-1 bg-transparent text-xl md:text-2xl font-light focus:outline-none text-white placeholder-neutral-700 caret-white h-40 resize-none"
@@ -175,6 +225,18 @@ export const Contact: React.FC = () => {
               />
             </div>
           </div>
+
+          {/* Status message */}
+          {status === 'success' && (
+            <div className="border-t border-white/10 pt-8">
+              <p className="text-green-400 text-sm">{t('success')}</p>
+            </div>
+          )}
+          {status === 'error' && (
+            <div className="border-t border-white/10 pt-8">
+              <p className="text-red-400 text-sm">{t('error')}</p>
+            </div>
+          )}
 
           {/* Submit */}
           <div
@@ -189,9 +251,10 @@ export const Contact: React.FC = () => {
             </p>
             <button
               type="submit"
-              className="group inline-flex items-center gap-4 bg-white text-black px-12 py-5 rounded-full font-bold text-sm uppercase tracking-widest hover:scale-105 transition-transform"
+              disabled={status === 'sending'}
+              className="group inline-flex items-center gap-4 bg-white text-black px-12 py-5 rounded-full font-bold text-sm uppercase tracking-widest hover:scale-105 transition-transform disabled:opacity-50 disabled:hover:scale-100"
             >
-              {t('submit')}
+              {status === 'sending' ? t('sending') : t('submit')}
               <ArrowUpRight size={18} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </button>
           </div>
