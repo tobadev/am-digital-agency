@@ -67,7 +67,7 @@ export const Services: React.FC = () => {
                         </div>
                       ))}
                     </div>
-                    <div className="flex flex-wrap gap-12 text-sm">
+                    <div className="flex flex-wrap gap-6 md:gap-12 text-sm">
                       <div>
                         <span className="text-xs uppercase tracking-[0.2em] text-neutral-600 block mb-2">{t('timeline')}</span>
                         <span className="text-white font-medium">{t(`items.${idx}.timeline`)}</span>
@@ -136,20 +136,22 @@ export const Services: React.FC = () => {
           </div>
 
           {Array.from({ length: faqsCount }).map((_, index) => (
-            <div
+            <button
               key={index}
+              type="button"
               onClick={() => toggleFaq(index)}
-              className="border-t border-white/10 py-8 md:py-10 cursor-pointer group"
+              aria-expanded={openFaq === index}
+              className="w-full text-left border-t border-white/10 py-8 md:py-10 group focus:outline-none focus-visible:bg-white/5"
             >
               <div className="flex flex-col md:flex-row gap-4 md:gap-16">
                 <div className="text-xs uppercase tracking-[0.2em] text-neutral-600 w-40 shrink-0 flex items-center gap-3">
                   <span className="text-neutral-700">{t(`faqs.${index}.num`)}</span>
                 </div>
-                <div className="flex-1">
-                  <div className="flex justify-between items-center">
-                    <h3 className="text-xl md:text-2xl font-bold text-white pr-8 group-hover:text-neutral-300 transition-colors">{t(`faqs.${index}.q`)}</h3>
-                    <div className={`w-8 h-8 rounded-full border border-white/20 flex items-center justify-center shrink-0 transition-all duration-300 ${openFaq === index ? 'rotate-45 bg-white text-black border-white' : 'text-neutral-600'}`}>
-                      <Plus size={14} />
+                <div className="flex-1 min-w-0">
+                  <div className="flex justify-between items-center gap-4">
+                    <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-neutral-300 transition-colors min-w-0">{t(`faqs.${index}.q`)}</h3>
+                    <div className={`w-11 h-11 rounded-full border border-white/20 flex items-center justify-center shrink-0 transition-all duration-300 ${openFaq === index ? 'rotate-45 bg-white text-black border-white' : 'text-neutral-600'}`}>
+                      <Plus size={16} />
                     </div>
                   </div>
                   <div className={`overflow-hidden transition-all duration-300 ${openFaq === index ? 'max-h-96 opacity-100 mt-6' : 'max-h-0 opacity-0'}`}>
@@ -157,7 +159,7 @@ export const Services: React.FC = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </button>
           ))}
           <div className="border-t border-white/10" />
         </div>

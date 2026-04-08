@@ -21,7 +21,7 @@ export const WorkHome: React.FC = () => {
           className="mb-4 animate-in fade-in slide-in-from-bottom-6 duration-700"
           style={{ animationDelay: '100ms', animationFillMode: 'both' }}
         >
-          <ProjectCard project={featured[0]} aspect="aspect-[16/9]" titleSize="text-4xl md:text-6xl lg:text-7xl" />
+          <ProjectCard project={featured[0]} aspect="aspect-[16/9]" titleSize="text-4xl md:text-6xl lg:text-7xl" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1200px) calc(100vw - 80px), 1152px" />
         </div>
 
         {/* Two projects side by side */}
@@ -30,13 +30,13 @@ export const WorkHome: React.FC = () => {
             className="animate-in fade-in slide-in-from-bottom-6 duration-700"
             style={{ animationDelay: '250ms', animationFillMode: 'both' }}
           >
-            <ProjectCard project={featured[1]} aspect="aspect-[4/3]" titleSize="text-3xl md:text-4xl lg:text-5xl" />
+            <ProjectCard project={featured[1]} aspect="aspect-[4/3]" titleSize="text-3xl md:text-4xl lg:text-5xl" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1200px) calc((100vw - 80px - 16px) / 2), 568px" />
           </div>
           <div
             className="animate-in fade-in slide-in-from-bottom-6 duration-700"
             style={{ animationDelay: '400ms', animationFillMode: 'both' }}
           >
-            <ProjectCard project={featured[2]} aspect="aspect-[4/3]" titleSize="text-3xl md:text-4xl lg:text-5xl" />
+            <ProjectCard project={featured[2]} aspect="aspect-[4/3]" titleSize="text-3xl md:text-4xl lg:text-5xl" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1200px) calc((100vw - 80px - 16px) / 2), 568px" />
           </div>
         </div>
 
@@ -65,10 +65,12 @@ function ProjectCard({
   project,
   aspect,
   titleSize,
+  sizes,
 }: {
   project: typeof projects[number];
   aspect: string;
   titleSize: string;
+  sizes: string;
 }) {
   const [isHovered, setIsHovered] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -99,7 +101,7 @@ function ProjectCard({
         <img
           src={project.thumbnail}
           srcSet={getSrcSet(project.thumbnail)}
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 640px"
+          sizes={sizes}
           alt={project.title}
           className={`absolute inset-0 w-full h-full object-cover transition-transform duration-700 ${
             isHovered ? 'scale-105' : 'scale-100'
@@ -123,7 +125,7 @@ function ProjectCard({
 
         {/* Title + category overlaid */}
         <div className="absolute bottom-6 left-6 md:bottom-10 md:left-10 right-6 md:right-10">
-          <h3 className={`font-display ${titleSize} font-bold text-white leading-[0.9] tracking-tight mb-3`}>
+          <h3 className={`font-display ${titleSize} font-bold text-white leading-[0.9] tracking-tight mb-3 line-clamp-2 break-words`}>
             {project.title}
           </h3>
           <span className="text-sm text-white/50 uppercase tracking-widest">

@@ -46,6 +46,12 @@ export const Footer: React.FC = async () => {
               >
                 hello@amdigital.agency
               </a>
+              <a
+                href="tel:+447782265977"
+                className="text-sm text-neutral-400 hover:text-white transition-colors"
+              >
+                +44 7782 265977
+              </a>
               <div className="text-sm text-neutral-400 leading-relaxed mt-2">
                 <span className="block">{t('address_line1')}</span>
                 <span className="block">{t('address_line2')}</span>
@@ -74,9 +80,30 @@ export const Footer: React.FC = async () => {
           <div>
             <span className="text-[10px] uppercase tracking-[0.2em] text-neutral-700 block mb-6">{t('socials')}</span>
             <div className="flex flex-col gap-3">
-              <a href="#" className="text-sm text-neutral-400 hover:text-white transition-colors">Facebook</a>
-              <a href="#" className="text-sm text-neutral-400 hover:text-white transition-colors">Instagram</a>
-              <a href="#" className="text-sm text-neutral-400 hover:text-white transition-colors">LinkedIn</a>
+              <a
+                href="https://facebook.com/amdigitalagencyuk/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-neutral-400 hover:text-white transition-colors"
+              >
+                Facebook
+              </a>
+              <a
+                href="https://www.instagram.com/amdigitalagencyuk/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-neutral-400 hover:text-white transition-colors"
+              >
+                Instagram
+              </a>
+              <a
+                href="https://www.linkedin.com/company/amdigitalagencyuk/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-neutral-400 hover:text-white transition-colors"
+              >
+                LinkedIn
+              </a>
             </div>
           </div>
 

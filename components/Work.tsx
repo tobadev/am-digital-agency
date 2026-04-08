@@ -60,10 +60,10 @@ function ProjectRow({ project, description }: { project: typeof projects[number]
           <span className="text-[10px] uppercase tracking-[0.2em] text-neutral-700 w-12 shrink-0 pt-3 transition-colors duration-300 group-hover:text-neutral-500">
             {project.num}
           </span>
-          <div className="flex-1">
+          <div className="flex-1 min-w-0">
             <div className="flex items-start justify-between gap-8">
-              <div>
-                <h2 className="font-display text-4xl md:text-6xl font-bold text-white mb-3 transition-all duration-300 group-hover:translate-x-3">
+              <div className="min-w-0">
+                <h2 className="font-display text-4xl md:text-6xl font-bold text-white mb-3 transition-all duration-300 group-hover:translate-x-3 break-words">
                   {project.title}
                 </h2>
                 <div className="flex flex-wrap items-center gap-4 text-sm text-neutral-600 uppercase tracking-widest">
@@ -86,7 +86,7 @@ function ProjectRow({ project, description }: { project: typeof projects[number]
             <img
               src={project.thumbnail}
               srcSet={getSrcSet(project.thumbnail)}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 960px"
+              sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1200px) calc(100vw - 176px), 928px"
               alt={project.title}
               className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ${
                 isHovered ? 'scale-105' : 'scale-100'

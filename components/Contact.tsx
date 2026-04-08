@@ -83,7 +83,7 @@ export const Contact: React.FC = () => {
             className={`group border-t border-white/10 py-10 md:py-14 transition-colors duration-500 animate-in fade-in slide-in-from-bottom-4 ${focusedField === 'name' ? 'border-white/30' : ''}`}
             style={{ animationDelay: '250ms', animationFillMode: 'both' }}
           >
-            <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-16">
+            <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-16 min-w-0">
               <label className="text-xs uppercase tracking-[0.2em] text-neutral-600 w-40 shrink-0 flex items-center gap-3">
                 <span className="text-neutral-700">01</span> {t('nameLabel')}
               </label>
@@ -94,7 +94,7 @@ export const Contact: React.FC = () => {
                 onChange={(e) => setName(e.target.value)}
                 onFocus={() => setFocusedField('name')}
                 onBlur={() => setFocusedField(null)}
-                className="flex-1 bg-transparent text-2xl md:text-3xl font-light focus:outline-none text-white placeholder-neutral-700 caret-white"
+                className="flex-1 min-w-0 bg-transparent text-2xl md:text-3xl font-light focus:outline-none text-white placeholder-neutral-700 caret-white"
                 placeholder={t('namePlaceholder')}
               />
             </div>
@@ -105,7 +105,7 @@ export const Contact: React.FC = () => {
             className={`group border-t border-white/10 py-10 md:py-14 transition-colors duration-500 animate-in fade-in slide-in-from-bottom-4 ${focusedField === 'email' ? 'border-white/30' : ''}`}
             style={{ animationDelay: '350ms', animationFillMode: 'both' }}
           >
-            <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-16">
+            <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-16 min-w-0">
               <label className="text-xs uppercase tracking-[0.2em] text-neutral-600 w-40 shrink-0 flex items-center gap-3">
                 <span className="text-neutral-700">02</span> {t('emailLabel')}
               </label>
@@ -116,7 +116,7 @@ export const Contact: React.FC = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 onFocus={() => setFocusedField('email')}
                 onBlur={() => setFocusedField(null)}
-                className="flex-1 bg-transparent text-2xl md:text-3xl font-light focus:outline-none text-white placeholder-neutral-700 caret-white"
+                className="flex-1 min-w-0 bg-transparent text-2xl md:text-3xl font-light focus:outline-none text-white placeholder-neutral-700 caret-white"
                 placeholder={t('emailPlaceholder')}
               />
             </div>
@@ -127,7 +127,7 @@ export const Contact: React.FC = () => {
             className={`group border-t border-white/10 py-10 md:py-14 transition-colors duration-500 animate-in fade-in slide-in-from-bottom-4 ${focusedField === 'company' ? 'border-white/30' : ''}`}
             style={{ animationDelay: '450ms', animationFillMode: 'both' }}
           >
-            <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-16">
+            <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-16 min-w-0">
               <label className="text-xs uppercase tracking-[0.2em] text-neutral-600 w-40 shrink-0 flex items-center gap-3">
                 <span className="text-neutral-700">03</span> {t('companyLabel')}
               </label>
@@ -137,7 +137,7 @@ export const Contact: React.FC = () => {
                 onChange={(e) => setCompany(e.target.value)}
                 onFocus={() => setFocusedField('company')}
                 onBlur={() => setFocusedField(null)}
-                className="flex-1 bg-transparent text-2xl md:text-3xl font-light focus:outline-none text-white placeholder-neutral-700 caret-white"
+                className="flex-1 min-w-0 bg-transparent text-2xl md:text-3xl font-light focus:outline-none text-white placeholder-neutral-700 caret-white"
                 placeholder={t('companyPlaceholder')}
               />
             </div>
@@ -210,7 +210,7 @@ export const Contact: React.FC = () => {
             className={`border-t border-white/10 py-10 md:py-14 transition-colors duration-500 animate-in fade-in slide-in-from-bottom-4 ${focusedField === 'message' ? 'border-white/30' : ''}`}
             style={{ animationDelay: '750ms', animationFillMode: 'both' }}
           >
-            <div className="flex flex-col md:flex-row gap-4 md:gap-16">
+            <div className="flex flex-col md:flex-row gap-4 md:gap-16 min-w-0">
               <label className="text-xs uppercase tracking-[0.2em] text-neutral-600 w-40 shrink-0 flex items-center gap-3 md:pt-2">
                 <span className="text-neutral-700">06</span> {t('messageLabel')}
               </label>
@@ -220,7 +220,7 @@ export const Contact: React.FC = () => {
                 onChange={(e) => setMessage(e.target.value)}
                 onFocus={() => setFocusedField('message')}
                 onBlur={() => setFocusedField(null)}
-                className="flex-1 bg-transparent text-xl md:text-2xl font-light focus:outline-none text-white placeholder-neutral-700 caret-white h-40 resize-none"
+                className="flex-1 min-w-0 bg-transparent text-xl md:text-2xl font-light focus:outline-none text-white placeholder-neutral-700 caret-white h-40 resize-none"
                 placeholder={t('messagePlaceholder')}
               />
             </div>
@@ -252,7 +252,7 @@ export const Contact: React.FC = () => {
             <button
               type="submit"
               disabled={status === 'sending'}
-              className="group inline-flex items-center gap-4 bg-white text-black px-12 py-5 rounded-full font-bold text-sm uppercase tracking-widest hover:scale-105 transition-transform disabled:opacity-50 disabled:hover:scale-100"
+              className="group inline-flex items-center justify-center gap-4 bg-white text-black px-12 py-5 rounded-full font-bold text-sm uppercase tracking-widest hover:scale-105 transition-transform disabled:opacity-50 disabled:hover:scale-100 w-full md:w-auto"
             >
               {status === 'sending' ? t('sending') : t('submit')}
               <ArrowUpRight size={18} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

@@ -58,7 +58,7 @@ export const CaseStudyContent: React.FC<{ project: ProjectData }> = ({ project }
           </p>
 
           {/* Meta row */}
-          <div className="border-t border-white/10 pt-8 flex flex-wrap gap-12 md:gap-20">
+          <div className="border-t border-white/10 pt-8 flex flex-wrap gap-6 md:gap-20">
             <div>
               <span className="text-[10px] uppercase tracking-[0.2em] text-neutral-700 block mb-2">{t('client')}</span>
               <span className="text-sm text-white">{project.client}</span>
@@ -92,7 +92,7 @@ export const CaseStudyContent: React.FC<{ project: ProjectData }> = ({ project }
             <img
               src={project.thumbnail}
               srcSet={getSrcSet(project.thumbnail)}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1120px"
+              sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1200px) calc(100vw - 80px), 1024px"
               alt={project.title}
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 hover:scale-105"
             />
@@ -154,7 +154,7 @@ export const CaseStudyContent: React.FC<{ project: ProjectData }> = ({ project }
                   <img
                     src={item.src}
                     srcSet={getSrcSet(item.src)}
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1120px"
+                    sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1200px) calc(100vw - 80px), 1024px"
                     alt={`${project.title} — ${idx + 1}`}
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                   />
@@ -173,7 +173,7 @@ export const CaseStudyContent: React.FC<{ project: ProjectData }> = ({ project }
             <div className="text-[10px] uppercase tracking-[0.2em] text-neutral-700 w-40 shrink-0 flex items-center gap-3 md:pt-1">
               <span className="text-neutral-700">03</span> {t('results')}
             </div>
-            <div className="flex-1 grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div className="flex-1 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
               {results.map((result, idx) => (
                 <div key={idx}>
                   <span className="font-display text-4xl md:text-5xl font-bold text-white block mb-3">
@@ -197,9 +197,9 @@ export const CaseStudyContent: React.FC<{ project: ProjectData }> = ({ project }
           <span className="text-[10px] uppercase tracking-[0.2em] text-neutral-700 block mb-8">{t('nextProject')}</span>
           <Link
             href={{ pathname: '/work/[slug]', params: { slug: nextProject.slug } }}
-            className="group flex items-center justify-between"
+            className="group flex items-center justify-between gap-6"
           >
-            <h2 className="font-display text-5xl md:text-7xl font-bold text-neutral-600 group-hover:text-white transition-all duration-300 group-hover:translate-x-3">
+            <h2 className="font-display text-4xl md:text-7xl font-bold text-neutral-600 group-hover:text-white transition-all duration-300 group-hover:translate-x-3 min-w-0 break-words">
               {nextProject.title}
             </h2>
             <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-white group-hover:border-white group-hover:text-black text-neutral-700">

@@ -123,7 +123,7 @@ export const About: React.FC = () => {
             className="border-t border-white/10 py-16 md:py-20 animate-in fade-in slide-in-from-bottom-4 duration-500"
             style={{ animationDelay: '1300ms', animationFillMode: 'both' }}
           >
-            <div className="flex flex-wrap gap-x-16 gap-y-8">
+            <div className="flex flex-wrap gap-x-8 md:gap-x-16 gap-y-8">
               {Array.from({ length: clientsCount }).map((_, idx) => (
                 <span
                   key={idx}

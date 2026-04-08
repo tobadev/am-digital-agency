@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Poppins } from "next/font/google";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
@@ -13,6 +13,12 @@ const poppins = Poppins({
   weight: ["300", "500", "700"],
   variable: "--font-sans",
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#050505",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://amdigital.agency'),
