@@ -21,7 +21,7 @@ export const WorkHome: React.FC = () => {
           className="mb-4 animate-in fade-in slide-in-from-bottom-6 duration-700"
           style={{ animationDelay: '100ms', animationFillMode: 'both' }}
         >
-          <ProjectCard project={featured[0]} aspect="aspect-[16/9]" titleSize="text-4xl md:text-6xl lg:text-7xl" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1200px) calc(100vw - 80px), 1152px" />
+          <ProjectCard project={featured[0]} aspect="aspect-[16/9]" titleSize="text-4xl md:text-6xl lg:text-7xl" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1200px) calc(100vw - 80px), 1152px" priority />
         </div>
 
         {/* Two projects side by side */}
@@ -50,7 +50,7 @@ export const WorkHome: React.FC = () => {
             className="group inline-flex items-center gap-3 text-neutral-600 hover:text-white transition-colors text-sm uppercase tracking-widest"
           >
             {t('allWork')}
-            <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:border-white group-hover:text-black transition-all duration-300">
+            <div className="w-11 h-11 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:border-white group-hover:text-black transition-all duration-300">
               <ArrowUpRight size={16} />
             </div>
           </Link>
@@ -66,11 +66,13 @@ function ProjectCard({
   aspect,
   titleSize,
   sizes,
+  priority = false,
 }: {
   project: typeof projects[number];
   aspect: string;
   titleSize: string;
   sizes: string;
+  priority?: boolean;
 }) {
   const [isHovered, setIsHovered] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -103,6 +105,9 @@ function ProjectCard({
           srcSet={getSrcSet(project.thumbnail)}
           sizes={sizes}
           alt={project.title}
+          loading={priority ? 'eager' : 'lazy'}
+          fetchPriority={priority ? 'high' : 'auto'}
+          decoding="async"
           className={`absolute inset-0 w-full h-full object-cover transition-transform duration-700 ${
             isHovered ? 'scale-105' : 'scale-100'
           }`}

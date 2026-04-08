@@ -64,7 +64,7 @@ export default async function ImpressumPage({
             className="mb-40 animate-in fade-in slide-in-from-bottom-6 duration-700"
             style={{ animationDelay: "100ms", animationFillMode: "both" }}
           >
-            <h1 className="font-display text-6xl md:text-8xl lg:text-9xl font-bold leading-[0.85] tracking-tight">
+            <h1 className="font-display text-6xl md:text-8xl lg:text-9xl font-bold leading-[0.85] tracking-tight break-words">
               {t("title")}
             </h1>
           </div>

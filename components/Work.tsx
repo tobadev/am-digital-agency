@@ -88,6 +88,8 @@ function ProjectRow({ project, description }: { project: typeof projects[number]
               srcSet={getSrcSet(project.thumbnail)}
               sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1200px) calc(100vw - 176px), 928px"
               alt={project.title}
+              loading="lazy"
+              decoding="async"
               className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ${
                 isHovered ? 'scale-105' : 'scale-100'
               }`}

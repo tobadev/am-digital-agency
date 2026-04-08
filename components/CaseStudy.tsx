@@ -39,7 +39,7 @@ export const CaseStudyContent: React.FC<{ project: ProjectData }> = ({ project }
         {/* Back link */}
         <Link
           href="/work"
-          className="group inline-flex items-center gap-2 text-neutral-700 hover:text-white transition-colors uppercase text-[10px] tracking-widest mb-16"
+          className="group inline-flex items-center gap-2 text-neutral-700 hover:text-white transition-colors uppercase text-[10px] tracking-widest mb-16 py-3 -my-3"
         >
           <ArrowLeft size={14} className="transition-transform duration-300 group-hover:-translate-x-1" /> {t('backToWork')}
         </Link>
@@ -50,7 +50,7 @@ export const CaseStudyContent: React.FC<{ project: ProjectData }> = ({ project }
           style={{ animationDelay: '100ms', animationFillMode: 'both' }}
         >
           <span className="text-xs uppercase tracking-[0.3em] text-neutral-500 mb-6 block">{project.category}</span>
-          <h1 className="font-display text-6xl md:text-8xl lg:text-9xl font-bold leading-[0.9] tracking-tight mb-12">
+          <h1 className="font-display text-6xl md:text-8xl lg:text-9xl font-bold leading-[0.9] tracking-tight mb-12 break-words">
             {project.title}
           </h1>
           <p className="text-xl text-neutral-400 leading-relaxed max-w-3xl mb-16">
@@ -94,6 +94,8 @@ export const CaseStudyContent: React.FC<{ project: ProjectData }> = ({ project }
               srcSet={getSrcSet(project.thumbnail)}
               sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1200px) calc(100vw - 80px), 1024px"
               alt={project.title}
+              fetchPriority="high"
+              decoding="async"
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 hover:scale-105"
             />
           )}
@@ -156,6 +158,8 @@ export const CaseStudyContent: React.FC<{ project: ProjectData }> = ({ project }
                     srcSet={getSrcSet(item.src)}
                     sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1200px) calc(100vw - 80px), 1024px"
                     alt={`${project.title} — ${idx + 1}`}
+                    loading="lazy"
+                    decoding="async"
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                   />
                 )}

@@ -82,7 +82,7 @@ export const Navbar: React.FC = () => {
         }`}
       >
         <div className="h-full flex flex-col px-6 md:px-10 lg:px-20 pt-24 pb-12">
-          <div className="max-w-5xl mx-auto w-full flex-1 min-h-0 overflow-y-auto flex flex-col justify-center">
+          <div className="max-w-5xl mx-auto w-full flex-1 min-h-0 overflow-y-auto flex flex-col justify-start lg:justify-center">
             {/* Nav links */}
             <div className="flex flex-col shrink-0">
               {navItems.map((item, index) => (
@@ -150,7 +150,7 @@ export const Navbar: React.FC = () => {
                 <button
                   key={l.code}
                   onClick={() => switchLocale(l.code)}
-                  className={`text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full transition-colors ${
+                  className={`text-xs font-bold uppercase tracking-widest px-5 py-3 min-h-[44px] rounded-full transition-colors ${
                     locale === l.code
                       ? "text-white bg-white/10"
                       : "text-neutral-700 hover:text-white"

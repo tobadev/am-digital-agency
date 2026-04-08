@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
-import { getTranslations } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 
 const navLinkKeys = [
@@ -13,6 +13,7 @@ const navLinkKeys = [
 
 export const Footer: React.FC = async () => {
   const t = await getTranslations('Footer');
+  const locale = await getLocale();
 
   return (
     <footer className="bg-brand-black text-white px-6 md:px-10">
@@ -114,9 +115,16 @@ export const Footer: React.FC = async () => {
           <p className="text-[10px] text-neutral-700 uppercase tracking-widest">
             &copy; {new Date().getFullYear()} {t('copyright')}
           </p>
-          <Link href="/legal" className="text-[10px] text-neutral-700 uppercase tracking-widest hover:text-white transition-colors">
-            {t('legal')}
-          </Link>
+          <div className="flex items-center gap-6">
+            <Link href="/legal" className="text-[10px] text-neutral-700 uppercase tracking-widest hover:text-white transition-colors">
+              {t('legal')}
+            </Link>
+            {locale === 'de' && (
+              <Link href="/impressum" className="text-[10px] text-neutral-700 uppercase tracking-widest hover:text-white transition-colors">
+                Impressum
+              </Link>
+            )}
+          </div>
         </div>
 
       </div>

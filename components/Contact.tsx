@@ -63,7 +63,7 @@ export const Contact: React.FC = () => {
           style={{ animationDelay: '100ms', animationFillMode: 'both' }}
         >
           <span className="text-xs uppercase tracking-[0.3em] text-neutral-500 mb-6 block">{t('label')}</span>
-          <h1 className="font-display text-6xl md:text-8xl lg:text-9xl font-bold leading-[0.9] tracking-tight mb-12">
+          <h1 className="font-display text-6xl md:text-8xl lg:text-9xl font-bold leading-[0.9] tracking-tight mb-12 break-words">
             {t('title_line1')}<br />{t('title_line2')}
           </h1>
           <div className="flex flex-wrap items-center gap-6 text-neutral-500 text-sm uppercase tracking-widest">
