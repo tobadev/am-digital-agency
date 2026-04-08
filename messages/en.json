@@ -51,8 +51,32 @@
     "services": "Strategy / Design / Development"
   },
   "BrandStatement": {
-    "headline": "An independent London digital agency",
-    "reveal": "helping ambitious companies define strategy, shape brands, and build products people actually use."
+    "label": "Ethos",
+    "headline": "An independent London digital agency.",
+    "reveal": "Working with ambitious companies on the few decisions that matter — positioning, craft, and products built to last beyond the launch."
+  },
+  "Capabilities": {
+    "label": "What we do",
+    "title_line1": "Three disciplines.",
+    "title_line2": "One studio.",
+    "items": [
+      {
+        "num": "01",
+        "title": "Strategy",
+        "desc": "Positioning, research, and the hard decisions that shape every pixel after them."
+      },
+      {
+        "num": "02",
+        "title": "Design",
+        "desc": "Identity and product design with editorial restraint — crafted, never decorated."
+      },
+      {
+        "num": "03",
+        "title": "Development",
+        "desc": "Web and platforms engineered to be fast, durable, and quietly maintained for years."
+      }
+    ],
+    "link": "See all services"
   },
   "WorkHome": {
     "allWork": "All work"

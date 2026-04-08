@@ -31,7 +31,10 @@ export const BrandStatement: React.FC = () => {
   return (
     <section ref={sectionRef} className="bg-brand-black px-6 md:px-10 py-40 md:py-56">
       <div className="max-w-5xl mx-auto">
-        <p className="md:max-w-[75%] font-display text-3xl md:text-5xl lg:text-6xl font-bold leading-[1.15] tracking-tight">
+        <span className="text-xs uppercase tracking-[0.3em] text-neutral-500 mb-10 block">
+          {t('label')}
+        </span>
+        <p className="md:max-w-[85%] font-display text-3xl md:text-5xl lg:text-6xl font-bold leading-[1.15] tracking-tight break-words">
           <span className="text-white">{HEADLINE}</span>{' '}
           {REVEAL_WORDS.map((word, idx) => {
             const threshold = idx / REVEAL_WORDS.length;

@@ -51,8 +51,32 @@
     "services": "Strategie / Design / Entwicklung"
   },
   "BrandStatement": {
-    "headline": "Eine unabhängige Londoner Digitalagentur,",
-    "reveal": "die ambitionierten Unternehmen hilft, Strategien zu definieren, Marken zu formen und Produkte zu entwickeln, die Menschen wirklich nutzen."
+    "label": "Ethos",
+    "headline": "Eine unabhängige Londoner Digitalagentur.",
+    "reveal": "Wir arbeiten mit ambitionierten Unternehmen an den wenigen Entscheidungen, die zählen — Positionierung, Handwerk und Produkte, die über den Launch hinaus Bestand haben."
+  },
+  "Capabilities": {
+    "label": "Was wir tun",
+    "title_line1": "Drei Disziplinen.",
+    "title_line2": "Ein Studio.",
+    "items": [
+      {
+        "num": "01",
+        "title": "Strategie",
+        "desc": "Positionierung, Recherche und die schwierigen Entscheidungen, die jedes Pixel danach prägen."
+      },
+      {
+        "num": "02",
+        "title": "Design",
+        "desc": "Identität und Produktdesign mit redaktioneller Zurückhaltung — gestaltet, nie dekoriert."
+      },
+      {
+        "num": "03",
+        "title": "Entwicklung",
+        "desc": "Web und Plattformen, die schnell und langlebig gebaut und jahrelang im Stillen gepflegt werden."
+      }
+    ],
+    "link": "Alle Leistungen ansehen"
   },
   "WorkHome": {
     "allWork": "Alle Arbeiten"

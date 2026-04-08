@@ -1,6 +1,7 @@
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { Hero } from "@/components/Hero";
 import { BrandStatement } from "@/components/BrandStatement";
+import { Capabilities } from "@/components/Capabilities";
 import { WorkHome } from "@/components/WorkHome";
 import { Clients } from "@/components/Clients";
 import { Footer } from "@/components/Footer";
@@ -55,6 +56,7 @@ export default async function HomePage({
     <div className="animate-in fade-in duration-500">
       <Hero />
       <BrandStatement />
+      <Capabilities />
       <WorkHome />
       <Clients />
       <Footer />

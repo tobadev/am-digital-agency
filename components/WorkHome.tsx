@@ -7,7 +7,7 @@ import { Link } from '@/i18n/navigation';
 import { projects } from '@/data/projects';
 import { getSrcSet } from '@/lib/responsive-image';
 
-const featured = [projects[0], projects[1], projects[3]];
+const featured = [projects[0], projects[1], projects[3], projects[2]];
 
 export const WorkHome: React.FC = () => {
   const t = useTranslations('WorkHome');
@@ -16,34 +16,63 @@ export const WorkHome: React.FC = () => {
     <section className="bg-brand-black px-6 md:px-10 pb-32">
       <div className="max-w-6xl mx-auto">
 
-        {/* Hero project — full width, oversized */}
+        {/* Row 1 — Hero project, full width */}
         <div
           className="mb-4 animate-in fade-in slide-in-from-bottom-6 duration-700"
           style={{ animationDelay: '100ms', animationFillMode: 'both' }}
         >
-          <ProjectCard project={featured[0]} aspect="aspect-[16/9]" titleSize="text-4xl md:text-6xl lg:text-7xl" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1200px) calc(100vw - 80px), 1152px" priority />
+          <ProjectCard
+            project={featured[0]}
+            aspect="aspect-[16/9]"
+            titleSize="text-4xl md:text-6xl lg:text-7xl"
+            sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1200px) calc(100vw - 80px), 1152px"
+            priority
+          />
         </div>
 
-        {/* Two projects side by side */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {/* Row 2 — Two projects side by side */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
           <div
             className="animate-in fade-in slide-in-from-bottom-6 duration-700"
             style={{ animationDelay: '250ms', animationFillMode: 'both' }}
           >
-            <ProjectCard project={featured[1]} aspect="aspect-[4/3]" titleSize="text-3xl md:text-4xl lg:text-5xl" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1200px) calc((100vw - 80px - 16px) / 2), 568px" />
+            <ProjectCard
+              project={featured[1]}
+              aspect="aspect-[4/3]"
+              titleSize="text-3xl md:text-4xl lg:text-5xl"
+              sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1200px) calc((100vw - 80px - 16px) / 2), 568px"
+            />
           </div>
           <div
             className="animate-in fade-in slide-in-from-bottom-6 duration-700"
             style={{ animationDelay: '400ms', animationFillMode: 'both' }}
           >
-            <ProjectCard project={featured[2]} aspect="aspect-[4/3]" titleSize="text-3xl md:text-4xl lg:text-5xl" sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1200px) calc((100vw - 80px - 16px) / 2), 568px" />
+            <ProjectCard
+              project={featured[2]}
+              aspect="aspect-[4/3]"
+              titleSize="text-3xl md:text-4xl lg:text-5xl"
+              sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1200px) calc((100vw - 80px - 16px) / 2), 568px"
+            />
           </div>
+        </div>
+
+        {/* Row 3 — Offset right card, 2/3 width on desktop */}
+        <div
+          className="md:w-2/3 md:ml-auto animate-in fade-in slide-in-from-bottom-6 duration-700"
+          style={{ animationDelay: '550ms', animationFillMode: 'both' }}
+        >
+          <ProjectCard
+            project={featured[3]}
+            aspect="aspect-[16/9]"
+            titleSize="text-3xl md:text-5xl lg:text-6xl"
+            sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1200px) calc((100vw - 80px) * 2 / 3), 768px"
+          />
         </div>
 
         {/* View all link */}
         <div
           className="mt-16 flex justify-end animate-in fade-in duration-500"
-          style={{ animationDelay: '600ms', animationFillMode: 'both' }}
+          style={{ animationDelay: '750ms', animationFillMode: 'both' }}
         >
           <Link
             href="/work"
