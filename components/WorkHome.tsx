@@ -56,16 +56,16 @@ export const WorkHome: React.FC = () => {
           </div>
         </div>
 
-        {/* Row 3 — Offset right card, 2/3 width on desktop */}
+        {/* Row 3 — Full width */}
         <div
-          className="md:w-2/3 md:ml-auto animate-in fade-in slide-in-from-bottom-6 duration-700"
+          className="mt-4 animate-in fade-in slide-in-from-bottom-6 duration-700"
           style={{ animationDelay: '550ms', animationFillMode: 'both' }}
         >
           <ProjectCard
             project={featured[3]}
             aspect="aspect-[16/9]"
-            titleSize="text-3xl md:text-5xl lg:text-6xl"
-            sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1200px) calc((100vw - 80px) * 2 / 3), 768px"
+            titleSize="text-4xl md:text-6xl lg:text-7xl"
+            sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1200px) calc(100vw - 80px), 1152px"
           />
         </div>
 
