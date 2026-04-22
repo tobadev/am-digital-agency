@@ -39,7 +39,7 @@ export const About: React.FC = () => {
   const t = useTranslations('About');
 
   const statsCount = 3;
-  const teamCount = 5;
+  const teamCount = 4;
   const clientsCount = 5;
   const valuesCount = 4;
 
