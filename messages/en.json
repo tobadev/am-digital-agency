@@ -51,14 +51,14 @@
     "services": "Strategy / Design / Development"
   },
   "BrandStatement": {
-    "label": "Ethos",
+    "label": "",
     "headline": "An independent London digital agency.",
     "reveal": "Working with ambitious companies on the few decisions that matter — positioning, craft, and products built to last beyond the launch."
   },
   "Capabilities": {
     "label": "What we do",
-    "title_line1": "Three disciplines.",
-    "title_line2": "One studio.",
+    "title_line1": "From position",
+    "title_line2": "to product.",
     "items": [
       {
         "num": "01",
