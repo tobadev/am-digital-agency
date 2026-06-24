@@ -180,7 +180,7 @@ export const CaseStudyContent: React.FC<{ project: ProjectData }> = ({ project }
             />
             <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-all duration-500" />
             <div className="absolute inset-6 md:inset-10 flex items-end justify-between">
-              <h2 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-[0.9] tracking-tight group-hover:translate-x-2 transition-transform duration-300 break-words">
+              <h2 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-[0.9] tracking-tight break-words">
                 {nextProject.title}
               </h2>
               <div className="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center shrink-0 ml-6 group-hover:bg-white group-hover:text-black transition-all duration-300 text-white">

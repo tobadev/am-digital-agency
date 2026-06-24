@@ -103,7 +103,7 @@ export const Navbar: React.FC = () => {
                     {item.num}
                   </span>
                   <span
-                    className={`font-display text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-none transition-all duration-300 group-hover:translate-x-3 ${
+                    className={`font-display text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-none transition-colors duration-300 ${
                       pathname === item.href
                         ? "text-white"
                         : "text-neutral-600 group-hover:text-white"

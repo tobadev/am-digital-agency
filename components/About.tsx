@@ -111,7 +111,7 @@ export const About: React.FC = () => {
                 <span className="text-[10px] text-neutral-700 uppercase tracking-[0.25em] md:w-10 shrink-0">
                   {String(idx + 1).padStart(2, '0')}
                 </span>
-                <span className="font-display text-xl md:text-2xl font-bold text-white md:w-72 shrink-0 group-hover:translate-x-2 transition-transform duration-300">
+                <span className="font-display text-xl md:text-2xl font-bold text-white md:w-72 shrink-0 ">
                   {t(`team.${idx}.name`)}
                 </span>
                 <span className="text-xs text-neutral-500 uppercase tracking-widest flex-1">
@@ -180,7 +180,7 @@ export const About: React.FC = () => {
                   {t(`values.${idx}.num`)}
                 </div>
                 <div className="relative">
-                  <h3 className="font-display text-2xl md:text-3xl font-bold text-white mb-5 group-hover:translate-x-2 transition-transform duration-300">
+                  <h3 className="font-display text-2xl md:text-3xl font-bold text-white mb-5 ">
                     {t(`values.${idx}.title`)}
                   </h3>
                   <p className="text-neutral-500 text-base leading-relaxed max-w-sm">

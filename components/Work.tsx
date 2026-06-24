@@ -63,7 +63,7 @@ function ProjectRow({ project, description }: { project: typeof projects[number]
           <div className="flex-1 min-w-0">
             <div className="flex items-start justify-between gap-8">
               <div className="min-w-0">
-                <h2 className="font-display text-4xl md:text-6xl font-bold text-white mb-3 transition-all duration-300 group-hover:translate-x-3 break-words">
+                <h2 className="font-display text-4xl md:text-6xl font-bold text-white mb-3 break-words">
                   {project.title}
                 </h2>
                 <div className="flex flex-wrap items-center gap-4 text-sm text-neutral-600 uppercase tracking-widest">

@@ -36,7 +36,7 @@ export const Capabilities: React.FC = async () => {
                 <span className="text-neutral-700">{t(`items.${idx}.num`)}</span>
               </div>
               <div className="flex-1 min-w-0">
-                <h3 className="font-display text-3xl md:text-5xl font-bold text-white mb-4 transition-transform duration-300 group-hover:translate-x-3 break-words">
+                <h3 className="font-display text-3xl md:text-5xl font-bold text-white mb-4 break-words">
                   {t(`items.${idx}.title`)}
                 </h3>
                 <p className="text-neutral-500 text-lg leading-relaxed max-w-2xl">
