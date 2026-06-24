@@ -14,54 +14,49 @@ export const WorkHome: React.FC = () => {
 
   return (
     <section className="bg-brand-black px-6 md:px-10 pb-32">
-      <div>
+      <div className="flex flex-col gap-3">
 
-        {/* Hero card — full-width cinematic */}
-        <div className="mb-3">
+        {/* Row 1: 60% left, 40% right */}
+        <div className="grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-3 md:h-[40vw]">
           <ProjectCard
             project={featured[0]}
-            aspect="aspect-[21/9]"
-            titleSize="text-4xl md:text-6xl lg:text-7xl"
-            sizes="(max-width: 768px) calc(100vw - 48px), calc(100vw - 80px)"
+            titleSize="text-4xl md:text-5xl lg:text-6xl"
+            sizes="(max-width: 768px) calc(100vw - 48px), 60vw"
             priority
+          />
+          <ProjectCard
+            project={featured[1]}
+            titleSize="text-2xl md:text-3xl lg:text-4xl"
+            sizes="(max-width: 768px) calc(100vw - 48px), 40vw"
           />
         </div>
 
-        {/* Three cards — equal columns */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-          <ProjectCard
-            project={featured[1]}
-            aspect="aspect-[3/2]"
-            titleSize="text-2xl md:text-3xl"
-            sizes="(max-width: 768px) calc(100vw - 48px), 33vw"
-          />
+        {/* Row 2: 40% left, 60% right */}
+        <div className="grid grid-cols-1 md:grid-cols-[2fr_3fr] gap-3 md:h-[40vw]">
           <ProjectCard
             project={featured[2]}
-            aspect="aspect-[3/2]"
-            titleSize="text-2xl md:text-3xl"
-            sizes="(max-width: 768px) calc(100vw - 48px), 33vw"
+            titleSize="text-2xl md:text-3xl lg:text-4xl"
+            sizes="(max-width: 768px) calc(100vw - 48px), 40vw"
           />
           <ProjectCard
             project={featured[3]}
-            aspect="aspect-[3/2]"
-            titleSize="text-2xl md:text-3xl"
-            sizes="(max-width: 768px) calc(100vw - 48px), 33vw"
+            titleSize="text-4xl md:text-5xl lg:text-6xl"
+            sizes="(max-width: 768px) calc(100vw - 48px), 60vw"
           />
         </div>
 
-        {/* View all */}
-        <div className="mt-16 flex justify-end">
-          <Link
-            href="/work"
-            className="group inline-flex items-center gap-3 text-neutral-600 hover:text-white transition-colors text-sm uppercase tracking-widest"
-          >
-            {t('allWork')}
-            <div className="w-11 h-11 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:border-white group-hover:text-black transition-all duration-300">
-              <ArrowUpRight size={16} />
-            </div>
-          </Link>
-        </div>
+      </div>
 
+      <div className="mt-16 flex justify-end">
+        <Link
+          href="/work"
+          className="group inline-flex items-center gap-3 text-neutral-600 hover:text-white transition-colors text-sm uppercase tracking-widest"
+        >
+          {t('allWork')}
+          <div className="w-11 h-11 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:border-white group-hover:text-black transition-all duration-300">
+            <ArrowUpRight size={16} />
+          </div>
+        </Link>
       </div>
     </section>
   );
@@ -69,13 +64,11 @@ export const WorkHome: React.FC = () => {
 
 function ProjectCard({
   project,
-  aspect,
   titleSize,
   sizes,
   priority = false,
 }: {
   project: typeof projects[number];
-  aspect: string;
   titleSize: string;
   sizes: string;
   priority?: boolean;
@@ -85,9 +78,7 @@ function ProjectCard({
 
   const handleMouseEnter = () => {
     setIsHovered(true);
-    if (videoRef.current) {
-      videoRef.current.play().catch(() => {});
-    }
+    if (videoRef.current) videoRef.current.play().catch(() => {});
   };
 
   const handleMouseLeave = () => {
@@ -105,7 +96,8 @@ function ProjectCard({
       onMouseLeave={handleMouseLeave}
       className="group relative block overflow-hidden"
     >
-      <div className={`relative ${aspect} overflow-hidden`}>
+      {/* Mobile: aspect-ratio driven. Desktop: fills the grid row height */}
+      <div className="relative aspect-[4/3] md:aspect-auto md:h-full overflow-hidden">
         <img
           src={project.thumbnail}
           srcSet={getSrcSet(project.thumbnail)}
