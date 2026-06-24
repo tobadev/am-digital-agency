@@ -120,7 +120,6 @@ export const CaseStudyContent: React.FC<{ project: ProjectData }> = ({ project }
             {solution}
           </p>
         </div>
-        </div>
 
         {/* Gallery */}
         {project.gallery.length > 0 && (
