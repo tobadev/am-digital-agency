@@ -42,3 +42,35 @@
 - Added Selected Clients column: Calem AI, KRONBERG Zeithaus, Costae AI, Dachreach, Clyra.biz
 - Section labels: `text-neutral-700` → `text-neutral-600`
 - New JSON keys: `offices`, `clientsLabel`
+
+## 2026-06-24 (session 3)
+
+### Footer
+- Contact column: email → `text-white text-base font-medium` (primary action), phone demoted to `text-neutral-500`, offices get own labeled sub-section with `border-t` separator
+
+### Services Page
+- Removed `w-40` spacer column — replaced with `grid-cols-[1fr_3fr]` ghost number accent (later removed entirely)
+- Ghost "01" number column removed after fe review — user confirmed it looked bad
+- Description: removed `md:columns-2` split (was cutting text mid-sentence)
+- Final layout per fe: number+meta in top row (number tiny left, timeline+idealFor right), title at `md:w-3/4`, 2-col below (description left, deliverables as bordered list right)
+- Removed all `animate-in slide-in-from-bottom-4` entrance animations
+- Removed all `group-hover:translate-x-*` from text site-wide: Capabilities, Work, About (×2), Navbar, CaseStudy
+
+### Contact Page
+- Labels moved above inputs (was `w-40` side column) — inputs now full width
+- Services changed from single-select (`string`) to multi-select (`string[]`) with toggle logic
+- API payload: `service` → `services` (array)
+- All entrance animations removed
+
+### Work Page
+- `w-12` spacer column removed — number now inline with title
+- Thumbnail: full width, `sizes="calc(100vw - 80px)"`, no indent
+- Title row: `flex justify-between items-end` — number+title left, category+year+arrow right
+- Description: 2-col grid, left empty, description right — editorial caption alignment under meta
+- All entrance animations removed
+
+### Spacing
+- All inner pages (`pt-24 md:pt-32` → `pt-40 md:pt-56`): Services, Contact, About, Work, CaseStudy
+
+### Rules
+- Added to `CLAUDE.md`: always consult `fe` skill before any UI/layout change
