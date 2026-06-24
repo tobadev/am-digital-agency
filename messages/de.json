@@ -269,13 +269,12 @@
   },
   "Footer": {
     "nextStep": "Nächster Schritt",
-    "cta_line1": "Lassen Sie uns etwas",
-    "cta_line2": "Großartiges bauen.",
+    "cta_line1": "Bereit wenn",
+    "cta_line2": "Sie es sind.",
     "startProject": "Projekt starten",
     "contact": "Kontakt",
-    "address_line1": "27 Old Gloucester Street",
-    "address_line2": "London, WC1N 3AX",
-    "address_line3": "Vereinigtes Königreich",
+    "offices": "London · New York · Belgrad",
+    "clientsLabel": "Ausgewählte Kunden",
     "navigation": "Navigation",
     "navLinks": {
       "home": "Startseite",
