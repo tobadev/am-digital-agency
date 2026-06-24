@@ -50,21 +50,18 @@ export default async function WorkPage({
   const t = await getTranslations("WorkPage");
 
   return (
-    <div className="animate-in fade-in duration-500 pt-32">
-      <div className="px-6 md:px-10 max-w-5xl mx-auto">
-        <div className="mb-40 mt-16 md:mt-20">
-          <span className="text-xs uppercase tracking-[0.3em] text-neutral-500 mb-6 block">
-            {t("label")}
-          </span>
-          <h1 className="font-display text-6xl md:text-8xl lg:text-9xl font-bold leading-[0.9] tracking-tight mb-12 break-words">
-            {t("title_line1")}
-            <br />
-            {t("title_line2")}
-          </h1>
-          <p className="text-xl text-neutral-400 leading-relaxed max-w-3xl">
-            {t("description")}
-          </p>
-        </div>
+    <div className="bg-brand-black">
+      <div className="px-6 md:px-10 pt-40 md:pt-56 pb-32 md:pb-48">
+        <span className="text-[10px] uppercase tracking-[0.4em] text-neutral-600 mb-8 block">
+          {t("label")}
+        </span>
+        <h1 className="font-display text-[clamp(3rem,11vw,12rem)] font-bold leading-[0.88] tracking-tight mb-16 break-words">
+          {t("title_line1")}<br />
+          <span className="text-neutral-500">{t("title_line2")}</span>
+        </h1>
+        <p className="text-xl text-neutral-400 leading-relaxed">
+          {t("description")}
+        </p>
       </div>
       <Work />
       <Footer />
