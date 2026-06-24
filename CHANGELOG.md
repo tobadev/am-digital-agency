@@ -74,3 +74,10 @@
 
 ### Rules
 - Added to `CLAUDE.md`: always consult `fe` skill before any UI/layout change
+
+## 2026-06-24 (session 4)
+
+### Work Page
+- Hero was in `app/[locale]/work/page.tsx` — had `max-w-5xl mx-auto` container, wrong heading size, entrance animation, `max-w-3xl` on description
+- Fixed: removed `max-w-5xl`, heading → `clamp(3rem,11vw,12rem)`, second line dimmed `text-neutral-500`, label → `text-[10px] tracking-[0.4em]`, description full width, animation removed
+- Removed `pt-40 md:pt-56` from `Work.tsx` component (was double-padding with the page hero)
