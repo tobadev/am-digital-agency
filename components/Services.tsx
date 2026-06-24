@@ -37,21 +37,14 @@ export const Services: React.FC = () => {
       {Array.from({ length: servicesCount }).map((_, idx) => (
         <div key={idx} className="border-t border-white/10 py-20 md:py-28">
 
-          <div className="grid grid-cols-1 md:grid-cols-[1fr_3fr] gap-8 md:gap-16 mb-16">
-            <div className="flex items-start">
-              <span className="font-display text-[clamp(4rem,8vw,9rem)] font-bold text-white/[0.04] leading-none select-none">
-                {t(`items.${idx}.num`)}
-              </span>
-            </div>
-            <div>
-              <h2 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-[0.9] tracking-tight mb-6">
-                {t(`items.${idx}.title`)}
-              </h2>
-              <p className="text-lg text-neutral-400 mb-6">{t(`items.${idx}.subtitle`)}</p>
-              <p className="text-neutral-500 text-base leading-relaxed md:columns-2 md:gap-16">
-                {t(`items.${idx}.description`)}
-              </p>
-            </div>
+          <div className="mb-16">
+            <h2 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-[0.9] tracking-tight mb-6">
+              {t(`items.${idx}.title`)}
+            </h2>
+            <p className="text-lg text-neutral-400 mb-6">{t(`items.${idx}.subtitle`)}</p>
+            <p className="text-neutral-500 text-base leading-relaxed max-w-2xl">
+              {t(`items.${idx}.description`)}
+            </p>
           </div>
 
           {/* Deliverables grid */}
