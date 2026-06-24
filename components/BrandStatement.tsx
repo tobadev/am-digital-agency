@@ -30,7 +30,7 @@ export const BrandStatement: React.FC = () => {
 
   return (
     <section ref={sectionRef} className="bg-brand-black px-6 md:px-10 py-40 md:py-56">
-      <div className="max-w-5xl mx-auto">
+      <div>
         <p className="md:max-w-[85%] font-display text-3xl md:text-5xl lg:text-6xl font-bold leading-[1.15] tracking-tight break-words">
           <span className="text-white">{HEADLINE}</span>{' '}
           {REVEAL_WORDS.map((word, idx) => {

@@ -9,7 +9,7 @@ export const Capabilities: React.FC = async () => {
 
   return (
     <section className="bg-brand-black px-6 md:px-10 pb-32">
-      <div className="max-w-5xl mx-auto">
+      <div>
 
         {/* Header */}
         <div

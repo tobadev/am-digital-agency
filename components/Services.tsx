@@ -19,7 +19,7 @@ export const Services: React.FC = () => {
 
   return (
     <section className="relative z-10 bg-brand-black px-6 md:px-10 pb-32">
-      <div className="max-w-5xl mx-auto">
+      <div>
 
         {/* Header */}
         <div

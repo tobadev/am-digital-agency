@@ -48,7 +48,7 @@ export const About: React.FC = () => {
 
       {/* Header — split layout */}
       <section className="px-6 md:px-10 pt-24 md:pt-32 pb-32 md:pb-48">
-        <div className="max-w-7xl mx-auto">
+        <div>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-12 md:gap-24">
             <div className="flex-1">
               <span className="text-[10px] uppercase tracking-[0.4em] text-neutral-600 mb-8 block">{t('label')}</span>
@@ -72,7 +72,7 @@ export const About: React.FC = () => {
 
       {/* Stats — grid of big numbers */}
       <section className="px-6 md:px-10 pb-40">
-        <div className="max-w-7xl mx-auto">
+        <div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/5">
             {Array.from({ length: statsCount }).map((_, idx) => (
               <div
@@ -94,7 +94,7 @@ export const About: React.FC = () => {
 
       {/* Team — numbered rows with arrow reveal */}
       <section className="px-6 md:px-10 pb-40">
-        <div className="max-w-7xl mx-auto">
+        <div>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-20">
             <div>
               <span className="text-[10px] uppercase tracking-[0.4em] text-neutral-600 mb-6 block">{t('teamLabel')}</span>
@@ -138,7 +138,7 @@ export const About: React.FC = () => {
 
       {/* Clients — dim-to-bright reveal on hover */}
       <section className="px-6 md:px-10 pb-40">
-        <div className="max-w-7xl mx-auto">
+        <div>
           <div className="mb-16">
             <span className="text-[10px] uppercase tracking-[0.4em] text-neutral-600 mb-6 block">{t('clientsLabel')}</span>
             <h2 className="font-display text-[clamp(2.5rem,6vw,5rem)] font-bold leading-[0.9] tracking-tight">
@@ -168,7 +168,7 @@ export const About: React.FC = () => {
 
       {/* Values — 2-col grid with ghost number accent */}
       <section className="px-6 md:px-10 pb-48">
-        <div className="max-w-7xl mx-auto">
+        <div>
           <div className="mb-20">
             <span className="text-[10px] uppercase tracking-[0.4em] text-neutral-600 mb-6 block">{t('valuesLabel')}</span>
             <h2 className="font-display text-[clamp(2.5rem,6vw,5rem)] font-bold leading-[0.9] tracking-tight">

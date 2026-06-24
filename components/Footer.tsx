@@ -17,7 +17,7 @@ export const Footer: React.FC = async () => {
 
   return (
     <footer className="bg-brand-black text-white px-6 md:px-10">
-      <div className="max-w-5xl mx-auto">
+      <div>
 
         {/* CTA */}
         <div className="border-t border-white/10 pt-32 md:pt-44 pb-32 md:pb-44">
