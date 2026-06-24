@@ -16,64 +16,41 @@ export const WorkHome: React.FC = () => {
     <section className="bg-brand-black px-6 md:px-10 pb-32">
       <div>
 
-        {/* Row 1 — Hero project, full width */}
-        <div
-          className="mb-4 animate-in fade-in slide-in-from-bottom-6 duration-700"
-          style={{ animationDelay: '100ms', animationFillMode: 'both' }}
-        >
+        {/* Hero card — full-width cinematic */}
+        <div className="mb-3">
           <ProjectCard
             project={featured[0]}
-            aspect="aspect-[16/9]"
+            aspect="aspect-[21/9]"
             titleSize="text-4xl md:text-6xl lg:text-7xl"
-            sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1200px) calc(100vw - 80px), 1152px"
+            sizes="(max-width: 768px) calc(100vw - 48px), calc(100vw - 80px)"
             priority
           />
         </div>
 
-        {/* Row 2 — Two projects side by side */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-          <div
-            className="animate-in fade-in slide-in-from-bottom-6 duration-700"
-            style={{ animationDelay: '250ms', animationFillMode: 'both' }}
-          >
-            <ProjectCard
-              project={featured[1]}
-              aspect="aspect-[4/3]"
-              titleSize="text-3xl md:text-4xl lg:text-5xl"
-              sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1200px) calc((100vw - 80px - 16px) / 2), 568px"
-            />
-          </div>
-          <div
-            className="animate-in fade-in slide-in-from-bottom-6 duration-700"
-            style={{ animationDelay: '400ms', animationFillMode: 'both' }}
-          >
-            <ProjectCard
-              project={featured[2]}
-              aspect="aspect-[4/3]"
-              titleSize="text-3xl md:text-4xl lg:text-5xl"
-              sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1200px) calc((100vw - 80px - 16px) / 2), 568px"
-            />
-          </div>
-        </div>
-
-        {/* Row 3 — Full width */}
-        <div
-          className="mt-4 animate-in fade-in slide-in-from-bottom-6 duration-700"
-          style={{ animationDelay: '550ms', animationFillMode: 'both' }}
-        >
+        {/* Three cards — equal columns */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <ProjectCard
+            project={featured[1]}
+            aspect="aspect-[3/2]"
+            titleSize="text-2xl md:text-3xl"
+            sizes="(max-width: 768px) calc(100vw - 48px), 33vw"
+          />
+          <ProjectCard
+            project={featured[2]}
+            aspect="aspect-[3/2]"
+            titleSize="text-2xl md:text-3xl"
+            sizes="(max-width: 768px) calc(100vw - 48px), 33vw"
+          />
           <ProjectCard
             project={featured[3]}
-            aspect="aspect-[16/9]"
-            titleSize="text-4xl md:text-6xl lg:text-7xl"
-            sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1200px) calc(100vw - 80px), 1152px"
+            aspect="aspect-[3/2]"
+            titleSize="text-2xl md:text-3xl"
+            sizes="(max-width: 768px) calc(100vw - 48px), 33vw"
           />
         </div>
 
-        {/* View all link */}
-        <div
-          className="mt-16 flex justify-end animate-in fade-in duration-500"
-          style={{ animationDelay: '750ms', animationFillMode: 'both' }}
-        >
+        {/* View all */}
+        <div className="mt-16 flex justify-end">
           <Link
             href="/work"
             className="group inline-flex items-center gap-3 text-neutral-600 hover:text-white transition-colors text-sm uppercase tracking-widest"
@@ -153,11 +130,7 @@ function ProjectCard({
             }`}
           />
         )}
-
-        {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent group-hover:from-black/80 transition-all duration-500" />
-
-        {/* Title + category overlaid */}
         <div className="absolute bottom-6 left-6 md:bottom-10 md:left-10 right-6 md:right-10">
           <h3 className={`font-display ${titleSize} font-bold text-white leading-[0.9] tracking-tight mb-3 line-clamp-2 break-words`}>
             {project.title}

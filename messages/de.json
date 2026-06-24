@@ -230,8 +230,8 @@
     "clientsTitle_line2": "wir gearbeitet haben.",
     "clients": ["Calem AI", "KRONBERG Zeithaus", "Costae AI", "Dachreach", "Clyra.biz"],
     "valuesLabel": "Was uns antreibt",
-    "valuesTitle_line1": "Prinzipien, keine",
-    "valuesTitle_line2": "Prozesse.",
+    "valuesTitle_line1": "Die Standards,",
+    "valuesTitle_line2": "die wir halten.",
     "values": [
       { "num": "01", "title": "Design, das funktioniert.", "desc": "Ästhetik ist wichtig, aber Klarheit kommt immer zuerst. Jede Entscheidung ist bewusst und unterstützt das Nutzererlebnis." },
       { "num": "02", "title": "Technologie mit Zweck.", "desc": "Wir bauen skalierbare, schnelle und zukunftssichere Lösungen. Keine Abkürzungen. Keine unnötige Komplexität." },

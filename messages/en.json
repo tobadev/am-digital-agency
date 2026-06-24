@@ -230,8 +230,8 @@
     "clientsTitle_line2": "worked with.",
     "clients": ["Calem AI", "KRONBERG Zeithaus", "Costae AI", "Dachreach", "Clyra.biz"],
     "valuesLabel": "What drives us",
-    "valuesTitle_line1": "Principles, not",
-    "valuesTitle_line2": "processes.",
+    "valuesTitle_line1": "The standards",
+    "valuesTitle_line2": "we keep.",
     "values": [
       { "num": "01", "title": "Design that works.", "desc": "Aesthetics matter, but clarity always comes first. Every decision is deliberate and supports the user experience." },
       { "num": "02", "title": "Technology with purpose.", "desc": "We build scalable, fast, and future-ready solutions. No shortcuts. No unnecessary complexity." },
