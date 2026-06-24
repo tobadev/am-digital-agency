@@ -33,45 +33,47 @@ export const Services: React.FC = () => {
         </p>
       </div>
 
-      {/* Services — large numbered sections */}
+      {/* Services */}
       {Array.from({ length: servicesCount }).map((_, idx) => (
         <div key={idx} className="border-t border-white/10 py-20 md:py-28">
 
-          <div className="mb-16">
-            <h2 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-[0.9] tracking-tight mb-6">
-              {t(`items.${idx}.title`)}
-            </h2>
-            <p className="text-lg text-neutral-400 mb-6">{t(`items.${idx}.subtitle`)}</p>
-            <p className="text-neutral-500 text-base leading-relaxed max-w-2xl">
-              {t(`items.${idx}.description`)}
-            </p>
-          </div>
-
-          {/* Deliverables grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/5">
-            {Array.from({ length: deliverableCount }).map((_, dIdx) => (
-              <div key={dIdx} className="bg-brand-black p-8 md:p-10">
-                <span className="text-[10px] text-neutral-700 uppercase tracking-[0.2em] block mb-4">
-                  {String(dIdx + 1).padStart(2, '0')}
-                </span>
-                <span className="text-sm text-neutral-300 leading-relaxed">
-                  {t(`items.${idx}.deliverables.${dIdx}`)}
-                </span>
-              </div>
-            ))}
-          </div>
-
-          {/* Timeline + Ideal for */}
-          <div className="flex gap-12 mt-8">
-            <div>
-              <span className="text-[10px] uppercase tracking-[0.2em] text-neutral-600 block mb-2">{t('timeline')}</span>
-              <span className="text-sm text-white font-medium">{t(`items.${idx}.timeline`)}</span>
-            </div>
-            <div>
-              <span className="text-[10px] uppercase tracking-[0.2em] text-neutral-600 block mb-2">{t('idealFor')}</span>
-              <span className="text-sm text-neutral-400">{t(`items.${idx}.idealFor`)}</span>
+          {/* Top row: number left, meta right */}
+          <div className="flex items-center justify-between mb-12">
+            <span className="text-[10px] uppercase tracking-[0.3em] text-neutral-700">
+              {t(`items.${idx}.num`)}
+            </span>
+            <div className="flex items-center gap-6 text-[10px] uppercase tracking-[0.2em] text-neutral-700">
+              <span>{t('timeline')}: <span className="text-neutral-500">{t(`items.${idx}.timeline`)}</span></span>
+              <span className="hidden md:inline text-neutral-800">·</span>
+              <span className="hidden md:inline">{t('idealFor')}: <span className="text-neutral-500">{t(`items.${idx}.idealFor`)}</span></span>
             </div>
           </div>
+
+          {/* Title */}
+          <h2 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-[0.88] tracking-tight mb-16 md:w-3/4">
+            {t(`items.${idx}.title`)}
+          </h2>
+
+          {/* Description + deliverables */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20">
+            <div>
+              <p className="text-base text-neutral-400 font-medium mb-4">{t(`items.${idx}.subtitle`)}</p>
+              <p className="text-neutral-500 text-base leading-relaxed">{t(`items.${idx}.description`)}</p>
+            </div>
+            <div>
+              {Array.from({ length: deliverableCount }).map((_, dIdx) => (
+                <div key={dIdx} className="flex items-start gap-4 py-4 border-t border-white/5">
+                  <span className="text-[10px] text-neutral-700 uppercase tracking-[0.2em] pt-0.5 shrink-0">
+                    {String(dIdx + 1).padStart(2, '0')}
+                  </span>
+                  <span className="text-sm text-neutral-300 leading-relaxed">
+                    {t(`items.${idx}.deliverables.${dIdx}`)}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
         </div>
       ))}
       <div className="border-t border-white/10" />
