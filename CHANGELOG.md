@@ -32,3 +32,13 @@
 
 ### Project Setup
 - Created `CLAUDE.md` with shortcuts and project notes
+
+## 2026-06-24 (continued)
+
+### Footer
+- CTA: "Let's build something great." → "Ready when you are." + bumped heading to `text-9xl`
+- Layout: 3-col → 4-col grid: Contact+Offices | Navigation | Selected Clients | Socials
+- Offices: replaced full UK address with single line "London · New York · Belgrade"
+- Added Selected Clients column: Calem AI, KRONBERG Zeithaus, Costae AI, Dachreach, Clyra.biz
+- Section labels: `text-neutral-700` → `text-neutral-600`
+- New JSON keys: `offices`, `clientsLabel`
