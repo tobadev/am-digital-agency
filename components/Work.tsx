@@ -12,18 +12,14 @@ export const Work: React.FC = () => {
 
   return (
     <section className="bg-brand-black px-6 md:px-10 pt-40 md:pt-56 pb-32">
-      <div>
-        {projects.map((project, idx) => (
-          <div
-            key={project.slug}
-            className="animate-in fade-in slide-in-from-bottom-4 duration-500"
-            style={{ animationDelay: `${idx * 150}ms`, animationFillMode: 'both' }}
-          >
-            <ProjectRow project={project} description={t(`${project.slug}.description`)} />
-          </div>
-        ))}
-        <div className="border-t border-white/10" />
-      </div>
+      {projects.map((project) => (
+        <ProjectRow
+          key={project.slug}
+          project={project}
+          description={t(`${project.slug}.description`)}
+        />
+      ))}
+      <div className="border-t border-white/10" />
     </section>
   );
 };
@@ -34,9 +30,7 @@ function ProjectRow({ project, description }: { project: typeof projects[number]
 
   const handleMouseEnter = () => {
     setIsHovered(true);
-    if (videoRef.current) {
-      videoRef.current.play().catch(() => {});
-    }
+    if (videoRef.current) videoRef.current.play().catch(() => {});
   };
 
   const handleMouseLeave = () => {
@@ -52,70 +46,67 @@ function ProjectRow({ project, description }: { project: typeof projects[number]
       href={{ pathname: '/work/[slug]', params: { slug: project.slug } }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className="group block border-t border-white/10 py-12 md:py-16 transition-all duration-300"
+      className="group block border-t border-white/10 py-10 md:py-14"
     >
-      <div className="flex flex-col gap-8">
-        {/* Top: number + title + arrow */}
-        <div className="flex items-start gap-6 md:gap-12">
-          <span className="text-[10px] uppercase tracking-[0.2em] text-neutral-700 w-12 shrink-0 pt-3 transition-colors duration-300 group-hover:text-neutral-500">
+      {/* Title row: number + title left, meta + arrow right */}
+      <div className="flex items-end justify-between gap-8 mb-8">
+        <div className="flex items-end gap-5 min-w-0">
+          <span className="text-[10px] text-neutral-700 uppercase tracking-[0.2em] shrink-0 mb-1.5">
             {project.num}
           </span>
-          <div className="flex-1 min-w-0">
-            <div className="flex items-start justify-between gap-8">
-              <div className="min-w-0">
-                <h2 className="font-display text-4xl md:text-6xl font-bold text-white mb-3 break-words">
-                  {project.title}
-                </h2>
-                <div className="flex flex-wrap items-center gap-4 text-sm text-neutral-600 uppercase tracking-widest">
-                  <span>{project.category}</span>
-                  <span className="w-1 h-1 rounded-full bg-neutral-700" />
-                  <span>{project.year}</span>
-                </div>
-              </div>
-              <div className="hidden md:flex w-12 h-12 rounded-full border border-white/10 items-center justify-center shrink-0 mt-2 transition-all duration-300 group-hover:bg-white group-hover:border-white group-hover:text-black text-neutral-700">
-                <ArrowUpRight size={20} />
-              </div>
-            </div>
+          <h2 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-[0.9] tracking-tight break-words">
+            {project.title}
+          </h2>
+        </div>
+        <div className="flex items-center gap-5 shrink-0">
+          <div className="text-right hidden md:block">
+            <span className="text-[10px] text-neutral-600 uppercase tracking-widest block mb-1">{project.category}</span>
+            <span className="text-[10px] text-neutral-700 uppercase tracking-widest">{project.year}</span>
+          </div>
+          <div className="w-11 h-11 rounded-full border border-white/10 flex items-center justify-center text-neutral-700 group-hover:bg-white group-hover:border-white group-hover:text-black transition-all duration-300 shrink-0">
+            <ArrowUpRight size={16} />
           </div>
         </div>
+      </div>
 
-        {/* Media */}
-        <div className="flex items-start gap-6 md:gap-12">
-          <div className="w-12 shrink-0 hidden md:block" />
-          <div className="flex-1 relative aspect-[16/9] overflow-hidden bg-brand-dark">
-            <img
-              src={project.thumbnail}
-              srcSet={getSrcSet(project.thumbnail)}
-              sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1200px) calc(100vw - 176px), 928px"
-              alt={project.title}
-              loading="lazy"
-              decoding="async"
-              className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ${
-                isHovered ? 'scale-105' : 'scale-100'
-              }`}
-            />
-            {project.video && (
-              <video
-                ref={videoRef}
-                src={project.video}
-                muted
-                loop
-                playsInline
-                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
-                  isHovered ? 'opacity-100' : 'opacity-0'
-                }`}
-              />
-            )}
-          </div>
-        </div>
+      {/* Thumbnail — full width */}
+      <div className="relative aspect-[16/9] overflow-hidden">
+        <img
+          src={project.thumbnail}
+          srcSet={getSrcSet(project.thumbnail)}
+          sizes="calc(100vw - 80px)"
+          alt={project.title}
+          loading="lazy"
+          decoding="async"
+          className={`absolute inset-0 w-full h-full object-cover transition-transform duration-700 ${
+            isHovered ? 'scale-105' : 'scale-100'
+          }`}
+        />
+        {project.video && (
+          <video
+            ref={videoRef}
+            src={project.video}
+            muted
+            loop
+            playsInline
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
+              isHovered ? 'opacity-100' : 'opacity-0'
+            }`}
+          />
+        )}
+      </div>
 
-        {/* Description */}
-        <div className="flex items-start gap-6 md:gap-12">
-          <div className="w-12 shrink-0 hidden md:block" />
-          <p className="text-neutral-500 text-lg leading-relaxed max-w-2xl">
-            {description}
-          </p>
+      {/* Description — right half only, editorial caption alignment */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
+        <div className="flex md:hidden items-center gap-3 text-[10px] text-neutral-600 uppercase tracking-widest">
+          <span>{project.category}</span>
+          <span className="w-1 h-1 rounded-full bg-neutral-700" />
+          <span>{project.year}</span>
         </div>
+        <div className="hidden md:block" />
+        <p className="text-neutral-500 text-base leading-relaxed">
+          {description}
+        </p>
       </div>
     </Link>
   );
