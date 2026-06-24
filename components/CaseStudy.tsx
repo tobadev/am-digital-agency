@@ -31,7 +31,7 @@ export const CaseStudyContent: React.FC<{ project: ProjectData }> = ({ project }
   }
 
   return (
-    <div className="bg-brand-black min-h-screen text-white px-6 md:px-10 pb-32">
+    <div className="bg-brand-black min-h-screen text-white px-6 md:px-10 pt-40 md:pt-56 pb-32">
       <div>
 
         {/* Back link */}

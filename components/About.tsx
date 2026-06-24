@@ -47,7 +47,7 @@ export const About: React.FC = () => {
     <div className="bg-brand-black min-h-screen overflow-x-hidden">
 
       {/* Header — full-bleed stacked */}
-      <section className="px-6 md:px-10 pt-24 md:pt-32 pb-32 md:pb-48">
+      <section className="px-6 md:px-10 pt-40 md:pt-56 pb-32 md:pb-48">
         <div>
           <span className="text-[10px] uppercase tracking-[0.4em] text-neutral-600 mb-8 block">{t('label')}</span>
           <h1 className="font-display text-[clamp(3rem,11vw,12rem)] font-bold leading-[0.88] tracking-tight mb-12">

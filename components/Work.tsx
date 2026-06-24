@@ -11,7 +11,7 @@ export const Work: React.FC = () => {
   const t = useTranslations('projects');
 
   return (
-    <section className="bg-brand-black px-6 md:px-10 pb-32">
+    <section className="bg-brand-black px-6 md:px-10 pt-40 md:pt-56 pb-32">
       <div>
         {projects.map((project, idx) => (
           <div

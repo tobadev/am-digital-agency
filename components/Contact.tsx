@@ -68,7 +68,7 @@ export const Contact: React.FC = () => {
     <div className="bg-brand-black min-h-screen px-6 md:px-10 pb-32">
 
       {/* Header */}
-      <div className="pt-24 md:pt-32 pb-32 md:pb-48">
+      <div className="pt-40 md:pt-56 pb-32 md:pb-48">
         <span className="text-[10px] uppercase tracking-[0.4em] text-neutral-600 mb-8 block">{t('label')}</span>
         <h1 className="font-display text-[clamp(3rem,11vw,12rem)] font-bold leading-[0.88] tracking-tight mb-16 break-words">
           {t('title_line1')}<br />
