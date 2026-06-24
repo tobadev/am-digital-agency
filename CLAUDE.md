@@ -3,6 +3,9 @@
 ## Shortcuts
 - "fe" = invoke the `frontend-design` skill
 
+## Rules
+- **ALWAYS consult fe before making any UI/layout changes** — do not implement visual changes without fe sign-off first
+
 ## Project
 - Next.js app with next-intl for translations (en + de)
 - All copy lives in `messages/en.json` and `messages/de.json`
