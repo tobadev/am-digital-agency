@@ -46,27 +46,21 @@ export const About: React.FC = () => {
   return (
     <div className="bg-brand-black min-h-screen overflow-x-hidden">
 
-      {/* Header — split layout */}
+      {/* Header — full-bleed stacked */}
       <section className="px-6 md:px-10 pt-24 md:pt-32 pb-32 md:pb-48">
         <div>
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-12 md:gap-24">
-            <div className="flex-1">
-              <span className="text-[10px] uppercase tracking-[0.4em] text-neutral-600 mb-8 block">{t('label')}</span>
-              <h1 className="font-display text-[clamp(3rem,9vw,8rem)] font-bold leading-[0.88] tracking-tight">
-                {t('title_line1')}<br />
-                <span className="text-neutral-500">{t('title_line2')}</span>
-              </h1>
-            </div>
-            <div className="md:max-w-xs md:pb-1 shrink-0">
-              <p className="text-neutral-400 text-lg leading-relaxed">
-                {t('description')}
-              </p>
-            </div>
+          <span className="text-[10px] uppercase tracking-[0.4em] text-neutral-600 mb-8 block">{t('label')}</span>
+          <h1 className="font-display text-[clamp(3rem,11vw,12rem)] font-bold leading-[0.88] tracking-tight mb-12">
+            {t('title_line1')}<br />
+            <span className="text-neutral-500">{t('title_line2')}</span>
+          </h1>
+          <div className="flex items-start gap-6">
+            <div className="w-12 h-px bg-white/20 mt-3 shrink-0" />
+            <p className="text-neutral-400 text-lg leading-relaxed max-w-lg">
+              {t('description')}
+            </p>
           </div>
-          <div className="mt-20 flex items-center gap-4">
-            <div className="h-px flex-1 bg-white/10" />
-            <span className="text-[10px] text-neutral-700 uppercase tracking-[0.3em]">Est. 2023</span>
-          </div>
+          <div className="mt-20 h-px bg-white/10" />
         </div>
       </section>
 
