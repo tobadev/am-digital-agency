@@ -47,7 +47,7 @@ export const About: React.FC = () => {
     <div className="bg-brand-black min-h-screen overflow-x-hidden">
 
       {/* Header — split layout */}
-      <section className="px-6 md:px-10 pt-24 md:pt-32 pb-32 md:pb-48 animate-in fade-in slide-in-from-bottom-4 duration-700" style={{ animationFillMode: 'both' }}>
+      <section className="px-6 md:px-10 pt-24 md:pt-32 pb-32 md:pb-48">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-12 md:gap-24">
             <div className="flex-1">
@@ -77,8 +77,7 @@ export const About: React.FC = () => {
             {Array.from({ length: statsCount }).map((_, idx) => (
               <div
                 key={idx}
-                className="bg-brand-black p-10 md:p-14 group relative overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-500"
-                style={{ animationDelay: `${idx * 100}ms`, animationFillMode: 'both' }}
+                className="bg-brand-black p-10 md:p-14 group relative overflow-hidden"
               >
                 <div className="absolute inset-0 bg-white/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <span className="text-[10px] uppercase tracking-[0.3em] text-neutral-600 mb-6 block">
@@ -113,8 +112,7 @@ export const About: React.FC = () => {
               <a
                 key={idx}
                 href={`mailto:${t(`team.${idx}.email`)}`}
-                className="group flex flex-col md:flex-row md:items-center gap-2 md:gap-0 border-t border-white/8 py-7 md:py-9 -mx-6 md:-mx-10 px-6 md:px-10 hover:bg-white/[0.02] transition-all duration-300 animate-in fade-in slide-in-from-bottom-4 duration-500"
-                style={{ animationDelay: `${idx * 80}ms`, animationFillMode: 'both' }}
+                className="group flex flex-col md:flex-row md:items-center gap-2 md:gap-0 border-t border-white/8 py-7 md:py-9 -mx-6 md:-mx-10 px-6 md:px-10 hover:bg-white/[0.02] transition-all duration-300"
               >
                 <span className="text-[10px] text-neutral-700 uppercase tracking-[0.25em] md:w-10 shrink-0">
                   {String(idx + 1).padStart(2, '0')}
@@ -182,8 +180,7 @@ export const About: React.FC = () => {
             {Array.from({ length: valuesCount }).map((_, idx) => (
               <div
                 key={idx}
-                className="bg-brand-black p-10 md:p-14 group relative overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-500"
-                style={{ animationDelay: `${idx * 100}ms`, animationFillMode: 'both' }}
+                className="bg-brand-black p-10 md:p-14 group relative overflow-hidden"
               >
                 <div className="absolute top-0 right-0 font-display text-[9rem] md:text-[11rem] font-bold text-white/[0.03] leading-none select-none pointer-events-none translate-x-6 -translate-y-4">
                   {t(`values.${idx}.num`)}
