@@ -53,7 +53,7 @@ export const CaseStudyContent: React.FC<{ project: ProjectData }> = ({ project }
           <h1 className="font-display text-6xl md:text-8xl lg:text-9xl font-bold leading-[0.9] tracking-tight mb-12 break-words">
             {project.title}
           </h1>
-          <p className="text-xl text-neutral-400 leading-relaxed max-w-3xl mb-16">
+          <p className="text-xl text-neutral-400 leading-relaxed max-w-4xl mb-16">
             {description}
           </p>
 
@@ -102,37 +102,24 @@ export const CaseStudyContent: React.FC<{ project: ProjectData }> = ({ project }
         </div>
 
         {/* Challenge */}
-        <div
-          className="border-t border-white/10 py-16 md:py-20 animate-in fade-in slide-in-from-bottom-4 duration-500"
-          style={{ animationDelay: '400ms', animationFillMode: 'both' }}
-        >
-          <div className="flex flex-col md:flex-row gap-6 md:gap-16">
-            <div className="text-[10px] uppercase tracking-[0.2em] text-neutral-700 w-40 shrink-0 flex items-center gap-3 md:pt-1">
-              <span className="text-neutral-700">01</span> {t('challenge')}
-            </div>
-            <div className="flex-1">
-              <p className="text-neutral-400 text-lg leading-relaxed max-w-2xl">
-                {challenge}
-              </p>
-            </div>
-          </div>
+        <div className="border-t border-white/10 py-16 md:py-20">
+          <span className="text-[10px] uppercase tracking-[0.2em] text-neutral-700 flex items-center gap-3 mb-8">
+            <span>01</span> {t('challenge')}
+          </span>
+          <p className="text-neutral-400 text-lg leading-relaxed md:columns-2 md:gap-16">
+            {challenge}
+          </p>
         </div>
 
         {/* Solution */}
-        <div
-          className="border-t border-white/10 py-16 md:py-20 animate-in fade-in slide-in-from-bottom-4 duration-500"
-          style={{ animationDelay: '550ms', animationFillMode: 'both' }}
-        >
-          <div className="flex flex-col md:flex-row gap-6 md:gap-16">
-            <div className="text-[10px] uppercase tracking-[0.2em] text-neutral-700 w-40 shrink-0 flex items-center gap-3 md:pt-1">
-              <span className="text-neutral-700">02</span> {t('solution')}
-            </div>
-            <div className="flex-1">
-              <p className="text-neutral-400 text-lg leading-relaxed max-w-2xl">
-                {solution}
-              </p>
-            </div>
-          </div>
+        <div className="border-t border-white/10 py-16 md:py-20">
+          <span className="text-[10px] uppercase tracking-[0.2em] text-neutral-700 flex items-center gap-3 mb-8">
+            <span>02</span> {t('solution')}
+          </span>
+          <p className="text-neutral-400 text-lg leading-relaxed md:columns-2 md:gap-16">
+            {solution}
+          </p>
+        </div>
         </div>
 
         {/* Gallery */}
