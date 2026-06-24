@@ -46,22 +46,24 @@ export const Footer: React.FC = async () => {
 
         {/* Contact + Offices */}
         <div>
-          <span className="text-[10px] uppercase tracking-[0.2em] text-neutral-600 block mb-6">{t('contact')}</span>
-          <div className="flex flex-col gap-3 mb-8">
-            <a
-              href="mailto:hello@amdigital.agency"
-              className="text-sm text-neutral-400 hover:text-white transition-colors"
-            >
-              hello@amdigital.agency
-            </a>
-            <a
-              href="tel:+447782265977"
-              className="text-sm text-neutral-400 hover:text-white transition-colors"
-            >
-              +44 7782 265977
-            </a>
+          <span className="text-[10px] uppercase tracking-[0.2em] text-neutral-600 block mb-8">{t('contact')}</span>
+          <a
+            href="mailto:hello@amdigital.agency"
+            className="group flex items-center gap-2 text-white text-base font-medium hover:text-neutral-300 transition-colors mb-3"
+          >
+            hello@amdigital.agency
+            <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+          </a>
+          <a
+            href="tel:+447782265977"
+            className="text-sm text-neutral-500 hover:text-white transition-colors block mb-10"
+          >
+            +44 7782 265977
+          </a>
+          <div className="border-t border-white/10 pt-6">
+            <span className="text-[10px] uppercase tracking-[0.2em] text-neutral-600 block mb-2">Offices</span>
+            <p className="text-sm text-neutral-400 tracking-wide">{t('offices')}</p>
           </div>
-          <span className="text-xs text-neutral-600 uppercase tracking-[0.2em]">{t('offices')}</span>
         </div>
 
         {/* Navigation */}
