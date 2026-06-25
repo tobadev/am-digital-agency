@@ -12,11 +12,11 @@ const navLinkKeys = [
 ];
 
 const clients = [
-  'Calem AI',
-  'KRONBERG Zeithaus',
-  'Costae AI',
-  'Dachreach',
-  'Clyra.biz',
+  { name: 'Calem AI', slug: 'calem-ai' },
+  { name: 'KRONBERG Zeithaus', slug: 'kronberg-zeithaus' },
+  { name: 'Costae AI', slug: 'costae-ai' },
+  { name: 'Dachreach', slug: 'dachreach' },
+  { name: 'Clyra.biz', slug: 'clyra-biz' },
 ];
 
 export const Footer: React.FC = async () => {
@@ -86,9 +86,13 @@ export const Footer: React.FC = async () => {
           <span className="text-[10px] uppercase tracking-[0.2em] text-neutral-600 block mb-6">{t('clientsLabel')}</span>
           <div className="flex flex-col gap-3">
             {clients.map((client) => (
-              <span key={client} className="text-sm text-neutral-400">
-                {client}
-              </span>
+              <Link
+                key={client.slug}
+                href={{ pathname: '/work/[slug]', params: { slug: client.slug } }}
+                className="text-sm text-neutral-400 hover:text-white transition-colors"
+              >
+                {client.name}
+              </Link>
             ))}
           </div>
         </div>
