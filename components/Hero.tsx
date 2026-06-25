@@ -48,9 +48,6 @@ export const Hero: React.FC = () => {
         style={{ animationDelay: '1200ms', animationFillMode: 'both' }}
       >
         <span className="text-[10px] text-neutral-600 uppercase tracking-[0.2em]">
-          {t('agency')}
-        </span>
-        <span className="text-[10px] text-neutral-600 uppercase tracking-[0.2em]">
           {t('location')}
         </span>
         <span className="text-[10px] text-neutral-600 uppercase tracking-[0.2em] hidden md:block">
