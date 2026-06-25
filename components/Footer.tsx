@@ -48,7 +48,7 @@ export const Footer: React.FC = async () => {
         <div>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/am-logo-footer.svg" alt="AM Digital" className="h-8 w-auto block mb-8" />
-          <
+          <a
             href="mailto:hello@amdigital.agency"
             className="group flex items-center gap-2 text-white text-base font-medium hover:text-neutral-300 transition-colors mb-3"
           >
