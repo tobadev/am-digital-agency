@@ -49,14 +49,12 @@ export const Services: React.FC = () => {
             </div>
           </div>
 
-          {/* Title */}
-          <h2 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-[0.88] tracking-tight mb-16 md:w-3/4">
-            {t(`items.${idx}.title`)}
-          </h2>
-
-          {/* Description + deliverables */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20">
+          {/* Title + description left, deliverables right */}
+          <div className="grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-12 md:gap-20">
             <div>
+              <h2 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-[0.88] tracking-tight mb-10">
+                {t(`items.${idx}.title`)}
+              </h2>
               <p className="text-base text-neutral-400 font-medium mb-4">{t(`items.${idx}.subtitle`)}</p>
               <p className="text-neutral-500 text-base leading-relaxed">{t(`items.${idx}.description`)}</p>
             </div>
