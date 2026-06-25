@@ -2,21 +2,17 @@
 
 import React, { useState, useRef } from 'react';
 import { ArrowUpRight } from 'lucide-react';
-import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { projects } from '@/data/projects';
 import { getSrcSet } from '@/lib/responsive-image';
 
 export const Work: React.FC = () => {
-  const t = useTranslations('projects');
-
   return (
     <section className="bg-brand-black px-6 md:px-10 pb-32">
       {projects.map((project) => (
         <ProjectRow
           key={project.slug}
           project={project}
-          description={t(`${project.slug}.description`)}
         />
       ))}
       <div className="border-t border-white/10" />
@@ -24,7 +20,7 @@ export const Work: React.FC = () => {
   );
 };
 
-function ProjectRow({ project, description }: { project: typeof projects[number]; description: string }) {
+function ProjectRow({ project }: { project: typeof projects[number] }) {
   const [isHovered, setIsHovered] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -96,17 +92,11 @@ function ProjectRow({ project, description }: { project: typeof projects[number]
         )}
       </div>
 
-      {/* Description — right half only, editorial caption alignment */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
-        <div className="flex md:hidden items-center gap-3 text-[10px] text-neutral-600 uppercase tracking-widest">
-          <span>{project.category}</span>
-          <span className="w-1 h-1 rounded-full bg-neutral-700" />
-          <span>{project.year}</span>
-        </div>
-        <div className="hidden md:block" />
-        <p className="text-neutral-500 text-base leading-relaxed">
-          {description}
-        </p>
+      {/* Mobile: category + year below image */}
+      <div className="flex md:hidden items-center gap-3 mt-6 text-[10px] text-neutral-600 uppercase tracking-widest">
+        <span>{project.category}</span>
+        <span className="w-1 h-1 rounded-full bg-neutral-700" />
+        <span>{project.year}</span>
       </div>
     </Link>
   );
