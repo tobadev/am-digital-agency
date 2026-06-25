@@ -38,7 +38,6 @@ const Counter = ({ end, duration = 1000, start = 0 }: { end: number, duration?: 
 export const About: React.FC = () => {
   const t = useTranslations('About');
 
-  const statsCount = 3;
   const teamCount = 5;
   const clientsCount = 5;
   const valuesCount = 4;
@@ -54,9 +53,8 @@ export const About: React.FC = () => {
             {t('title_line1')}<br />
             <span className="text-neutral-500">{t('title_line2')}</span>
           </h1>
-          <div className="flex items-start gap-6">
-            <div className="w-12 h-px bg-white/20 mt-3 shrink-0" />
-            <p className="text-neutral-400 text-lg leading-relaxed max-w-lg">
+          <div className="flex justify-end mt-12">
+            <p className="text-neutral-400 text-lg leading-relaxed max-w-sm md:max-w-md border-l border-white/15 pl-6">
               {t('description')}
             </p>
           </div>
@@ -64,24 +62,32 @@ export const About: React.FC = () => {
         </div>
       </section>
 
-      {/* Stats — grid of big numbers */}
+      {/* Stats — editorial strip */}
       <section className="px-6 md:px-10 pb-40">
-        <div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/5">
-            {Array.from({ length: statsCount }).map((_, idx) => (
-              <div
-                key={idx}
-                className="bg-brand-black p-10 md:p-14 group relative overflow-hidden"
-              >
-                <div className="absolute inset-0 bg-white/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <span className="text-[10px] uppercase tracking-[0.3em] text-neutral-600 mb-6 block">
-                  {t(`stats.${idx}.label`)}
-                </span>
-                <div className="font-display text-5xl md:text-6xl xl:text-7xl font-bold text-white leading-none">
-                  {idx === 0 ? <><Counter start={18} end={21} duration={1500} />+</> : t(`stats.${idx}.value`)}
-                </div>
-              </div>
-            ))}
+        <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-white/8 border-t border-white/8">
+          <div className="py-10 md:py-14 md:pr-14">
+            <span className="text-[10px] uppercase tracking-[0.3em] text-neutral-600 mb-6 block">
+              {t('stats.0.label')}
+            </span>
+            <div className="font-display text-7xl md:text-8xl xl:text-9xl font-bold text-white leading-none">
+              <Counter start={18} end={21} duration={1500} />+
+            </div>
+          </div>
+          <div className="py-10 md:py-14 md:px-14">
+            <span className="text-[10px] uppercase tracking-[0.3em] text-neutral-600 mb-6 block">
+              {t('stats.1.label')}
+            </span>
+            <div className="font-display text-2xl md:text-3xl font-bold text-white leading-tight">
+              {t('stats.1.value')}
+            </div>
+          </div>
+          <div className="py-10 md:py-14 md:pl-14">
+            <span className="text-[10px] uppercase tracking-[0.3em] text-neutral-600 mb-6 block">
+              {t('stats.2.label')}
+            </span>
+            <div className="font-display text-2xl md:text-3xl font-bold text-white leading-tight">
+              {t('stats.2.value')}
+            </div>
           </div>
         </div>
       </section>
