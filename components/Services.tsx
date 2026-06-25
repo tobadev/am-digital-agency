@@ -149,14 +149,16 @@ export const Services: React.FC = () => {
           </h2>
         </div>
         <div className="border-t border-white/10 py-16 md:py-20">
-          <p className="font-display text-2xl md:text-3xl font-bold text-neutral-400 leading-relaxed">
+          <div className="flex flex-wrap gap-3">
             {Array.from({ length: 5 }).map((_, idx) => (
-              <React.Fragment key={idx}>
+              <span
+                key={idx}
+                className="px-6 py-3 rounded-full border border-white/10 text-sm text-neutral-500 uppercase tracking-widest hover:border-white/30 hover:text-white transition-colors duration-300 cursor-default"
+              >
                 {t(`sectors.${idx}`)}
-                {idx < 4 && <span className="text-white/20 mx-4">·</span>}
-              </React.Fragment>
+              </span>
             ))}
-          </p>
+          </div>
         </div>
         <div className="border-t border-white/10" />
       </div>
