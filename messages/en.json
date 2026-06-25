@@ -202,7 +202,7 @@
     "industriesLabel": "Industries",
     "industriesTitle_line1": "Sectors we",
     "industriesTitle_line2": "work across.",
-    "sectors": ["SaaS & Platforms", "E-commerce", "FinTech", "Healthcare", "B2B", "Real Estate", "Startups", "Enterprise"]
+    "sectors": ["SaaS & Platforms", "FinTech", "B2B", "Startups", "E-commerce"]
   },
   "About": {
     "label": "About us",

@@ -202,7 +202,7 @@
     "industriesLabel": "Branchen",
     "industriesTitle_line1": "Branchen, in denen",
     "industriesTitle_line2": "wir arbeiten.",
-    "sectors": ["SaaS & Plattformen", "E-Commerce", "FinTech", "Gesundheitswesen", "B2B", "Immobilien", "Startups", "Enterprise"]
+    "sectors": ["SaaS & Plattformen", "FinTech", "B2B", "Startups", "E-Commerce"]
   },
   "About": {
     "label": "Über uns",
