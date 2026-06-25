@@ -75,6 +75,33 @@
 ### Rules
 - Added to `CLAUDE.md`: always consult `fe` skill before any UI/layout change
 
+## 2026-06-25
+
+### About Page — Hero
+- Description: dropped `flex items-start gap-6` + `w-12 h-px` line accent + `max-w-lg` constraint
+- New: `flex justify-end mt-12` — description right-anchored with `border-l border-white/15 pl-6 max-w-sm md:max-w-md`
+- Editorial tension: massive left headline vs right-offset descriptor
+
+### About Page — Stats
+- Removed equal-weight card grid (`gap-px bg-white/5`, hover bg, `p-10 md:p-14`)
+- New: borderless editorial strip — `divide-x divide-white/8 border-t border-white/8`
+- `21+` stays at `text-9xl` display with counter; `London, UK` and `Globally` at `text-3xl` as plain facts (not metrics)
+- Removed `statsCount` variable (no longer needed)
+
+### Hero — Bottom Strip
+- Dropped "AM Digital Agency" label — redundant on your own homepage
+- Kept: `London, UK — Est. 2023` (left) + `Strategy / Design / Development` (right)
+
+### Hero — Heading
+- Added `mb-2 md:mb-4` breath between line 1 ("We build digital") and line 2 ("products that work.")
+- Lines 2–3 stay tight at `leading-[0.92]` — set-up / payoff rhythm
+
+### Services — Sectors
+- Trimmed from 8 → 5: dropped Healthcare, Real Estate, Enterprise (unproven for a 5-person agency)
+- Kept: SaaS & Platforms, FinTech, B2B, Startups, E-commerce — matches actual client roster
+- Tested slash-separated display text format; reverted — user preferred pills
+- Pills restored at 5 items
+
 ## 2026-06-24 (session 4)
 
 ### Work Page
