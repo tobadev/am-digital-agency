@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { ArrowUpRight } from 'lucide-react';
 import { getLocale, getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
@@ -46,6 +47,7 @@ export const Footer: React.FC = async () => {
 
         {/* Contact + Offices */}
         <div>
+          <Image src="/am-logo.svg" alt="AM Digital" width={80} height={32} className="brightness-0 invert mb-10 w-auto h-8" />
           <span className="text-[10px] uppercase tracking-[0.2em] text-neutral-600 block mb-8">{t('contact')}</span>
           <a
             href="mailto:hello@amdigital.agency"
@@ -60,10 +62,8 @@ export const Footer: React.FC = async () => {
           >
             +44 7782 265977
           </a>
-          <div className="border-t border-white/10 pt-6">
-            <span className="text-[10px] uppercase tracking-[0.2em] text-neutral-600 block mb-2">Offices</span>
-            <p className="text-sm text-neutral-400 tracking-wide">{t('offices')}</p>
-          </div>
+          <span className="text-[10px] uppercase tracking-[0.2em] text-neutral-600 block mb-2 mt-8">Offices</span>
+          <p className="text-sm text-neutral-400 tracking-wide">{t('offices')}</p>
         </div>
 
         {/* Navigation */}
